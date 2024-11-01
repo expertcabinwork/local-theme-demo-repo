@@ -1,0 +1,485 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+.section_style_{{section.id}}  {
+  {% if section.settings.bg_image != blank %}
+  background:url('{{section.settings.bg_image | img_url:""}}');
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position: center;
+  {% else %}
+  background:{{section.settings.bg-color}};
+  {% endif %}
+  padding-top:{{section.settings.padding_top}}px;
+  padding-bottom:{{section.settings.padding_bottom }}px;
+}
+
+  .section_style_{{section.id}} .content-cntainer_text_products *{
+    color:{{section.settings.color}};
+  }
+    @media(max-width: 768px){
+  .section_style_{{section.id}}  {
+    padding-top:80px;
+  padding-bottom:80px;
+  }
+  }
+ 
+{% endstyle %}
+
+<section class="section_style_{{ section.id }} image_main_banner">
+  <div class="image_banner_wrapper">
+    <!-- <div class="banner_image">
+      <img src="{{ section.settings.img | img_url: "" }}" />
+    </div> -->
+    <div class="overlay_image2"></div>
+    <div class="section-container">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'caption' %}
+          <a class="faq_caption" href="{{ block.settings.url }}">{{ block.settings.txt }}</a>
+          {% when 'heading' %}
+      {% if block.settings.heading != blank %}
+      <h2 class="banner_heading heading-font-{{ block.settings.heading-size }}">{{ block.settings.heading }}</h2>
+      {% endif %}
+          {% when 'text' %}
+           {% if block.settings.text != blank %}
+           <div class="banner_content text-font-{{ block.settings.text-size }}">{{ block.settings.text }}</div>
+           {% endif %}
+          {% when 'faq' %}
+          
+          <div class="home_faq_wrapper">
+            {% if block.settings.question != blank %}
+            <div class="faq_heading">
+              <h3>{{ block.settings.question }}  </h3>
+              <div>{% render 'plus-icon' %}
+             {% render 'minus-icon' %}
+              </div>
+              </div>
+            
+            
+            {% endif %}
+
+            <div class="faq_content" style="overflow:hidden;"><div>{{ block.settings.answer }}</div></div>
+          </div>
+
+     
+          
+          {% endcase %}
+        {% endfor %}
+    </div>
+         <toggle-group>
+            {%- for block in section.blocks -%}
+              {% if block.type == 'toggle' %}
+              <toggle-tab class="toggle toggle--faq {% if forloop.index == 1 or section.settings.open_first %}opened{% endif %}" 
+              data-togglepack-alternate
+              {{ block.shopify_attributes }}
+              >
+
+                <div class="toggle__title" data-js-title tabindex="0" aria-expanded="false" role="button" aria-controls="toggle-{{ block.id }}">
+                  
+                  <div class="toggle__heading">
+
+                    <span class="text-weight--bold">{{ block.settings.title | escape }}</span>
+                
+                    {%- if block.settings.subtitle -%}
+                    <div class="toggle__subtitle">
+                      {%- liquid
+                        if block.settings.icon
+                          render 'icon-pack', icon: block.settings.icon
+                        endif 
+                      -%}
+                      <span class="text-size--small">{{ block.settings.subtitle | escape }}</span>
+                    </div>
+                    {% endif %}
+                  </div>
+
+                  {%- if block.settings.button_label != blank -%}
+                    <a href="{{ block.settings.button_link }}" class="button button--solid button--regular">{{ block.settings.button_label | escape }}</a>
+                  {%- endif -%}
+                </div>
+
+                <div id="toggle--{{ block.id }}" data-js-content class="toggle__content rte remove-empty-space" role="region">
+                  
+                  {{ block.settings.body }}
+                </div>
+
+              </toggle-tab>
+                {% endif %}
+            {%- endfor -%}
+          </toggle-group>
+    
+  </div>
+</section>
+  <script src="{{ 'component-toggle.js' | asset_url }}" defer></script>
+{% schema %}
+  {
+    "name": "Image Banner",
+    "settings": [
+        {
+        "id":"bg_image",
+        "type":"image_picker",
+        "label":"Image"
+      },
+      {
+        "id":"bg-color",
+        "label":"Background Color",
+        "type":"color"
+      },
+      {
+        "id":"color",
+        "type":"color",
+        "label":"Content color"
+      },
+      {
+        "id":"page_width",
+        "type":"range",
+        "label":"Section Containr Width",
+        "min":60,
+        "max":160,
+        "default":110,
+        "step":1,
+        "unit":"rem"
+      },
+      {
+        "id":"align",
+        "type":"select",
+        "label":"Content Alignment",
+        "options":[
+          {
+            "label":"Left",
+            "value":"left"
+          },
+          {
+            "label":"Right",
+            "value":"right"
+          },
+          {
+            "label":"Center",
+            "value":"center"
+          }
+        ],
+        "default":"left"
+      },
+      {
+				"type": "checkbox",
+				"id": "open_first",
+				"label": "t:sections.faq.settings.open_first.label",
+        "default": false
+			},
+      {
+        "type":"header",
+        "content":"Section Padding"
+      },
+      {
+        "id":"padding_top",
+        "type":"range",
+        "label":"Padding Top",
+        "min":0,
+        "max":150,
+        "default":120,
+        "step":2,
+        "unit":"px"
+      },
+      {
+        "id":"padding_bottom",
+        "type":"range",
+        "label":"Padding Bottom",
+        "min":0,
+        "max":150,
+        "default":120,
+        "step":2,
+        "unit":"px"
+      }
+    ],
+    "blocks":[
+      {
+        "type":"heading",
+        "name":"Heading",
+        "settings":[
+          {
+            "id":"heading",
+            "type":"textarea",
+            "label":"Heading"
+          },
+          {
+            "id":"heading-size",
+            "type":"select",
+            "label":"Heading size",
+            "default":"large",
+            "options":[
+              {
+                "label":"Large",
+                "value":"large"
+              },
+              {
+                "label":"Medium",
+                "value":"medium"
+              },
+              {
+                "label":"Small",
+                "value":"small"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "Text"
+          },
+          {
+            "id":"text-size",
+            "type":"select",
+            "label":"Heading size",
+            "default":"body",
+            "options":[
+              {
+                "label":"Large",
+                "value":"large"
+              },
+              {
+                "label":"Body",
+                "value":"body"
+              },
+              {
+                "label":"Subtitle",
+                "value":"subtitle"
+              }
+              
+            ]
+          }
+        ]
+      },
+      {
+        "type": "caption",
+        "name": "Caption",
+        "settings": [
+          {
+            "type": "text",
+            "id": "txt",
+            "label": "Caption"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "Caption Link"
+          }
+        ]
+      },
+      {
+        "type": "faq",
+        "name": "FAQ",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label":"FAQ Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label":"FAQ Content"
+          }
+        ]
+      },
+        {
+        "type": "toggle",
+        "name": "Toggle",
+        "settings": [
+          {
+            "type": "header",
+            "content": "t:sections.local-extra-words.sections.faq.headings.header"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "t:sections.split-extra-words.settings_schema.headings.title",
+            "default": "Question title"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "label": "t:sections.split-extra-words.settings_schema.headings.subtitle",
+            "default": "Question subtitle"
+          },
+          {
+            "type": "select",
+            "id": "icon",
+            "label": "t:sections.text-columns-with-icons.blocks.icon.settings.icon.label",
+            "info": "t:sections.local-extra-words.sections.text-columns-with-icons.blocks.select_icon.info",
+            "options": [
+              {
+                "value": "no-icon",
+                "label": "No icon"
+              },
+              {
+                "value": "earth-globe",
+                "label": "Earth globe",
+                "group": "Business"
+              },
+              {
+                "value": "favorite",
+                "label": "Favorite",
+                "group": "Business"
+              },
+              {
+                "value": "flag",
+                "label": "Flag",
+                "group": "Business"
+              },
+              {
+                "value": "helpline",
+                "label": "Helpline",
+                "group": "Business"
+              },
+              {
+                "value": "like-hand",
+                "label": "Like hand",
+                "group": "Business"
+              },
+              {
+                "value": "map-marker",
+                "label": "Map marker",
+                "group": "Business"
+              },
+              {
+                "value": "security-shield",
+                "label": "Security shield",
+                "group": "Business"
+              },
+              {
+                "value": "star",
+                "label": "Star",
+                "group": "Business"
+              },
+              {
+                "value": "appointment",
+                "label": "Appointment",
+                "group": "Commerce"
+              },
+              {
+                "value": "archive-box",
+                "label": "Archive box",
+                "group": "Commerce"
+              },
+              {
+                "value": "box",
+                "label": "Box",
+                "group": "Commerce"
+              },
+              {
+                "value": "checkout-cart",
+                "label": "Checkout cart",
+                "group": "Commerce"
+              },
+              {
+                "value": "currency",
+                "label": "Currency",
+                "group": "Commerce"
+              },
+              {
+                "value": "delivery",
+                "label": "Delivery",
+                "group": "Commerce"
+              },
+              {
+                "value": "delivery-time",
+                "label": "Delivery time",
+                "group": "Commerce"
+              },
+              {
+                "value": "giftbox",
+                "label": "Giftbox",
+                "group": "Commerce"
+              },
+              {
+                "value": "label",
+                "label": "Label",
+                "group": "Commerce"
+              },
+              {
+                "value": "open-24-hours",
+                "label": "Open 24 hurs",
+                "group": "Commerce"
+              },
+              {
+                "value": "open-box",
+                "label": "Open box",
+                "group": "Commerce"
+              },
+              {
+                "value": "paper-bag",
+                "label": "Paper bag",
+                "group": "Commerce"
+              },
+              {
+                "value": "shipping-truck",
+                "label": "Shipping truck",
+                "group": "Commerce"
+              },
+              {
+                "value": "store",
+                "label": "Store",
+                "group": "Commerce"
+              },
+              {
+                "value": "time",
+                "label": "Time",
+                "group": "Commerce"
+              },
+              {
+                "value": "time-limit",
+                "label": "Time limit",
+                "group": "Commerce"
+              },
+              {
+                "value": "wallet",
+                "label": "Wallet",
+                "group": "Commerce"
+              }
+            ],
+            "default": "no-icon"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+          },
+          {
+            "type": "header",
+            "content": "t:sections.local-extra-words.sections.faq.headings.content"
+          },
+          {
+            "type": "richtext",
+            "id": "body",
+            "label": "t:sections.faq.blocks.text.settings.text.label",
+            "default": "<p>Write a complete answer to the most frequent questions that your customers might have, such as important product information, shipping policies, payment issues or returns.</p>"
+          },
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "t:sections.faq.blocks.text.settings.image.label"
+          }
+        ]
+      }           
+    ],
+    "presets": [
+      {
+        "name": "Image Banner"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}

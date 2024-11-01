@@ -1,0 +1,144 @@
+<style>
+   .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .naturo-img-text--body{
+   display: flex;
+    align-items: center;
+    gap: 14rem;
+  }
+  .naturo-img-text--txt, .naturo-img-text-img{
+    width:50%
+  }
+  .img--left-pos{flex-direction: row-reverse;}
+  .sct-header--title{
+    margin-bottom: 54px;
+  }
+ .naturo-img-text--txt ul {
+  list-style-type: none; /* Remove default list marker */
+  padding-left: 20px; /* Add some left padding to make space for the custom image */
+}
+
+  .naturo-img-text--txt li {
+    position: relative
+}
+  .naturo-img-text--txt li::before {
+  content: ""; /* Add content to the pseudo-element */
+  background-image: url('https://cdn.shopify.com/s/files/1/0264/6369/9018/files/Group_40.png?v=1695840508'); /* Set the background image */
+ background-size: 14px auto;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    position: absolute;
+    left: -20px;
+    top: 6px;
+}
+  @media screen and (max-width: 768px) {
+   .naturo-img-text--body{
+     flex-direction: column-reverse;
+     gap: 2rem!important;
+   } 
+    .naturo-img-text--txt, .naturo-img-text-img {
+    width: 100%!important;
+}
+    .naturo-img-text--txt p, .naturo-img-text--txt li, .naturo-text-bg--container p{
+   font-size: 16px;
+ }
+}
+</style>
+<section class="naturo-img-text--main naturo-img-text--{{ section.id }} section-{{ section.id }}-padding">
+  <div class="naturo-img-text--inner">
+    <div class="page-width">
+      <div class="naturo-img-text--header">
+        
+        <h2 class="sct-header--title heading-1">{{ section.settings.title }}</h2>
+        
+        
+      </div>
+      <div class="naturo-img-text--body {% if section.settings.show_left %}img--left-pos{% endif %}">
+        <div class="naturo-img-text--txt">
+          <h2 class="heading-2">{{ section.settings.sub_title }}</h2>
+          <div>
+            {{ section.settings.descc }}
+          </div>
+        </div>
+        <div class="naturo-img-text-img">
+          <img src="{{ section.settings.right_image | img_url:'' }}">
+          
+        </div>
+      
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "naturo-img-text",
+ 
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "section heading"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "title"
+    },
+    {
+      "type": "richtext",
+      "id": "descc",
+      "label": "content"
+    },
+    {
+  "type": "image_picker",
+  "id": "right_image",
+  "label": "image"
+},
+    {
+  "type": "checkbox",
+  "id": "show_left",
+  "label": "Image on left",
+  "default": false
+}
+,
+     {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "spacing top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "spacing bottom",
+      "default": 36
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "naturo-img-text"
+    }
+  ]
+}
+{% endschema %}

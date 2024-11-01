@@ -1,0 +1,489 @@
+<style>
+  #r-1725052299456.product-recomendation #r-1725052299367{
+    border: solid 1px #e1e1e1;
+    border-radius: 15px;
+    padding-bottom: 10px;
+  }
+  #r-1725052299456.product-recomendation #c-1721430810363{
+    width: 40%;
+  }
+  #r-1725052299456.product-recomendation #c-1721767025303{
+    width: 60%;
+  }
+  #r-1725052299456.product-recomendation #c-1721767025303 .product-single__title a{
+    font-size: 22px;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 0;
+  }
+  #r-1725052299456.product-recomendation #c-1721767025303 .gf_icon-list{
+    display: flex;
+    margin-bottom: 1rem !important;
+    align-items: center;
+    gap: 5px;
+  }
+  #r-1725052299456.product-recomendation #c-1721767025303 .money{
+    font-size: 28px;
+    font-weight: 600;
+    color:#dc2e91;
+  }
+  #r-1725052299456.product-recomendation .module-wrap{
+    border:0;
+  }
+</style>
+
+<div data-label="Row" data-key="row" data-atomgroup="row" id="r-1725052299456" class="product-recomendation gf_row"
+    data-icon="gpicon-row" data-id="1725052299456">
+    <div class="gf_column gf_col-lg-12 gf_col-md-12 gf_col-sm-12 gf_col-xs-12" id="c-1722462093015"
+        data-id="1722462093015">
+        <div data-label="Heading" data-key="heading" data-atomgroup="element" id="e-1725052299313"
+            class="element-wrap" data-icon="gpicon-heading" data-ver="2" data-id="1725052299313">
+            <div class="elm text-edit gf-elm-center gf-elm-center-md gf-elm-center-sm gf-elm-center-xs gf-elm-center-lg"
+                data-gemlang="en" data-exc="">
+                <h2 class="gf_gs-text-heading-2"><span
+                        style="font-weight:bold;color:rgb(82, 166, 70)">Product
+                        Recommendation</span></h2>
+            </div>
+        </div>
+        <div data-label="Text Block" data-key="text-block" data-atomgroup="element"
+            id="e-1725052299376" class="element-wrap" data-icon="gpicon-textblock" data-ver="1"
+            data-id="1725052299376">
+            <div class="elm text-edit gf-elm-left gf_gs-text-paragraph-1 gf-elm-center-lg gf-elm-center-md gf-elm-center-sm gf-elm-center-xs"
+                data-gemlang="en" data-exc="">
+                <p>{{ product.metafields.custom.bullet_points_heading }}</p>
+            </div>
+        </div>
+        <div data-label="Row" data-key="row" data-atomgroup="row" id="r-1725052299367"
+            class="gf_row gf_equal-height" data-icon="gpicon-row" data-id="1725052299367"
+            data-layout-lg="6+6" data-extraclass="" data-layout-md="6+6" data-layout-sm="6+6"
+            data-layout-xs="12+12" style="display:flex;flex-wrap:wrap;visibility:visible">
+            <div class="gf_column gf_col-lg-6 gf_col-md-6 gf_col-sm-6 gf_col-xs-12"
+                id="c-1721430810363" data-id="1721430810363"
+                style="display:flex;flex-direction:column;justify-content:center;min-height:auto">
+                <div data-label="Product" data-key="product" data-atomgroup="product"
+                    id="m-1725052299389" class="module-wrap" data-icon="gpicon-product"
+                    data-ver="3.1" data-id="1725052299389" data-assigned-ver="4"
+                    style="min-height:auto">
+                    <div class="module" data-variant="auto" style=""
+                        data-current-variant="31134620811338">
+                        <product-form> {% assign product_handle =
+                            article.metafields.custom.select_recommended_product %}
+                            {% assign product = all_products[product_handle] %} {% unless
+                            product.empty? %}{% form 'product', product, id: "", class:
+                            "AddToCartForm ", data-productid: product.id %}<input name="id"
+                                type="hidden"
+                                value="{{product.selected_or_first_available_variant.id}}"
+                                data-productid="{{product.id}}">
+                            <div data-index="1" class="item-content">
+                                <div class="module-wrap" id="m-1725052299389-0"
+                                    data-id="1725052299389-0" data-label="(P) Image"
+                                    data-icon="gpicon-product-image" data-ver="1.1">
+                                    <div class="module gf_module-center gf_module-center-lg gf_module--md gf_module--sm gf_module--xs"
+                                        data-effect="default" data-pid="{{product.id}}"
+                                        data-image-type="variant"
+                                        data-default-variant="{{defaultVariant}}"
+                                        data-select-text="{{selectText}}" data-zoom-level="1.2"
+                                        data-ori-size="1024x1024" data-displaytype="percentage"
+                                        data-displayunit="%" data-badgemod="0">{% assign modelMedia
+                                        = false %}{% assign videoMedia = false %}{% if 'variant' ==
+                                        'model' %}{% assign modelMedia = product.media | where:
+                                        "media_type", "model" | first %}{%endif%}{% if 'variant' ==
+                                        'video' %}{% assign videoMedia = product.media | where:
+                                        "media_type", "video" | first %}{%endif%}{% if 'variant' ==
+                                        'first' %}{% assign current_variant = product.selected %}{%
+                                        else %}{% assign current_variant =
+                                        product.selected_or_first_available_variant %}{% endif %}{%
+                                        assign featured_image = current_variant.featured_image |
+                                        default: product.featured_image %}{% if '0' == '1' %}{%
+                                        assign anchorClass = 'active' %}{%else%}{% assign
+                                        anchorClass = 'hide' %}{%endif%}{%if '0'=='1' %}{% assign
+                                        currentPrice = current_variant.price | plus: 0 %}{% assign
+                                        comparePrice = current_variant.compare_at_price | plus: 0
+                                        %}{% if currentPrice and currentPrice %}{% if currentPrice
+                                        <comparePrice %}{% assign diff=comparePrice | minus:
+                                            currentPrice %}{%else%}{% assign diff=currentPrice |
+                                            minus: comparePrice %}{%endif%}{% assign
+                                            comparePriceFloat=comparePrice | times: 1.0 %}{% if
+                                            comparePriceFloat !=0 %}{% assign diff=diff |
+                                            divided_by: comparePriceFloat %}{% endif %}{% assign
+                                            diff=diff | times: 100.0 %}{% assign saleOffValue=diff
+                                            |round %}{%endif%}{%else%}{% assign saleOffValue=''
+                                            %}{%endif%}{% assign imageCapture='' %}{% assign
+                                            isVideo=0 %}{% if videoMedia and videoMedia.sources
+                                            and 'variant'=='video' %}{% assign isVideo=1 %}{% endif
+                                            %}{% assign
+                                            elementImgHolderOpen='<div class="img-holder">' %}{%
+                                            assign elementImgHolderClose='</div>' %}{% if '0'=='1'
+                                            %}{% capture elementImgHolderOpen %}<a
+                                            href="{{ product.url }}" class="img-holder">{%
+                                            endcapture %}{% capture elementImgHolderClose %}</a>{%
+                                            endcapture %}{% endif %}{% if modelMedia and
+                                            modelMedia.sources %}{% assign
+                                            media3DSource=modelMedia.sources | where: "format" ,
+                                            "glb" | first %}{% capture imageCapture %}<model-viewer
+                                                poster="{{ modelMedia.preview_image.src | img_url: '1024x1024' }}"
+                                                class="gf_product-3DImage gf_product-image gf_product-model-thumb"
+                                                src="{{ media3DSource.url }}" auto-rotate=""
+                                                camera-controls="" ar-status="not-presenting"
+                                                style="position:absolute;width:100%;height:100%;z-index:1;top:0;left:0"></model-viewer><img
+                                                class="gf_product-image gf_featured-image"
+                                                data-zoom="https://cdn.shopify.com/s/images/admin/no-image-2048x2048.gif"
+                                                src="{{ modelMedia.preview_image.src | img_url: '1024x1024' }}"
+                                                alt="{{ product.title }}"
+                                                natural-width="{{ featured_image.width }}"
+                                                natural-height="{{ featured_image.height }}"
+                                                width="{{ featured_image.width }}"
+                                                height="{{ featured_image.height }}"
+                                                data-width="100%" data-height="auto"
+                                                style="width:100%;height:auto;opacity:0">{%
+                                            endcapture %}{% elsif isVideo == 1 %}{% capture
+                                            imageCapture %}<img
+                                                class="gf_product-image gf_featured-image gf_hidden-important"
+                                                width="{{media.preview_image.width}}"
+                                                height="{{media.preview_image.height}}"
+                                                alt="{{ altTag }}">{% endcapture %}{% elsif
+                                            featured_image %}{% assign altTag = featured_image.alt
+                                            %}{% unless altTag %}{% assign altTag = product.title
+                                            %}{% endunless %}{% capture imageCapture %}<img
+                                                class="gf_product-image gf_featured-image"
+                                                src="{{ featured_image | img_url: '1024x1024' }}"
+                                                data-zoom="{{ featured_image | img_url: '2048x2048' }}"
+                                                alt="{{ altTag }}"
+                                                natural-width="{{ featured_image.width }}"
+                                                natural-height="{{ featured_image.height }}"
+                                                width="{{ featured_image.width }}"
+                                                height="{{ featured_image.height }}"
+                                                data-width="100%" data-height="auto"
+                                                style="width:100%;height:auto">{% endcapture %}{%
+                                            else %}{% capture imageCapture %}<img
+                                                class="gf_product-image gf_featured-image"
+                                                data-zoom="https://cdn.shopify.com/s/images/admin/no-image-2048x2048.gif"
+                                                src="https://cdn.shopify.com/s/images/admin/no-image-2048x2048.gif"
+                                                alt="{{ product.title }}"
+                                                natural-width="{{ featured_image.width }}"
+                                                natural-height="{{ featured_image.height }}"
+                                                width="{{ featured_image.width }}"
+                                                height="{{ featured_image.height }}"
+                                                data-width="100%" data-height="auto"
+                                                style="width:100%;height:auto">{% endcapture %}{%
+                                            endif %}{% if isVideo == 1 %}{% assign firstSource =
+                                            videoMedia.sources | first %}<div
+                                                class="gf_image-item gf_image-video gf_first_video"
+                                                data-source="{{ firstSource.url }}" data-loaded="1"
+                                                style="position:static;top:0px;left:0px;opacity:1">
+                                                <video id="gf_image-item-0-video" controls=""
+                                                    data-width="100%" data-height="auto"
+                                                    style="width:100%;height:auto">{% for source in
+                                                    videoMedia.sources %}
+                                                    <source src="{{ source.url }}"
+                                                        type="{{ source.mime_type }}">{% endfor %}
+                                                </video></div>{% endif %}{{elementImgHolderOpen}}
+                                            <div
+                                                class="gf_product-badge-anchor gf_pb_top-right {{anchorClass}}">
+                                                {% if 'text' == "text" %}<div
+                                                    class="gf_badge-text-wrap gf_pb_sheild gf_gs-text-paragraph-2">
+                                                    <span>Sale Off </span>{%if '0'=='1'
+                                                    %}<span><span class="data-saleoffvalue"
+                                                            style="margin-left:5px !important">{{saleOffValue}}</span><span
+                                                            class="data-saleoffunit">
+                                                            %</span></span>{%endif%}</div>{% elsif
+                                                'text' == "png" %}<div class="gf_badge-png-wrap">
+                                                    PNG image </div>{% elsif 'text' == "gif" %}<div
+                                                    class="gf_badge-gif-wrap"> GIF image </div>
+                                                {%endif%}</div>{{ imageCapture }}{% if 'default' ==
+                                            'hover' %}{% if 'last' != 'last' %}{% assign nth = last
+                                            | minus: 1 %}{% assign limit = product.images | size |
+                                            minus: 1 %}{% assign nth = nth | at_most: limit %}{%
+                                            assign hoverImage = product.images[nth] %}{% else %}{%
+                                            assign hoverImage = product.images | last %}{% endif
+                                            %}{% assign hoverImgAltTag = hoverImage.alt %}{% unless
+                                            hoverImgAltTag %}{% assign hoverImgAltTag =
+                                            product.title %}{% endunless %}<img
+                                                class="gf_product-image gf_product-image-hover"
+                                                src="{{ hoverImage.src | img_url: '1024x1024' }}"
+                                                alt="{{ hoverImgAltTag }}"
+                                                natural-width="{{ featured_image.width }}"
+                                                natural-height="{{ featured_image.height }}"
+                                                width="{{ featured_image.width }}"
+                                                height="{{ featured_image.height }}"
+                                                data-width="100%" data-height="auto"
+                                                style="width:100%;height:auto">{% endif
+                                            %}{{elementImgHolderClose}}</div>
+                                </div>
+                            </div>
+                            <div class="gf_clearfix"></div>{% unless product == empty %}
+                            <script type="text/plain" class="product-json"
+                                id="product-json{{product.id}}">{{ product | json }}</script>{%
+                            endunless %}{% endform %}{% endunless %}
+                        </product-form>
+                    </div>
+                </div>
+            </div>
+            <div class="gf_column gf_col-lg-6 gf_col-md-6 gf_col-sm-6 gf_col-xs-12"
+                id="c-1721767025303" data-id="1721767025303"
+                style="min-height:auto;justify-content:center;display:flex;flex-direction:column">
+                <div data-label="Product" data-key="product" data-atomgroup="product"
+                    id="m-1725052299454" class="module-wrap" data-icon="gpicon-product"
+                    data-ver="3.1" data-id="1725052299454" data-assigned-ver="4"
+                    style="min-height:auto">
+                    <div class="module" data-variant="auto" style=""
+                        data-current-variant="31134621302858"><product-form>{% assign product_handle
+                            = article.metafields.custom.select_recommended_product %}{% assign
+                            product = all_products[product_handle] %} {% unless product.empty? %}{%
+                            form 'product', product, id: "", class: "AddToCartForm ",
+                            data-productid: product.id %}<input name="id" type="hidden"
+                                value="{{product.selected_or_first_available_variant.id}}"
+                                data-productid="{{product.id}}">
+                            <div data-index="1" class="item-content">
+                                <div data-label="(P) Title" data-key="p-title"
+                                    data-atomgroup="child-product" id="m-1725052299347"
+                                    class="module-wrap" data-icon="gpicon-product-title"
+                                    data-ver="1.0" data-id="1725052299347">
+                                    <div class="module gf_module-left gf_module-left-lg gf_module--md gf_module--sm gf_module--xs "
+                                        data-pid="{{product.id}}">
+                                        <h3 itemprop="name" class="product-single__title">{% if '1'
+                                            == '1' %}<a href="{{ product.url }}"
+                                                class="gf_product-title gf_gs-text-heading-3">{{
+                                                product.title }}</a>{% else %}<span
+                                                class="gf_product-title gf_gs-text-heading-3">{{
+                                                product.title }}</span>{% endif %}</h3>
+                                    </div>
+                                </div>
+                                <div data-label="Icon List Hoz" data-key="icon-list-hoz"
+                                    data-atomgroup="module" id="m-1725052299365" class="module-wrap"
+                                    data-icon="gpicon-iconlist2" data-ver="1.0"
+                                    data-id="1725052299365">
+                                    <div
+                                        class="module gf_module-left gf_module-left-lg gf_module--md gf_module--sm gf_module--xs ">
+                                        <ul class="gf_icon-list">
+                                            <li class="item" style="width:19px">
+                                                <div data-index="1" data-key="content"
+                                                    class="item-content">
+                                                    <div data-label="Icon" id="e-1725052299365-1"
+                                                        data-ver="2" class="element-wrap"
+                                                        data-icon="eicon-post"
+                                                        data-id="1725052299365-1">
+                                                        <div class="elm gf-elm-center gf-elm-center-lg gf-elm-center-md gf-elm-center-sm gf-elm-center-xs"
+                                                            data-exc="">
+                                                            <div class="gf_icon-wrap"><svg
+                                                                    fill="currentColor"
+                                                                    height="100%" class="gf_icon"
+                                                                    icon-class="bootstrap-regular-star-fill"
+                                                                    width="100%"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        clip-rule="evenodd"
+                                                                        d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z"
+                                                                        fill="currentColor"></path>
+                                                                </svg></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item" style="width:19px">
+                                                <div data-index="2" data-key="content"
+                                                    class="item-content">
+                                                    <div data-label="Icon" id="e-1725052299365-2"
+                                                        data-ver="2" class="element-wrap"
+                                                        data-icon="eicon-post"
+                                                        data-id="1725052299365-2">
+                                                        <div class="elm gf-elm-center gf-elm-center-lg gf-elm-center-md gf-elm-center-sm gf-elm-center-xs"
+                                                            data-exc="">
+                                                            <div class="gf_icon-wrap"><svg
+                                                                    fill="currentColor"
+                                                                    height="100%" class="gf_icon"
+                                                                    icon-class="bootstrap-regular-star-fill"
+                                                                    width="100%"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        clip-rule="evenodd"
+                                                                        d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z"
+                                                                        fill="currentColor"></path>
+                                                                </svg></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item" style="width:19px">
+                                                <div data-index="3" data-key="content"
+                                                    class="item-content">
+                                                    <div data-label="Icon" id="e-1725052299365-3"
+                                                        data-ver="2" class="element-wrap"
+                                                        data-icon="eicon-post"
+                                                        data-id="1725052299365-3">
+                                                        <div class="elm gf-elm-center gf-elm-center-lg gf-elm-center-md gf-elm-center-sm gf-elm-center-xs"
+                                                            data-exc="">
+                                                            <div class="gf_icon-wrap"><svg
+                                                                    fill="currentColor"
+                                                                    height="100%" class="gf_icon"
+                                                                    icon-class="bootstrap-regular-star-fill"
+                                                                    width="100%"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        clip-rule="evenodd"
+                                                                        d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z"
+                                                                        fill="currentColor"></path>
+                                                                </svg></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item" style="width:19px">
+                                                <div data-index="4" data-key="content"
+                                                    class="item-content">
+                                                    <div data-label="Icon" id="e-1725052299365-4"
+                                                        data-ver="2" class="element-wrap"
+                                                        data-icon="eicon-post"
+                                                        data-id="1725052299365-4">
+                                                        <div class="elm gf-elm-center gf-elm-center-lg gf-elm-center-md gf-elm-center-sm gf-elm-center-xs"
+                                                            data-exc="">
+                                                            <div class="gf_icon-wrap"><svg
+                                                                    fill="currentColor"
+                                                                    height="100%" class="gf_icon"
+                                                                    icon-class="bootstrap-regular-star-fill"
+                                                                    width="100%"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        clip-rule="evenodd"
+                                                                        d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z"
+                                                                        fill="currentColor"></path>
+                                                                </svg></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="item" style="width:19px">
+                                                <div data-index="5" data-key="content"
+                                                    class="item-content">
+                                                    <div data-label="Icon" id="e-1725052299365-5"
+                                                        data-ver="2" class="element-wrap"
+                                                        data-icon="eicon-post"
+                                                        data-id="1725052299365-5">
+                                                        <div class="elm gf-elm-center gf-elm-center-lg gf-elm-center-md gf-elm-center-sm gf-elm-center-xs"
+                                                            data-exc="">
+                                                            <div class="gf_icon-wrap"><svg
+                                                                    fill="currentColor"
+                                                                    height="100%" class="gf_icon"
+                                                                    icon-class="bootstrap-outline-star-half"
+                                                                    width="100%"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        clip-rule="evenodd"
+                                                                        d="M5.354 5.119 7.538 0.792A0.516 0.516 0 0 1 8 0.5c0.183 0 0.366 0.097 0.465 0.292l2.184 4.327 4.898 0.696A0.537 0.537 0 0 1 16 6.32a0.548 0.548 0 0 1 -0.17 0.445l-3.523 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256a0.52 0.52 0 0 1 -0.146 0.05c-0.342 0.06 -0.668 -0.254 -0.6 -0.642l0.83 -4.73L0.173 6.765a0.55 0.55 0 0 1 -0.172 -0.403 0.58 0.58 0 0 1 0.085 -0.302 0.513 0.513 0 0 1 0.37 -0.245l4.898 -0.696zM8 12.027a0.5 0.5 0 0 1 0.232 0.056l3.686 1.894 -0.694 -3.957a0.565 0.565 0 0 1 0.162 -0.505l2.907 -2.77 -4.052 -0.576a0.525 0.525 0 0 1 -0.393 -0.288L8.001 2.223 8 2.226v9.8z"
+                                                                        fill="currentColor"></path>
+                                                                </svg></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="module-wrap" id="m-1725052299389-2"
+                                    data-id="1725052299389-2" data-label="(P) Price"
+                                    data-icon="gpicon-product-price" data-ver="1.4">
+                                    <div class="module gf_module-left gf_module-left-lg gf_module--md gf_module--sm gf_module--xs "
+                                        data-pid="{{product.id}}" data-round-decimals="0"
+                                        data-round-to="99">{% assign current_variant =
+                                        product.selected_or_first_available_variant %}{% assign
+                                        dataOldFormat = '' %}{% if shop.money_format %}{% capture
+                                        dataOldFormat %}{{ shop.money_format | replace: '"', "'"
+                                        }}{% endcapture %}{% endif %}<div class="gf_product-prices"
+                                            data-oldformat="{{ dataOldFormat }}"
+                                            data-oldcurrency="{{ cart.currency.iso_code }}">{%
+                                            assign currentPrice = current_variant.price | plus: 0
+                                            %}{% assign comparePrice =
+                                            current_variant.compare_at_price | plus: 0 %}{% if '1'
+                                            == '1' and '1' == '1' %}{% assign hide_style = '' %}{%
+                                            if current_variant.compare_at_price == null %}{% assign
+                                            hide_style = 'display:none;' %}{% endif %}<span
+                                                class="gf_product-compare-price money gf_gs-text-paragraph-1"
+                                                style="" itemprop="price"
+                                                data-price-compare-at="">{{
+                                                current_variant.compare_at_price | money }}</span>{%
+                                            endif %}<span
+                                                class="gf_product-price money gf_gs-text-paragraph-1"
+                                                itemprop="price" data-price="">{{
+                                                current_variant.price | money }}</span>{% if '1' !=
+                                            '1' and '1' == '1' %}{% assign hide_style = '' %}{% if
+                                            current_variant.compare_at_price == null %}{% assign
+                                            hide_style = 'display:none;' %}{% endif %}<span
+                                                class="gf_product-compare-price money gf_gs-text-paragraph-1"
+                                                style="" itemprop="price"
+                                                data-price-compare-at="">{{
+                                                current_variant.compare_at_price | money }}</span>{%
+                                            endif %}{% if '0' == '1' %}{% assign hide_style = ''
+                                            %}{% if comparePrice <= currentPrice or comparePrice <=0
+                                                %}{% assign comparePrice=1 %}{% assign
+                                                hide_style='display:none' %}{% endif %}<span
+                                                class="gf_pq-discount-selector" style=""><span
+                                                    class="gf_pq-discount gf_gs-text-paragraph-1">{%
+                                                    assign diff = comparePrice | minus: currentPrice
+                                                    %}{% assign comparePriceFloat = comparePrice |
+                                                    times: 1.0 %}{% assign diff = diff | divided_by:
+                                                    comparePriceFloat %}{% assign diff = diff |
+                                                    times: 100.0 %}{% assign diff = diff | round
+                                                    %}<span></span><span class="gf_pq-percent">{{
+                                                        diff
+                                                        }}%</span><span>OFF</span></span></span>{%
+                                                endif %}</div>
+                                    </div>
+                                </div>
+                                <div data-label="Text Block" data-key="text-block"
+                                    data-atomgroup="element" id="e-1725052299422"
+                                    class="element-wrap" data-icon="gpicon-textblock" data-ver="1"
+                                    data-id="1725052299422">
+                                    <div class="elm text-edit gf-elm-left gf_gs-text-paragraph-1"
+                                        data-gemlang="en">
+                                        <p></p>
+                                        {{ product.metafields.custom.bullet_point | metafield_tag }}
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="module-wrap" id="m-1725052299389-3"
+                                    data-id="1725052299389-3" data-label="(P) Cart Button"
+                                    data-icon="gpicon-product-cartbutton" data-ver="1.1">{% capture
+                                    pickLink %}{% if '' == empty %}{% else %}{% if '' contains
+                                    'https://' or '' contains 'http://' %}{% elsif routes.root_url
+                                    != null %}{{ shop.url }}{{ routes.root_url | split: '/' | join:
+                                    '/' }}{% endif %}{% endif %}{% endcapture %}{% capture
+                                    continueLink %}{% if '' == empty %}{% else %}{% if '' contains
+                                    'https://' or '' contains 'http://' %}{% elsif routes.root_url
+                                    != null %}{{ shop.url }}{{ routes.root_url | split: '/' | join:
+                                    '/' }}{% endif %}{% endif %}{% endcapture %}<div
+                                        class="module gf_module-left gf_module-left-lg gf_module--md gf_module--sm gf_module--xs "
+                                        data-pid="{{product.id}}" data-text="Add To Cart"
+                                        data-soldouttext="Sold Out" data-ajaxcart="0"
+                                        data-cbto="custom" data-editlink="{{pickLink}}"
+                                        data-ajaxtext="Adding..." data-thankyoutext="Thank you!"
+                                        data-successmessage="Added to cart! [cart label=View Cart] or [continue label=Continue Shopping]."
+                                        data-continue="{{continueLink}}" data-effect=""
+                                        data-ani="gf_ani-shakeLeftRight" data-interval="4000"
+                                        data-stretch-lg="0" data-stretch-md="0" data-stretch-sm="0"
+                                        data-stretch-xs="0">{% if '' != '' %}<input type="image"
+                                            src=""
+                                            class="gf_add-to-cart product-form-product-template gf_gs-button-cart-button gf_gs-button---large">{%
+                                        else %}{% if '' != '' %}<button type="submit" name="add"
+                                            id=""
+                                            class="gf_add-to-cart product-form-product-template button btn gf_gs-button-cart-button gf_gs-button---large">{%
+                                            else %}</button><button type="submit" name="add"
+                                            class="gf_add-to-cart product-form-product-template button btn gf_gs-button-cart-button gf_gs-button---large">{%
+                                            endif %}<span class="AddToCartText">Add To
+                                                Cart</span></button>{% endif %}</div>
+                                </div>
+                            </div>
+                            <div class="gf_clearfix"></div>{% unless product == empty %}
+                            <script type="text/plain" class="product-json"
+                                id="product-json{{product.id}}">{{ product | json }}</script>{%
+                            endunless %}{% endform %}{% endunless %}
+                        </product-form></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

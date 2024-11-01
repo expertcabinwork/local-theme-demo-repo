@@ -1,0 +1,124 @@
+<style>
+  .tab-menu { 
+    margin-top:34px; 
+  }
+  .tab-menu ul { 
+    margin:0; 
+    padding:0; 
+    list-style:none;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .tab-menu ul li { 
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%; 
+    text-align:center;
+  }
+  .tab-menu ul li a { 
+    color: #000;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    font-weight: 400;
+    display:inline-block;
+    padding: 14px;
+    display:block;
+    text-decoration:none;
+    transition:0.5s all;
+    background: #e8e8e8;
+    border: 2px solid #fcfcfb;
+    border-bottom: 0; 
+    font-family: var(--font-dosis-400);
+    font-size: 16px;
+  }
+  .tab-menu ul li a:hover { 
+    background:#fcfcfb;
+    color:#000;
+    text-decoration:none;
+  }
+  .tab-menu ul li a.active { 
+    background:#fcfcfb; 
+    color:#000;
+    text-decoration:none;
+  }
+  .tab-box { 
+    display:none;
+    padding: 3rem;
+  }
+  .tab-teaser { 
+    width:100%;
+    max-width:1360px;
+    padding: 0 40px;
+    margin:3rem auto 0; 
+  }
+  .tab-main-box { 
+    background:#fcfcfb; 
+    padding: 10px 30px;
+    border:2px solid #fcfcfb;
+    margin-top:-2px;
+    color:#000;
+  }
+  .tab-box p{
+    font-size:16px;
+    font-family: var(--font-nunito-300);
+  }
+</style>
+
+<div class="tab-teaser">
+  <div class="tab-menu">
+    <ul>
+      {% for block in section.blocks %}
+      <li><a href="#" data-rel="tab-{{ forloop.index }}" class="active">{{ block.settings.tab-title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="tab-main-box">
+    {% for block in section.blocks %}
+    <div class="tab-box" id="tab-{{ forloop.index }}" style="display:block">
+      <p>{{ block.settings.tab-content }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Tab Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab-title",
+          "label": "Tab Title"
+        },
+        {
+          "type": "liquid",
+          "id": "tab-content",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tab Section"
+    }
+  ]
+}
+{% endschema %}

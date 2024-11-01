@@ -1,0 +1,199 @@
+{%- comment -%}
+This file has been modified by the Yoast SEO for Shopify app.
+You can learn more about this (and learn how to cleanly revert these changes) at https://yoa.st/removing-theme-changes.
+{%- endcomment -%}
+<!doctype html>
+{%- liquid
+  assign direction = 'ltr'
+  assign rtl_iso_codes = 'ar,he,ur,fa,pa,sd,ku' | split: ','
+  if rtl_iso_codes contains request.locale.iso_code
+    assign direction = 'rtl'
+  endif
+-%}
+<html class="no-js template_{{ template.name }}" lang="{{ request.locale.iso_code }}" dir="{{ direction }}" >
+<head>
+  
+
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0">
+
+  {% if template contains 'product' and request.path contains '/collections/' %}
+    <meta name="robots" content="noindex">{% else %}
+    <meta name="robots" content="index,follow">{% endif %}
+  <link rel="canonical" href="{{ canonical_url }}">
+    
+	{%- if settings.favicon -%}
+		<link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 32, height: 32 }}" type="image/png" />
+	{%- endif -%}
+
+	{%- capture seo_title -%}
+    {%- if template contains 'search' -%}
+      {{ search.terms | replace: '*', '' | split: ' AND ' | last }} - {{ shop.name | escape }}
+    {%- else -%}
+      {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name | escape }}{% endunless %}
+    {%- endif -%}
+  {%- endcapture -%}
+
+	{%- comment -%}Auto-disabled. Yoast plugin is taking care of SEO output.{%- endcomment -%}
+{%- if disabled_by_yoast_seo -%}{%- endif -%}
+<title>{{ seo_title }}</title>
+{%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+
+
+	{%- if page_description -%}
+		{%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
+{%- if disabled_by_yoast_seo -%}{%- endif -%}
+<meta name="description" content="{{ page_description | escape }}">
+{%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+
+	{%- endif -%}
+
+  {%- liquid
+    render 'open-graph'
+    unless settings.disable_microdata 
+      render 'microdata-schema'
+    endunless
+  -%}
+
+  {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
+{%- if disabled_by_yoast_seo -%}
+<link rel="canonical" href="{{ canonical_url }}">
+{%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+{%- endif -%}
+
+  <link rel="preconnect" href="https://cdn.shopify.com">
+  {%- unless settings.headings_font.system? and settings.body_font.system? -%}
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+  {%- endunless -%}
+
+  {%- render 'head-preloader' -%}
+  {%- render 'head-variables', direction: direction -%}
+  {%- render 'fonts' -%}
+
+  {{ 'theme.css' | asset_url | stylesheet_tag }}
+  {{ 'style.css' | asset_url | stylesheet_tag }}
+  {{ 'magicscroll.css' | asset_url | stylesheet_tag }}
+
+  <!-- CSS ================================================== -->
+
+
+    <link
+      rel="stylesheet"
+      href="{{ 'custom-new.css' | asset_url }}"
+      defer
+    >
+
+    <link
+      rel="icon"
+      href="https://methyl-life.com/wp-content/uploads/2018/07/cropped-methyl-life-favicon-3-32x32.png"
+      sizes="32x32"
+    >
+    <link
+      rel="icon"
+      href="https://methyl-life.com/wp-content/uploads/2018/07/cropped-methyl-life-favicon-3-192x192.png"
+      sizes="192x192"
+    >
+    <link
+      rel="apple-touch-icon-precomposed"
+      href="https://methyl-life.com/wp-content/uploads/2018/07/cropped-methyl-life-favicon-3-180x180.png"
+    >
+
+
+	{{ content_for_header }}
+ {%- include 'bold-common' -%}
+    {%- include 'bold-product' with product
+      , hide_action: 'header' -%}
+    {%- include 'bold-ro-init' -%}
+    <style>
+      .bold-hidden {
+        display: block !important;
+      }
+    </style>
+
+  <script>
+    const rbi = [];
+    const ribSetSize = (img) => {
+      if ( img.offsetWidth / img.dataset.ratio < img.offsetHeight ) {
+        img.setAttribute('sizes', `${Math.ceil(img.offsetHeight * img.dataset.ratio)}px`);
+      } else {
+        img.setAttribute('sizes', `${Math.ceil(img.offsetWidth)}px`);
+      }
+    }
+    const debounce = (fn, wait) => {
+      let t;
+      return (...args) => {
+        clearTimeout(t);
+        t = setTimeout(() => fn.apply(this, args), wait);
+      };
+    }
+    window.KEYCODES = {
+      TAB: 9,
+      ESC: 27,
+      DOWN: 40,
+      RIGHT: 39,
+      UP: 38,
+      LEFT: 37,
+      RETURN: 13
+    };
+    window.addEventListener('resize', debounce(()=>{
+      for ( let img of rbi ) {
+        ribSetSize(img);
+      }
+    }, 250));
+  </script>
+	
+  {%- if template == 'customers/addresses' or request.design_mode -%}
+	  <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
+	{%- endif -%}
+
+  <noscript>
+    <link rel="stylesheet" href="{{ 'theme-noscript.css' | asset_url }}">
+  </noscript>
+<script src="{{ 'magicscroll.js' | asset_url }}" ></script>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" rel="stylesheet"/>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.css">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+ {{ 'landing-page.css' | asset_url | stylesheet_tag }}
+{% capture tbCommonContent %}{% render 'tb-common' %}{% endcapture %}
+                {% if tbCommonContent contains "Could not find asset" %}
+                    {% comment %} do nothing {% endcomment %}
+                {% else %}
+                    {% render 'tb-common' %}
+                {% endif %}<!--Gem_Page_Header_Script-->
+{% render 'gem-app-header-scripts' %}
+<!--End_Gem_Page_Header_Script-->
+   
+    <link rel="stylesheet" href="{{ 'infobridge.css' | asset_url }}">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
+ <!-- BEGIN GROOVE WIDGET CODE -->
+<script>
+  !function(e,t){if(!e.groove){var i=function(e,t){return Array.prototype.slice.call(e,t)},a={widget:null,loadedWidgets:{},classes:{Shim:null,Embeddable:function(){this._beforeLoadCallQueue=[],this.shim=null,this.finalized=!1;var e=function(e){var t=i(arguments,1);if(this.finalized){if(!this[e])throw new TypeError(e+"() is not a valid widget method");this[e].apply(this,t)}else this._beforeLoadCallQueue.push([e,t])};this.initializeShim=function(){a.classes.Shim&&(this.shim=new a.classes.Shim(this))},this.exec=e,this.init=function(){e.apply(this,["init"].concat(i(arguments,0))),this.initializeShim()},this.onShimScriptLoad=this.initializeShim.bind(this),this.onload=void 0}},scriptLoader:{callbacks:{},states:{},load:function(e,i){if("pending"!==this.states[e]){this.states[e]="pending";var a=t.createElement("script");a.id=e,a.type="text/javascript",a.async=!0,a.src=i;var s=this;a.addEventListener("load",(function(){s.states[e]="completed",(s.callbacks[e]||[]).forEach((function(e){e()}))}),!1);var n=t.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},addListener:function(e,t){"completed"!==this.states[e]?(this.callbacks[e]||(this.callbacks[e]=[]),this.callbacks[e].push(t)):t()}},createEmbeddable:function(){var t=new a.classes.Embeddable;return e.Proxy?new Proxy(t,{get:function(e,t){return e instanceof a.classes.Embeddable?Object.prototype.hasOwnProperty.call(e,t)||"onload"===t?e[t]:function(){e.exec.apply(e,[t].concat(i(arguments,0)))}:e[t]}}):t},createWidget:function(){var e=a.createEmbeddable();return a.scriptLoader.load("groove-script","https://85d9e4ef-c5c1-4f50-9c0d-d38f2ddbb1ed.widget.cluster.groovehq.com/api/loader"),a.scriptLoader.addListener("groove-iframe-shim-loader",e.onShimScriptLoad),e}};e.groove=a}}(window,document);
+  window.groove.widget = window.groove.createWidget();
+  window.groove.widget.init('85d9e4ef-c5c1-4f50-9c0d-d38f2ddbb1ed', {});
+</script>
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ml6sq53n5e");
+</script>
+<!-- END GROOVE WIDGET CODE --> 
+</head>
+
+<body id="{{ page_title | handle }}" class="template-{{ request.page_type }} no-touchevents{% if shop.customer_accounts_enabled %}{% if customer %}{% if customer.tags contains 'wholesale' %}{%else%} customer-but-retailer{% endif %}{% else %} no-customer{% endif %}{% endif %}
+  {% if customer %} customer-logged-in {% endif %} 
+  template-{{ template.name }} template-{{ template | replace: '.', ' ' | handle }} 
+  {% if settings.shadow_cards_x < 0 %} has-negative-shadow-x {% endif %}
+  {% if settings.shadow_cards_y < 0 %} has-negative-shadow-y {% endif %}
+">{% capture captured_page %}
+  {{ content_for_layout }}
+{% endcapture %}</body>
+</html>

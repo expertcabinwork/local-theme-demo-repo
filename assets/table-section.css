@@ -1,0 +1,153 @@
+/* table css start */
+
+.nacove-main-flex {
+  display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+    align-items: center;   
+    border-top: 1px solid #e0e0e0;
+}
+
+.nacove-main-col {
+  width: 100%;
+      text-align: center;
+   padding: 12px 0;
+}
+.nacove-main-col:nth-child(2){
+      background: #f6f6f6;
+  border-left:1px solid #322b85;
+  border-right:1px solid #322b85;
+  height:100%;
+}
+.table_btn.promotion_btn{
+  padding:0;
+  text-align:center;
+}
+.table_btn p{
+  margin-top:10px;
+  margin-bottom:0;
+}
+
+.Nacove-content{
+margin: 70px 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 0 50px;
+ position:relative;
+}
+
+.Nacove-content:after {
+    content: "";
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    background: #f6f6f6;
+    height: 40px;
+    z-index: 9;
+    width: 29.1%;
+    border: 1px solid #322b85;
+    border-top: none;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.nacove-main-col img {
+  margin: 0 auto;
+  width:24px;
+}
+
+
+
+.nacove-first-border {
+  /* display: flex;
+  justify-content: space-between;
+  position: relative;
+  flex-wrap: wrap;
+      display: flex;
+    align-items: flex-end; */
+  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.first-col {
+  width: 100%;
+  text-align: center;
+  padding:15px 0;
+}
+
+.first-col h2 {
+font-size: 19px;
+    line-height: 1.3em;
+    letter-spacing: 0px;
+    color: #242424;
+    font-weight: 700;
+    padding-top: 10px;
+  margin:0;
+}
+.first-col:nth-child(2) {
+
+    position: relative; 
+   background: #f6f6f6;
+  border:1px solid #322b85;
+  border-bottom:none;
+  border-top-left-radius:20px;
+  border-top-right-radius:20px;
+  margin-top: -40px;
+}
+
+.first-col img {
+  margin: 0 auto;
+}
+
+
+  .nacove-main-col p {
+    font-size: 16px;
+    text-align: left;
+    margin:0;
+}
+/* table css end */
+@media only screen and (max-width:1250px) {
+.Nacove-content:after{
+  width: 28.6%;
+}
+}
+@media only screen and (max-width:1100px) {
+.Nacove-content:after{
+  width: 27.6%;
+}
+}
+
+@media only screen and (max-width:1023px) {
+  .Nacove-content:after{
+    display:none;
+  }
+
+}
+@media only screen and (max-width:767px) {
+
+  .first-col h2 {
+    font-size: 20px;
+  }
+
+.first-col p {
+  font-size: 12px;
+}
+.nacove-main-flex .nacove-main-col:nth-child(3) img {
+  width: 19px;
+  height: 19px;
+}
+.nacove-main-col img {
+  margin: 0 auto;
+  width: 26px;
+  height: 26px;
+}
+   .my-tb-container {
+    overflow-x: auto;
+}
+  .Nacove-content {
+    min-width: 680px;
+}
+  .Nacove-content {
+    margin: 45px 0;
+  }
+}

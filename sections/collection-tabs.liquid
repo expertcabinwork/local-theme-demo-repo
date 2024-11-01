@@ -1,0 +1,386 @@
+<style>
+  /* Tabs Styling */
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 70%; /* Increase the width for bigger tabs */
+    margin: 20px auto; /* Move the tabs higher */
+    background-color: #3154A1; /* Blue background for slider */
+    border-radius: 25px;
+    padding: 10px; /* Increase padding for larger tabs */
+  }
+
+  .tabs button {
+    flex: 1;
+    padding: 15px 20px; /* Increase padding for bigger tabs */
+    background: #3154A1;
+    border: none;
+    border-radius: 25px;
+    margin-right: 5px;
+    transition: background 0.3s;
+    color: white;
+    font-size: 16px; /* Increase font size for tabs */
+    cursor: pointer;
+  }
+
+  .tabs button.active {
+    background: #52A646; /* Green for active tab */
+    color: white;
+    font-weight: bold;
+  }
+
+  .tabs button:last-child {
+    margin-right: 0;
+  }
+
+  .tab-content {
+    display: none;
+    margin-top: 20px;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+  /* Product Grid Styling */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on desktop */
+    grid-gap: 20px; /* Keep reasonable gap between items */
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .product-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    }
+  }
+
+  /* Product Card Styling */
+  .product-card {
+    text-align: center;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    height: 100%; /* Ensure all product cards are the same height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .product-card__link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .product-card__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-width: 180px; /* Adjust max-width for the images */
+    margin: 0 auto;
+  }
+
+  .product-card__title {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #3154A1;
+    font-weight: bold;
+  }
+
+  .product-card__price {
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 8px;
+  }
+
+  .product-card__add-to-cart {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px; /* Adjust padding to match the design */
+    background-color: #3154A1;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .product-card__add-to-cart:hover {
+    background-color: #52A646; /* Hover state for green */
+  }
+</style>
+
+<!-- Tabs Section -->
+<div class="tabs">
+  {% for block in section.blocks %}
+    {% if block.settings.collection %}
+      <button class="tab-button" data-collection-id="collection-{{ block.id }}">{{ block.settings.collection.title }}</button>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<!-- Content for Each Collection -->
+{% for block in section.blocks %}
+  {% if block.settings.collection %}
+    <div class="tab-content" id="collection-{{ block.id }}">
+      <!-- Assign the collection -->
+      {% assign collection = collections[block.settings.collection] %}
+      
+      <!-- Check if collection has products -->
+      {% if collection.products.size > 0 %}
+        <div class="collection{% if section.settings.filter_type != 'vertical' %} page-width{% endif %}">
+          <div class="loading-overlay gradient"></div>
+          <ul
+            id="product-grid"
+            data-id="{{ section.id }}"
+            class="grid product-grid"
+          >
+            <!-- Loop through the products in the collection -->
+            {%- for product in collection.products limit: section.settings.products_per_page -%}
+              <li class="grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+                <div class="product-card">
+                  <a href="{{ product.url }}" class="product-card__link">
+                    <img src="{{ product.featured_image | img_url: '400x400' }}" alt="{{ product.title }}" class="product-card__image">
+                    <h2 class="product-card__title">{{ product.title }}</h2>
+                    <span class="product-card__price">{{ product.price | money }}</span>
+                  </a>
+                  <!-- Add to Cart Button -->
+                  <form method="post" action="/cart/add">
+                    <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                    <button type="submit" class="product-card__add-to-cart">Add to Cart</button>
+                  </form>
+                </div>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      {% else %}
+        <!-- If no products are in the collection -->
+        <p>No products available in this collection.</p>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endfor %}
+
+<!-- JavaScript for Tabs -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const collectionId = button.getAttribute('data-collection-id');
+
+        // Remove active class from all buttons and content
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+
+        // Add active class to the clicked button and corresponding content
+        button.classList.add('active');
+        document.getElementById(collectionId).classList.add('active');
+      });
+    });
+
+    // Trigger click on the first tab button to show the first tab by default
+    if (tabButtons.length > 0) {
+      tabButtons[0].click();
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Collections Tabs Blocks",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "default": 16,
+      "label": "Products per page"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "Columns on desktop"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Image settings"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "Adapt"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait"
+        },
+        {
+          "value": "square",
+          "label": "Square"
+        }
+      ],
+      "default": "adapt",
+      "label": "Image ratio"
+    },
+    {
+      "type": "select",
+      "id": "image_shape",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "round",
+          "label": "Round"
+        }
+      ],
+      "default": "default",
+      "label": "Image shape"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "Show secondary image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "Show vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "Show rating"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_quick_add",
+      "default": false,
+      "label": "Enable quick add"
+    },
+    {
+      "type": "header",
+      "content": "Filtering settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "Enable filtering"
+    },
+    {
+      "type": "select",
+      "id": "filter_type",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "Horizontal"
+        },
+        {
+          "value": "vertical",
+          "label": "Vertical"
+        }
+      ],
+      "default": "horizontal",
+      "label": "Filter type"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "Enable sorting"
+    },
+    {
+      "type": "header",
+      "content": "Mobile settings"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "Columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Padding settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Select Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collections Tabs Blocks",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

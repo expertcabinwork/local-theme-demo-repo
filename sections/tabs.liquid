@@ -1,0 +1,353 @@
+{{ 'section-tabs.css' | asset_url | stylesheet_tag }}
+{% style %}
+  .section_style_{{ section.id }} {
+    padding-top:{{section.settings.padding_top}}px;
+    padding-bottom:{{section.settings.padding_bottom}}px;
+    background:{% if section.settings.bg-img  != blank %} url({{section.settings.bg-img | img_url:""}}) {% else %} {{section.settings.bg-color}}{% endif %};
+  }
+  .section_style_{{ section.id }} .section-container {
+    max-width:{{section.settings.container}}rem;
+    margin:0 auto;
+    width:100%;
+    padding:0 2rem;
+  }
+  @media(min-width: 1024px){
+    .section_style_{{ section.id }} .section-container {
+      padding:0 5rem;
+    }
+  }
+{% endstyle %}
+
+<section class="section_style_{{ section.id }} tabs_section">
+  <div class="section-container">
+    {% if section.settings.heading != blank or section.settings.text != blank %}
+      <div class="section-header">
+        {% if section.settings.heading != blank %}
+          <h2 class="section-heading-main heading-font-{{ section.settings.heading-size }}">
+            {{ section.settings.heading }}
+            
+          </h2>
+
+          {% comment %}
+          Automatically display the title of the first tab below the heading
+          {% endcomment %}
+          {% assign first_tab_title = section.blocks | where: "type", "tab" | first %}
+          {% if first_tab_title %}
+            <h3 class="first-tab-title">{{ first_tab_title.settings.title }}</h3>
+          {% endif %}
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <div class="section-text-man text-font-{{ section.settings.text }} ">{{ section.settings.text }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="section-tabs-wraper">
+      <div class="tabs-title-wraper">
+        {% for block in section.blocks %}
+          {% if block.type == 'tab' %}
+            <label
+              class="tab-title {% if forloop.first %} active {% endif %}"
+              tab-index="{{ forloop.index }}"
+              tab-label="{{ block.settings.title | downcase | replace:" " , "-"}}"
+            >
+              {{ block.settings.title }}
+            </label>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="tabs-content_wraper">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'tab' %}
+              <div
+                class="tab-content {% if forloop.first %} active {% endif %}"
+                tab-index="{{ forloop.index }}"
+                tab-label="{{ block.settings.title | downcase | replace:" " , "-"}}"
+              >
+                <div class="tab-image_width_text-wraper">
+                  <div class="tab-content-text">
+                    {% if block.settings.heading != blank %}
+                      <h2 class="tab-heading heading-font-{{ block.settings.heading-size }}">
+                        {{ block.settings.heading }}
+                      </h2>
+                    {% endif %}
+                    {% if block.settings.text != blank %}
+                      <div class="tab-text text-font">{{ block.settings.text }}</div>
+                    {% endif %}
+                    {% if block.settings.btn != blank %}
+                      <a
+                        href="{{ block.settings.link }}"
+                        class="tab-btn button button--small button-{{ block.id }} btn-style-{{ block.settings.btn-style }}"
+                      >
+                        {{- block.settings.btn -}}
+                      </a>
+                    {% endif %}
+                  </div>
+                  <div class="tab-image-wraper">
+                    {% if block.settings.image != blank %}
+                      <img src="{{ block.settings.image | img_url:'master' }}" width="100%">
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <style>
+                .button-{{ block.id }}{
+                          color: {{block.settings.color}} !important;
+                          background-color: {{block.settings.bg_color}} !important;
+                          border: 1px solid {{block.settings.bg_color}} !important;
+                          }
+                .button-{{ block.id }}:hover{
+                          color: {{block.settings.hovercolor}} !important;
+                          background-color: {{block.settings.hoverbg_color}} !important;
+                          border: 1px solid {{block.settings.bg_color}} !important;
+                          }
+              </style>
+          {% endcase %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Tabs",
+  "settings": [
+    {
+      "id":"bg-img",
+      "type":"image_picker",
+      "label":"Background image"
+    },
+    {
+      "id":"bg-color",
+      "label":"Background Color",
+      "type":"color"
+    },
+    {
+      "id":"container",
+      "label":"Container Width",
+      "min":60,
+      "max":160,
+      "default":120,
+      "step":1,
+      "unit":"rem",
+      "type":"range"
+    },
+    {
+      "id":"padding_top",
+      "label":"Padding Top",
+      "min":0,
+      "max":100,
+      "default":36,
+      "step":1,
+      "unit":"px",
+      "type":"range"
+    },
+    {
+      "id":"padding_bottom",
+      "label":"Padding Bottom",
+      "min":0,
+      "max":100,
+      "default":36,
+      "step":1,
+      "unit":"px",
+      "type":"range"
+    },
+    {
+      "id":"heading",
+      "type":"textarea",
+      "label":"Heading"
+    },
+    {
+      "id":"heading-size",
+      "type":"select",
+      "options":[
+        {
+          "label":"Extra Large",
+          "value":"xl"
+        },
+        {
+          "label":"Large",
+          "value":"large"
+        },
+        {
+          "label":"Medium",
+          "value":"medium"
+        },
+        {
+          "label":"Small",
+          "value":"small"
+        }
+      ],
+      "default":"medium",
+      "label":"Heading Size"
+    },
+    {
+      "id":"text",
+      "type":"richtext",
+      "label":"Text"
+    },
+    {
+      "id":"text-size",
+      "type":"select",
+      "options":[
+        {
+          "label":"Body",
+          "value":"body"
+        },
+        {
+          "label":"Subtitle",
+          "value":"subtitle"
+        }
+      ],
+      "default":"body",
+      "label":"Text Size"
+    }
+  ],
+  "blocks":[
+    {
+      "type":"tab",
+      "name":"Tab",
+      "settings":[
+        {
+          "id":"title",
+          "type":"text",
+          "label":"Tab Title"
+        },
+        {
+          "id":"image",
+          "type":"image_picker",
+          "label":"Image"
+        },
+        {
+          "id":"heading",
+          "type":"textarea",
+          "label":"Heading"
+        },
+        {
+          "id":"heading-size",
+          "type":"select",
+          "options":[
+            {
+              "label":"Extra Large",
+              "value":"xl"
+            },
+            {
+              "label":"Large",
+              "value":"l"
+            },
+            {
+              "label":"Medium",
+              "value":"m"
+            },
+            {
+              "label":"Small",
+              "value":"s"
+            },
+            {
+              "label":"Extra Small",
+              "value":"xs"
+            }
+          ],
+          "default":"m",
+          "label":"Heading Size"
+        },
+        {
+          "id":"text",
+          "type":"richtext",
+          "label":"Text"
+        },
+        {
+          "id":"text-size",
+          "type":"select",
+          "options":[
+            {
+              "label":"Body",
+              "value":"body"
+            },
+            {
+              "label":"Subtitle",
+              "value":"subtitle"
+            }
+          ],
+          "default":"body",
+          "label":"Text Size"
+        },
+        {
+          "id":"btn",
+          "type":"text",
+          "label":"Button"
+        },
+        {
+          "id":"link",
+          "type":"url",
+          "label":"Link"
+        },
+        {
+          "id":"btn-style",
+          "type":"select",
+          "label":"Button Style",
+          "options":[
+            {
+              "value":"solid",
+              "label":"Solid"
+            },
+            {
+              "value":"outline",
+              "label":"Outline"
+            }
+          ],
+          "default":"solid"
+        },
+        {
+          "type": "color",
+          "id": "color",
+          "label": "Button Text Color"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Button Background Color"
+        },
+        {
+          "type": "color",
+          "id": "hovercolor",
+          "label": "Button Text Color on Hover"
+        },
+        {
+          "type": "color",
+          "id": "hoverbg_color",
+          "label": "Button Background Color on Hover"
+        }
+      ]
+    }
+  ],
+  "presets":[
+    {
+      "name":"Tabs"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+<script>
+  var tabTitles = document.querySelectorAll('.tab-title');
+
+  tabTitles.forEach((title) => {
+    title.addEventListener('click', function() {
+      tabTitles.forEach((t) => t.classList.remove('active'));
+      this.classList.add('active');
+
+      var matchingLabel = this.getAttribute('tab-label');
+      var tabContents = this.closest('.section-tabs-wraper').querySelectorAll('.tab-content');
+
+      tabContents.forEach((content) => {
+        content.classList.remove('active');
+      });
+
+      this.closest('.section-tabs-wraper').querySelector('.tab-content[tab-label="'+matchingLabel+'"]').classList.add('active');
+    });
+  });
+</script>

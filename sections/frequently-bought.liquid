@@ -1,0 +1,223 @@
+{% if product.metafields.custom.frequently_product != blank %}
+  {%- style -%}
+    .frequently_bought--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      overflow: hidden;
+    }
+    @media screen and (min-width: 750px) {
+    .frequently_bought--{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+      .Frequently_header .product-related-title {
+        font-size: 35px;
+        text-transform: uppercase;
+    }
+      .frquently_product_item {
+        border: 1px solid #72b67a;
+        border-radius: 4px;
+        position:relative;
+        cursor:pointer;
+    }
+      .frquently_product_item img{
+        border-radius:4px;
+
+      }
+      .btn_with_price{
+        width:100%;
+        display:block;
+        margin-top:30px;
+      }
+      .frequently_price{
+        color:#ff9051;
+        font-size:1.6rem;
+        padding-bottom:8px;
+        font-weight:600;
+      }
+      .frequently_price span{
+        color:#2c56a4;
+      }
+      .frequently_btn, .frequently_btn:hover {
+        background: #3154a1!important;
+        border-color: #3154a1!important;
+        /* background: #ab00af;
+        border-color: #ab00af; */
+    }
+      .frquently_product_item:after {
+        content: "";
+       background: rgb(39 169 88 / 3%);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display:none;
+    }
+        .frquently_product_item.active:after {
+          display:block;
+        }
+      .select_svg{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 4rem;
+        height: 4rem;
+        fill: rgba(39,169, 88, .7);
+        z-index:2;
+        display:none;
+      }
+      .frquently_product_item.active .select_svg{
+        display:block;
+      }
+  {%- endstyle -%}
+
+  <section class="frequently_bought_togther frequently_bought--{{ section.id }}">
+    <div class="container--large  container--vertical-space   remove-empty-space">
+      {%- if section.settings.title != blank -%}
+        <div class="Frequently_header">
+          <span class="product-related-title text-size--large text-weight--bold">{{ section.settings.title }}</span>
+        </div>
+      {% endif %}
+      <div class="frequently_products grid  grid--layout  grid-4 grid-portable-3 grid-lap-2 grid-tiny-1">
+        {% for product in product.metafields.custom.frequently_product.value %}
+          {% if product.available %}
+            <div
+              class="frquently_product_item active{% for tag in product.tags %}{% if tag contains 'wholesale' %} product-item-wholesale{% endif %}{% endfor %}"
+              data-price="{{ product.price | money }}"
+              data-variant-ids="{% for variant in product.variants %}{{ variant.id }}{% unless forloop.last %},{% endunless %}{% endfor %}"
+              {% for variant in product.variants %}
+                cstm-varoo="{{ variant.id }}"
+              {% endfor %}
+            >
+              <img width="100%" height="" src="{{ product.featured_image | img_url:"" }}">
+              <svg class="select_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-1.959 17l-4.5-4.319 1.395-1.435 3.08 2.937 7.021-7.183 1.422 1.409-8.418 8.591z"/>
+              </svg>
+            </div>
+            {% comment %}
+              {% render 'frequently-product-item', product: product, index: forloop.index %}
+            {% endcomment %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="btn_with_price ">
+        <div class="frequently_price">Total price : <span>$</span><span class="price_changer">0.00</span></div>
+        <div class="frequently_btn button button--solid button--regular">add selected to cart</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    var productItems = document.querySelectorAll('.frquently_product_item');
+    var priceChanger = document.querySelector('.price_changer');
+
+    var initialTotalPrice = Array.from(productItems).reduce(function (total, item) {
+    return total + parseFloat(item.getAttribute('data-price').replace(/[^0-9.]/g, ''));
+    }, 0);
+
+    priceChanger.textContent = initialTotalPrice.toFixed(2);
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+    var productItems = document.querySelectorAll('.frquently_product_item');
+    var priceChanger = document.querySelector('.price_changer');
+    var addToCartBtn = document.querySelector('.frequently_btn');
+
+    var selectedVariantIds = [];
+
+    productItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+    item.classList.toggle('active');
+    updateTotalPrice();
+    });
+    });
+
+    addToCartBtn.addEventListener('click', function () {
+    selectedVariantIds = Array.from(document.querySelectorAll('.frquently_product_item.active')).map(function (item) {
+    return item.getAttribute('data-variant-ids').split(',');
+    }).flat();
+
+    // Call Shopify's Storefront API to add selected products to the cart
+    if (selectedVariantIds.length > 0) {
+    fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+    items: selectedVariantIds.map(function (variantId) {
+    return {
+    id: variantId,
+    quantity: 1, // You can adjust the quantity as needed
+    };
+    }),
+    }),
+    }).then(function (response) {
+    return response.json();
+    }).then(function (data) {
+    // Redirect to the checkout page
+    window.location.href = '/checkout';
+    }).catch(function (error) {
+    console.error('Error adding items to cart:', error);
+    });
+    }
+    });
+
+    function updateTotalPrice() {
+    var total = Array.from(document.querySelectorAll('.frquently_product_item.active')).reduce(function (total, item) {
+    return total + parseFloat(item.getAttribute('data-price').replace(/[^0-9.]/g, ''));
+    }, 0);
+
+    priceChanger.textContent = total.toFixed(2);
+    }
+    });
+  </script>
+{% endif %}
+{% schema %}
+  {
+    "name": "Frequently Bought",
+    "settings": [
+  {
+  "type": "text",
+  "id": "title",
+  "label": "Title",
+    "default":"Frequently Bought Together"
+  },
+         {
+"type": "range",
+"id": "padding_top",
+"min": 0,
+"max": 100,
+"step": 1,
+"unit": "px",
+"label": "padding top",
+"default": 50
+},
+{
+"type": "range",
+"id": "padding_bottom",
+"min": 0,
+"max": 100,
+"step": 1,
+"unit": "px",
+"label": "padding bottom",
+"default": 50
+}
+    ],
+      "presets":[
+  {
+  "name":"Frequently Bought"
+  }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

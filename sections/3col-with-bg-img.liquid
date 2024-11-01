@@ -1,0 +1,106 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="how-it-work privacy-sec">
+    <div class="bg-img section-{{ section.id }}-padding" style="background-image: url('{{ section.settings.image | img_url: '' }}');">
+        <div class="container--large">
+            <header class="text-center" data-aos="zoom-in">
+                <h2>{{ section.settings.heading }}</h2>
+            </header>
+            <div class="hw-wrap text-center" data-aos="zoom-in">
+              {% for block in section.blocks %}
+                <div class="hw-inner">
+                    <div class="box">
+                        <img src="{{ block.settings.image | img_url: '' }}" alt="image">
+                        <h3>{{ block.settings.title }}</h3>
+                        {{ block.settings.content }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "3Col with Bg Image",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Background Image"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "default": "Your Privacy is Our Priority",
+        "label": "Heading"
+      },
+      {
+        "type": "header",
+        "content": "Spacing"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "padding top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "padding bottom",
+        "default": 36
+      }
+    ],
+    "blocks": [
+      {
+        "type": "column",
+        "name": "Columns",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "inline_richtext",
+            "id": "title",
+            "default": "We Do Not Sell Your Data",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "3Col with Bg Image"
+      }
+    ]
+  }
+{% endschema %}

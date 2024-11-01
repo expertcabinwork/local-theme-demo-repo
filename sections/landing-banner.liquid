@@ -1,0 +1,89 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="banner-sec section-{{ section.id }}-padding" style="background-image: linear-gradient(180deg,rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%), url('{{ section.settings.image | img_url: '' }}');">
+    <div class="container--large">
+        <div class="banner-content" data-aos="zoom-in">
+            <h1>{{ section.settings.heading }}</h1>
+            {{ section.settings.content }}
+            <div class="btn-wrap">
+                <a href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "landing Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Banner Image"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "default": "Practitioner Program",
+        "label": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "default": "PRACTITIONER REGISTRATION",
+        "label": "Button Text"
+      },      
+      {
+        "type": "header",
+        "content": "t:sections.all.padding.section_padding_heading"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "t:sections.all.padding.padding_bottom",
+        "default": 36
+      }
+    ],
+    "presets": [
+      {
+        "name": "landing Banner"
+      }
+    ]
+  }
+{% endschema %}

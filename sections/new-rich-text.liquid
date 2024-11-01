@@ -1,0 +1,491 @@
+{{ 'new-rich-text.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+         background:{{ section.settings.bg_clr}};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+{%- endstyle -%}
+<div class="section-{{ section.id }}-padding ">
+  <div class="rich-text {% unless section.settings.full_width %} container--medium {% else %} container--large  {% endunless %} ">
+    <div class="rich-text__wrapper ">
+      <div class="rich-text__blocks {{ section.settings.content_alignment }}">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'heading' -%}
+              <h2
+                class="rich-text__heading rte inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {{ block.shopify_attributes }}
+                style="color:{{ block.settings.text_color }}"
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {{ block.settings.heading }}
+              </h2>
+            {%- when 'caption' -%}
+              <p
+                class="rich-text__caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {{ block.shopify_attributes }}
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {{ block.settings.caption | escape }}
+              </p>
+            {%- when 'liquid' -%}
+              <div class="custom_liquid"  {{ block.shopify_attributes }}>
+                {{ block.settings.custom_liquid }}
+              </div>
+            {%- when 'text' -%}
+              <div
+                class="rich-text__text rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}
+                {%if block.settings.desc_border%} description_border {% endif %}"
+                {{ block.shopify_attributes }}
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {{ block.settings.text }}
+              </div>
+             {%- when 'Image' -%}
+            <div class="Image_block"    {{ block.shopify_attributes }}>
+                {% if block.settings.image != blank %}
+                <img width="" height="" src="{{ block.settings.image | img_url:"" }}" alt="image">
+                {% endif %}
+              </div>
+            {%- when 'image_with_text' -%}
+             <style>
+                .button-{{ block.id }}{
+                color: {{block.settings.color}} !important;
+                background-color: {{block.settings.bg_color}} !important;
+                border: 1px solid {{block.settings.bg_color}} !important;
+                }
+                .button-{{ block.id }}:hover{
+                color: {{block.settings.hovercolor}} !important;
+                background-color: {{block.settings.hoverbg_color}} !important;
+                border: 1px solid {{block.settings.bg_color}} !important;
+                }
+               
+                </style>
+            <div class="img_wd_text">
+              <div class="left_side_image">
+                {% if block.settings.image != blank %}
+                <img width="" height="" src="{{ block.settings.image | img_url:"" }}" alt="image">
+                {% endif %}
+              </div>
+               <div class="right_side_content">
+                 <h2
+                class="rich-text__heading rte inline-richtext {{ block.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                {{ block.shopify_attributes }}
+                style="color:{{ block.settings.text_color }}"
+                {% if settings.animations_reveal_on_scroll %}
+                  data-cascade
+                  style="--animation-order: {{ forloop.index }};"
+                {% endif %}
+              >
+                {{ block.settings.heading }}
+              </h2>
+                 <a href="{{ block.settings.link }}" class="button-{{ block.id }} button button--{{ block.settings.button_size }} button--{{ block.settings.button_style }}">
+                    {{ block.settings.button_label }}
+                  </a>
+               </div>
+            </div>
+            {%- when 'button' -%}
+              <div 
+                  class="increased-spacing" 
+                  {{ block.shopify_attributes }}
+                >
+                  <a href="{{ block.settings.link }}" class=" button-{{ block.id }} button button--{{ block.settings.button_size }} button--{{ block.settings.button_style }}">
+                    {{ block.settings.button_label }}
+                  </a>
+                       <style>
+                .button-{{ block.id }}{
+                color: {{block.settings.color}} !important;
+                background-color: {{block.settings.bg_color}} !important;
+                border: 1px solid {{block.settings.bg_color}} !important;
+                }
+                .button-{{ block.id }}:hover{
+                color: {{block.settings.hovercolor}} !important;
+                background-color: {{block.settings.hoverbg_color}} !important;
+                border: 1px solid {{block.settings.bg_color}} !important;
+                }
+                </style>
+                </div>
+              
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "New Rich Text",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_clr",
+      "label": "Background color",
+"default":"#fff"
+    },
+  
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "center",
+          "label": "center"
+        },
+        {
+          "value": "right",
+          "label": "right"
+        }
+      ],
+      "default": "center",
+      "label": "Content alignment"
+    },
+    
+    
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "caption",
+      "name": "Caption",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "caption",
+          "default": "Add a tagline",
+          "label": "Caption Text"
+        }
+      ]
+    },
+    
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        
+        {
+          "type": "color",
+          "id": "text_color",
+          "default": "#365e99",
+          "label": "Heading Color"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Talk about your brand",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Small"
+            },
+            {
+              "value": "h1",
+              "label": "Medium"
+            },
+            {
+              "value": "h0",
+              "label": "Large"
+            },
+            {
+              "value": "hxl",
+              "label": "Extra Large"
+            }
+          ],
+          "default": "h2",
+          "label": "Heading size"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Description",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
+          "label": "Description"
+        }
+        
+      ]
+    },
+    {
+      "type": "Image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+        
+      ]
+    },
+    
+        {
+      "type": "image_with_text",
+      "name": "Image with Text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        
+        {
+          "type": "color",
+          "id": "text_color",
+          "default": "#365e99",
+          "label": "Heading Color"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Talk about your brand",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Small"
+            },
+            {
+              "value": "h1",
+              "label": "Medium"
+            },
+            {
+              "value": "h0",
+              "label": "Large"
+            },
+            {
+              "value": "hxl",
+              "label": "Extra Large"
+            }
+          ],
+          "default": "h1",
+          "label": "Heading size"
+        },
+         {
+          "type": "text",
+          "id": "button_label",
+          "label": "t:sections.rich-text.blocks.button.settings.button_label.label",
+          "default": "Show more"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+        },
+        {
+          "type": "select",
+          "id": "button_size",
+          "label": "t:sections.rich-text.blocks.button.settings.button_size.label",
+          "options": [
+            {
+              "value": "regular",
+              "label": "t:sections.rich-text.blocks.button.settings.button_size.options__1.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.rich-text.blocks.button.settings.button_size.options__2.label"
+            }
+          ],
+          "default": "large"
+        },
+        {
+          "id": "button_style",
+          "label": "t:sections.local-extra-words.sections.buttons.style.label",
+          "type": "select",
+          "options": [
+            {
+              "value": "outline",
+              "label": "t:sections.local-extra-words.sections.buttons.style.option__1"
+            },
+            {
+              "value": "solid",
+              "label": "t:sections.local-extra-words.sections.buttons.style.option__2"
+            }
+          ],
+          "default": "outline"
+        },
+         {
+          "type": "color",
+          "id": "color",
+          "label": "Button Text Color"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Button Background Color"
+        },
+        {
+          "type": "color",
+          "id": "hovercolor",
+          "label": "Button Text Color on Hover"
+        },
+        {
+          "type": "color",
+          "id": "hoverbg_color",
+          "label": "Button Background Color on Hover"
+        }
+
+        
+      ]
+    },
+    
+    {
+      "type": "liquid",
+      "name": "custom liquid",
+      "settings": [
+        {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom HTML / Liquid"
+        }
+        
+      ]
+    },
+    
+    {
+      "type": "button",
+      "name": "t:sections.rich-text.blocks.button.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "t:sections.rich-text.blocks.button.settings.button_label.label",
+          "default": "Show more"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+        },
+        {
+          "type": "select",
+          "id": "button_size",
+          "label": "t:sections.rich-text.blocks.button.settings.button_size.label",
+          "options": [
+            {
+              "value": "regular",
+              "label": "t:sections.rich-text.blocks.button.settings.button_size.options__1.label"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.rich-text.blocks.button.settings.button_size.options__2.label"
+            }
+          ],
+          "default": "large"
+        },
+        {
+          "id": "button_style",
+          "label": "t:sections.local-extra-words.sections.buttons.style.label",
+          "type": "select",
+          "options": [
+            {
+              "value": "outline",
+              "label": "t:sections.local-extra-words.sections.buttons.style.option__1"
+            },
+            {
+              "value": "solid",
+              "label": "t:sections.local-extra-words.sections.buttons.style.option__2"
+            }
+          ],
+          "default": "outline"
+        },
+         {
+          "type": "color",
+          "id": "color",
+          "label": "Button Text Color"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Button Background Color"
+        },
+        {
+          "type": "color",
+          "id": "hovercolor",
+          "label": "Button Text Color on Hover"
+        },
+        {
+          "type": "color",
+          "id": "hoverbg_color",
+          "label": "Button Background Color on Hover"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "new rich text",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %} 

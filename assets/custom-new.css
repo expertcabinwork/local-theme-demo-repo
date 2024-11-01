@@ -1,0 +1,175 @@
+.page-width{
+  max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5rem;
+}
+.temp--naturopathic-consultations .main-content{
+  /* background:#F5F5F5; */
+  padding-top: unset;
+}
+.temp--naturopathic-consultations .jesogor{
+  display:none
+}
+.heading-1{
+    font-size: 44px;
+    font-weight: 700;
+    color: #000!important;
+    line-height: 54px;
+  }
+.heading-2{
+    font-size: 34px;
+    color: #000!important;
+    font-weight: 700;
+  }
+.heading-3{
+  font-size: 30px;
+    font-weight: 700;
+    color: #000!important;
+}
+.naturo-img-text--txt p, .naturo-img-text--txt li{
+  color: #000;
+    font-size: 17px;
+}
+.naturo-text-bg--container p{
+  color: #000;
+    font-size: 17px;
+}
+@media screen and (max-width: 768px) {
+  .page-width{
+    padding: 0 2rem;
+}
+  .heading-1{
+    font-size: 26px;
+    line-height: 40px;
+  }
+.heading-2{
+    font-size: 24px;
+    color: #000!important;
+    font-weight: 700;
+  }
+.heading-3{
+  font-size: 20px;
+    font-weight: 700;
+    color: #000!important;
+}
+ 
+}
+
+@media (min-width: 769px) and (max-width: 990px) {
+  .naturo-banner--inner{
+    padding: 28px 0px;
+  }
+  .natur-content--main h2 {
+    font-size: 34px!important;
+    line-height: 46px!important;
+  }
+  .natur-content--main p {
+    font-size: 18px!important;
+    line-height: 28px!important;
+}
+   .heading-1{
+    font-size: 34px!important;
+    line-height: 46px!important;
+  }
+.heading-2{
+    font-size: 28px!important;
+    color: #000!important;
+    font-weight: 700;
+  }
+.heading-3{
+  font-size: 24px!important;
+    font-weight: 700;
+    color: #000!important;
+}
+  .temp--naturopathic-consultations p, ul, li{
+    font-size:14px!important
+  }
+  .naturo-img-text--body {
+    gap: 2rem!important;
+  }
+  .naturo-book--container{
+    max-width: 82%!important;
+  }
+  .naturo-book-buttons{
+    gap: 1rem;
+  }
+  .naturo-book-buttons a{
+    font-size: 14px!important;
+  }
+}
+
+.temp--naturopathic .product-single__quantity, .temp--naturopathic .product-single__policies{
+  display:none
+}
+.bnr--container{
+  background-position: center center!important;
+    background-size: cover!important;
+  margin-bottom: 24px;
+}
+.clc--content{
+  padding: 70px 77px!important;
+    margin-left: auto!important;
+    margin-right: auto!important;
+    max-width: 1200px
+}
+.clc-content--inner{
+  background: rgba(0,0,0,.5);
+    padding: 42px 15px;
+    text-align: center;
+}
+.clc-heading{
+  color: #fff!important;
+    font-weight: 700;
+    font-size: 40px;
+    margin: unset;
+    padding: unset;
+    line-height: 40px;
+}
+.clc-desc.rte, .clc-desc.rte a, .clc-desc.rte strong{
+  color: #fff!important;
+    margin-top: 12px;
+}
+.clc-desc.rte a{
+  text-decoration:none!important;
+  border-bottom: unset!important;
+}
+@media screen and (max-width: 768px) {
+  .clc--content{
+    padding: 60px 42px!important;
+  }
+  .clc-heading{
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .clc-content--inner {
+    padding: 28px 15px
+  }
+}
+.cf-button{
+  background: #3B9A46;
+    padding: 8px 18px;
+    color: #fff;
+    font-size: 14px;
+  font-family: Lato,Helvetica,Arial,Lucida,sans-serif;
+}
+.cf-button:hover{
+ background-color: #3B9A46!important;
+    color: #fff;
+}
+.cf-form-actions button{
+  font-family: Lato,Helvetica,Arial,Lucida,sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    min-width: 94px;
+}
+.cf-form-actions .cf-cancel{
+    background: #000;
+}
+.cf-prev-step{
+  background: #000!important;
+}
+.cf-form-actions button:focus{
+    color: #fff!important;
+    text-decoration: none!important;
+    outline: unset!important;
+}

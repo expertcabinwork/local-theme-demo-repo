@@ -1,0 +1,251 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "rating_JbiTUy": {
+          "type": "rating",
+          "settings": {
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "custom_liquid_h49RRC": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "{% if product.metafields.custom.bullet_points != blank %}\n  <style>.ms-container{display:flex;flex-direction:column}.ms-container h1{order:1}.ms-container .targetbay-reviews-count-field{order:3}.ms-container ul{order:2;margin-left:20px}.ms-container ul li{margin-bottom:0;color:#365e99;font-size:14px;} .bullet li {list-style-type: disc}ul.bullet {margin-left: 20px;}\n<\/style>\n  {% assign tmpData = product.metafields.custom.bullet_points | split: ';' %}\n  <ul class=\"bullet\">\n  {% for val in tmpData %}\n    {% assign tmpVal = val | strip %}\n    <li>{{ tmpVal }}<\/li>\n  {% endfor %}\n  <\/ul>\n{% endif %}"
+          }
+        },
+        "text_XMXwLY": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Enhance Mood<\/strong><\/p>",
+            "text_size": "text-size--large",
+            "text_color": "#33ae4a",
+            "text_transform": true,
+            "border": false
+          }
+        },
+        "icons_aadaG3": {
+          "type": "icons",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "icon_1_image": "shopify:\/\/shop_images\/Capture_36558f29-897f-4c5c-afa9-538edc98310c.jpg",
+            "icon_1_label": "PUREST BIOLOGICAL FORM OF FOLATE",
+            "icon_2_image": "shopify:\/\/shop_images\/Capture_36558f29-897f-4c5c-afa9-538edc98310c.jpg",
+            "icon_2_label": "90 CHEWABLE MINT TABLET",
+            "icon_3_label": "",
+            "icon_4_label": "",
+            "icon_5_label": "",
+            "icon_6_label": "",
+            "hide_block_if": false
+          }
+        },
+        "custom_blutpoint_QAxi8J": {
+          "type": "custom-blutpoint",
+          "settings": {
+          }
+        },
+        "text_dR9xdX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Get Methyl-Life’s® most popular bundle targeting Mood Improvement - 2 key nutrients at professional strength. You'll notice a difference in your therapeutic healing process.  <\/p>",
+            "text_size": "text-size--regular",
+            "text_color": "#000000",
+            "text_transform": false,
+            "border": true
+          }
+        },
+        "price_8yFEBy": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_price": false,
+            "show_quantity_selector": false,
+            "show_preorder": false,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "custom_review_nF9QDj": {
+          "type": "custom_review",
+          "settings": {
+          }
+        },
+        "complementary_dh49GT": {
+          "type": "complementary",
+          "disabled": true,
+          "settings": {
+            "heading": "Frequently Bought Together",
+            "show_price": true,
+            "show_rating": false,
+            "show_quick_buy": true,
+            "products_number": 3
+          }
+        },
+        "collapsible_tab_wyc38z": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "DESCRIPTION",
+            "desc": "{{product.metafields.custom.product_description | metafield_tag }}",
+            "content": "",
+            "page": "",
+            "hide_block_if": false
+          }
+        },
+        "collapsible_tab_cf49MA": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "SUPPLEMENT FACTS",
+            "desc": "<div class=\"suggesteduse\"><span style=\"text-decoration: underline;\">SUGGESTED USE<\/span>: Consult with your healthcare practitioner before using this product. See&nbsp;<a href=\"\/dosage\">methyl-life.com\/dosage<\/a>&nbsp;for more recommendations.<br><\/div>\n<div class=\"suggesteduse\"><br><strong>Great for teeth, not for animals (contains xylitol).<\/strong><\/div>\n<br>\n<div class=\"supplementboxouter\">\n<div class=\"supplementfactsbox\">\n<div class=\"supplementservingsize\"><br><\/div>\n<div class=\"supplementlabel\">\n<div class=\"supplementcol2\">\n<table width=\"100%\">\n<tbody>\n<tr>\n<td style=\"width: 41.9963%;\"><strong> SUPPLEMENT FACTS <\/strong><\/td>\n<td style=\"width: 24.0037%; text-align: right;\"><strong><\/strong><\/td>\n<td style=\"width: 25%; text-align: right;\"><strong><\/strong><\/td>\n<\/tr>\n<tr>\n<td style=\"width: 41.9963%;\">\n<div class=\"supplementservingsize\">Serving Size: 1 Chewable Tablet<\/div>\n<\/td>\n<td style=\"width: 24.0037%; text-align: right;\"><strong><\/strong><\/td>\n<td style=\"width: 25%; text-align: right;\"><strong><\/strong><\/td>\n<\/tr>\n<tr>\n<td style=\"width: 41.9963%;\">90 servings per container<strong><\/strong><\/td>\n<td style=\"width: 24.0037%; text-align: right;\"><em>Amount per Serving<strong><\/strong> <\/em><\/td>\n<td style=\"width: 25%; text-align: right;\"><em> % Daily Value<strong><\/strong> <\/em><\/td>\n<\/tr>\n<tr>\n<td style=\"width: 41.9963%;\"><b>Folate<\/b><\/td>\n<td style=\"width: 24.0037%; text-align: right;\"><strong>29,135&nbsp;mcg DFE<\/strong><\/td>\n<td style=\"width: 25%; text-align: right;\"><strong>7,284%<\/strong><\/td>\n<\/tr>\n<tr>\n<td style=\"width: 41.9963%;\">(as L-5-Methyltetrahydrofolate, Calcium [equal to 22,000 mcg of&nbsp;<strong>Magnafolate® PRO<\/strong>])<\/td>\n<td style=\"width: 24.0037%; text-align: right;\">\n<div class=\"supplementcol2\"><br><\/div>\n<\/td>\n<td style=\"width: 25%; text-align: right;\">\n<div class=\"supplementcol2\"><br><\/div>\n<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<\/div>\n<\/div>\n<\/div>\n<div class=\"supplementother\"><span style=\"text-decoration: underline;\"><\/span><\/div>\n<div class=\"supplementother\"><span style=\"text-decoration: underline;\">OTHER INGREDIENTS<\/span>:&nbsp;xylitol (Xylisorb®), microcrystalline cellulose (Microcel®), stearic acid, silicon dioxide, natural mint flavor (dextrose, silicon dioxide, natural flavor.<span style=\"font-size: 0.875rem;\">&nbsp;<\/span><\/div>\n<br><br>\n<div class=\"supplementother\"><\/div>\n<div class=\"supplementother\">Not a significant source of sugars.<\/div>\n<div class=\"supplementother\"><\/div>\n<\/div>\n<div class=\"supplementboxouter\"><strong><\/strong><\/div>\n<div class=\"supplementboxouter\"><\/div>\n<br><br>\n<div class=\"supplementboxouter\"><strong>Product Does NOT Contain:&nbsp;<\/strong>wheat, gluten, soy, dairy, tree nuts, animal products, GMO’s. No artificial ingredients or colorings.<\/div>",
+            "content": "",
+            "page": "",
+            "hide_block_if": false
+          }
+        },
+        "collapsible_tab_tFfm4c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "DOSAGE",
+            "desc": "",
+            "content": "<p><strong>WARNING –<\/strong> How much is right for you to take? Talk to your doctor about what’s best for you. Before you purchase check out our <a href=\"https:\/\/methyl-life.com\/pages\/dosage\" title=\"How much L-Methylfolate should I take? What's the right dosage level of B12 for me?\">dosage information<\/a> to learn more about what some doctors recommend. And review our suggested <a href=\"https:\/\/methyl-life.com\/pages\/methylation-protocol\" title=\"A comprehensive methylation protocol suggested for those taking L-Methylfolate and Active B12\">methylation protocol<\/a> as a potential step by step guide to some dosing options.<\/p><p><strong>How to snap the tablet in half –<\/strong> <a href=\"https:\/\/www.youtube.com\/watch?v=XOxWY-kQ8kc&list=PLpRy5gLP6XyP008M0ap1OqqkeDapTU-xq&index=12&t=0s\" target=\"_blank\" title=\"How to split a Methyl-Life™ tablet in half so you can take half the dosage of a full tablet\">See how its done via video<\/a>. First find the half hash line and face it away from yourself (with the back of the tablet facing your chest\/stomach), then put both of your thumbs next to each other along the line (as if there were one on the back of the tablet). You want the half hash line facing away from you (not on the side of the tablet where your thumbs are). And then you should be able to break it in half along that line every time by simply applying pressure to snap it outwards, by pushing your thumbs away from you. This approach works far better than using a pill cutter, which seems to cause the tablet to crumble much more.<\/p>",
+            "page": "",
+            "hide_block_if": false
+          }
+        },
+        "collapsible_tab_38zADx": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "RESEARCH",
+            "desc": "<iframe height=\"500px\" width=\"100%\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0264\/6369\/9018\/files\/papakostas_2012_-_l-methylfolate_as_adjunctive_therapy_for_ssri-resistant_major_depression_-_results_of_two_randomized_double-blind_parallel-sequential_trials.pdf?v=1591251787\">\n    <\/iframe>",
+            "content": "",
+            "page": "",
+            "hide_block_if": false
+          }
+        },
+        "collapsible_tab_EHifeg": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "FAQS",
+            "desc": "",
+            "content": "<p><strong> What is the right dosage for me?<br\/><\/strong><\/p><p>Check out our <a href=\"https:\/\/methyl-life.com\/dosage\" title=\"How much L-Methylfolate should I take? What's the right dosage level of B12 for me?\">Dosage<\/a> page to learn what some <a href=\"https:\/\/methyl-life.com\/pages\/a-doctor-explains\" title=\"Dr. Neil Rawlins talks about MTHFR, Methylation, L-Methylfolate, Deplin and optimizing your health\">doctors<\/a> are saying. And consider reviewing our <a href=\"https:\/\/methyl-life.com\/pages\/methylation-protocol\/\" title=\"A comprehensive methylation protocol suggested for those taking L-Methylfolate and Active B12\">Methylation Protocol<\/a> page as one example of how someone could start taking the active methylation nutrients.<\/p><p><strong> Is Methylfolate the only thing I should take if I have an MTHFR gene mutation?<br\/><\/strong><\/p><p>No, actually our recommendation is to heavily consider following Dr. Neil Rawlins’ full supplement protocol. You can learn more about his protocol by watching parts 3 & 4 of his <a href=\"https:\/\/methyl-life.com\/pages\/a-doctor-explains\" title=\"Dr. Neil Rawlins talks about MTHFR, Methylation, L-Methylfolate, Deplin and optimizing your health\">video seminar<\/a>.You can also download one of four specific<a href=\"https:\/\/methyl-life.com\/pages\/methylation-protocol\" title=\"A comprehensive methylation protocol suggested for those taking L-Methylfolate and Active B12\">Methylation Protocols<\/a>which guide you through the beginning nutrients to start. We recommend starting low and slowly titrating up to a dose that works well for you long term. You'll find our<a href=\"https:\/\/methyl-life.com\/pages\/mthfr-newbies\" title=\"How do I treat my MTHFR? How much L-Methylfolate should I take? I'm new to MTHFR what should I do?\">MTHFR Newbies page<\/a> is very helpful as well.  It's got some great tips for folks who haven't done much study on what to do if you have an MTHFR variant.<\/p><p><strong> What do doctors have to say about MTHFR and how to treat it?<\/strong><\/p><p>Go to <a href=\"https:\/\/methyl-life.com\/pages\/a-doctor-explains\" title=\"Dr. Neil Rawlins talks about MTHFR, Methylation, L-Methylfolate, Deplin and optimizing your health\">A Doctor Explains<\/a> and listen to Dr. Neil Rawlins’ 51-minute seminar on MTHFR and the effects of Methylfolate.<\/p><p><strong> How can I get more information on MTHFR?<\/strong><\/p><p>check out our Help for<a href=\"https:\/\/methyl-life.com\/pages\/mthfr-newbies\" title=\"How do I treat my MTHFR? How much L-Methylfolate should I take? I'm new to MTHFR what should I do?\">MTHFR Newbies page<\/a>.<\/p><p><strong> Is L-Methylfolate and (6S)-5-Methyltetrahydrofolate, Calcium the same thing?<\/strong><\/p><p>Basically, yes. In the chemistry world, L stands for the “Left” isomer, which is the same as the “(6S)” isomer – the terms are synonyms (and this naming convention is used interchangeably by various companies in the industry). In the case of methylfolate, that L or (6S) isomer is the active isomer of 5-MTHF that the body can actually use. To learn more about the different types of methylfolate, its history, potency levels and stability details, and to see how our L-Methylfolate proves to be the purest on the planet, visit our <a href=\"https:\/\/methyl-life.com\/pages\/methylfolate-types\" title=\"A comprehensive comparison of L-Methylfolates available on the market today. Chemical, stability, potency and purity differences studied and compared in detail.\">Methylfolate Types page<\/a>.<\/p>",
+            "page": "",
+            "hide_block_if": false
+          }
+        }
+      },
+      "block_order": [
+        "rating_JbiTUy",
+        "title",
+        "custom_liquid_h49RRC",
+        "text_XMXwLY",
+        "icons_aadaG3",
+        "custom_blutpoint_QAxi8J",
+        "text_dR9xdX",
+        "price_8yFEBy",
+        "buy_buttons",
+        "custom_review_nF9QDj",
+        "complementary_dh49GT",
+        "collapsible_tab_wyc38z",
+        "collapsible_tab_cf49MA",
+        "collapsible_tab_tFfm4c",
+        "collapsible_tab_38zADx",
+        "collapsible_tab_EHifeg"
+      ],
+      "settings": {
+        "gallery_style": "slider",
+        "gallery_ratio": "natural",
+        "gallery_fit": true,
+        "show_border": true,
+        "gallery_card_design": false,
+        "gallery_padding": 0,
+        "gallery_pagination": "thumbnails",
+        "enable_zoom": true,
+        "enable_video_looping": true
+      }
+    },
+    "frequently_bought_dwMXwV": {
+      "type": "frequently-bought",
+      "settings": {
+        "title": "Frequently Bought Together",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "product_details_column_pmnhee": {
+      "type": "product-details-column",
+      "settings": {
+        "heading": "CLEAN, SAFE & EFFECTIVE INGREDIENTS"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "quick_buy": {
+          "type": "quick_buy",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "price",
+        "title",
+        "quick_buy"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "subheading": "",
+        "section_heading_layout": "section-heading--center",
+        "layout": "grid-4 grid-portable-3 grid-lap-2 grid-tiny-1",
+        "products_number": 4,
+        "section_background_color": "rgba(0,0,0,0)",
+        "section_heading_color": "rgba(0,0,0,0)",
+        "remove_margin": true
+      }
+    },
+    "1704622660fbd7443e": {
+      "type": "apps",
+      "blocks": {
+        "23136e7b-5c5a-430c-8d7c-90a27f9fe1cb": {
+          "type": "shopify:\/\/apps\/targetbay-product-reviews\/blocks\/product-reviews\/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "23136e7b-5c5a-430c-8d7c-90a27f9fe1cb"
+      ],
+      "settings": {
+        "full_width": false,
+        "remove_margin": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "frequently_bought_dwMXwV",
+    "product_details_column_pmnhee",
+    "product-recommendations",
+    "1704622660fbd7443e"
+  ]
+}

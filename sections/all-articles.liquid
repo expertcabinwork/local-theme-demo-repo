@@ -1,0 +1,92 @@
+<section class="news-articles-section">
+  <div class="container">
+    <h2>Latest News</h2>
+    <div class="articles-grid">
+      {% assign news_articles = '' %}
+      
+      {% for article in blog.articles %}
+        {% if article.tags contains "news" %}
+          {% assign news_articles = news_articles | append: article %}
+        {% endif %}
+      {% endfor %}
+
+      {% paginate news_articles by 9 %}
+        {% for article in news_articles %}
+          <div class="article-item">
+            <a href="{{ article.url }}">
+              {% if article.image %}
+                <img src="{{ article.image.src | img_url: 'medium' }}" alt="{{ article.title }}">
+              {% else %}
+                <img src="{{ 'default-image.png' | asset_url }}" alt="{{ article.title }}">
+              {% endif %}
+              <h3>{{ article.title }}</h3>
+              <p>{{ article.published_at | date: "%b %d, %Y" }}</p>
+              <p>{{ article.excerpt | truncate: 100 }}</p>
+            </a>
+          </div>
+        {% endfor %}
+        
+        <!-- Pagination Links -->
+        <div class="pagination">
+          {% if paginate.previous %}
+            <a href="{{ paginate.previous.url }}" class="prev">Previous</a>
+          {% endif %}
+          <span>Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+          {% if paginate.next %}
+            <a href="{{ paginate.next.url }}" class="next">Next</a>
+          {% endif %}
+        </div>
+      {% endpaginate %}
+      
+    </div>
+  </div>
+</section>
+
+<style>
+.news-articles-section {
+  padding: 40px 0;
+}
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+.article-item {
+  border: 1px solid #ddd;
+  padding: 20px;
+  text-align: center;
+}
+.article-item img {
+  max-width: 100%;
+  height: auto;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.pagination a {
+  margin: 0 10px;
+  text-decoration: none;
+}
+.pagination span {
+  margin: 0 10px;
+}
+</style>
+
+
+
+{% schema %}
+  {
+    "name": "All Articles",
+    "settings": [
+      
+    ],
+      "presets":[
+  {
+  "name":"All Articles"
+  }
+ ]
+}
+{% endschema %}

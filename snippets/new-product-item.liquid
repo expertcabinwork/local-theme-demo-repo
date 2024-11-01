@@ -1,0 +1,139 @@
+{%- assign product_variant = product.selected_or_first_available_variant -%}
+
+<div id="product-item-{{ product.id }}" class="product-item card{% for tag in product.tags %}{% if tag contains 'wholesale' %} product-item-wholesale{% endif %}{% endfor %}" data-js-product-item>
+
+  {%- liquid
+    
+    if settings.product_card_aspect_ratio == 'natural'
+      if product.media.size == 0 or blank_product
+        assign aspect_ratio = 1
+      else
+        unless product.featured_media.aspect_ratio > 0
+          assign aspect_ratio = 1
+        else
+          assign aspect_ratio = product.featured_media.aspect_ratio
+        endunless
+      endif
+    else
+      assign aspect_ratio = settings.product_card_aspect_ratio
+    endif
+
+    if settings.within_filter_enabled and product_collection
+      assign product_url = product.url | within: product_collection
+    else
+      assign product_url = product.url
+    endif
+
+  -%}
+
+  <a href="{{ product_url }}" 
+    class="card__image product-item__image
+    {% if section_blocks.size == 0 %} product-item__image--no-text {% endif %}
+    {% if settings.product_card_show_secondary_image and product.media.size >= 2 %} product-item__image--has-secondary {% endif %}"
+    style="padding-top:{{ 100 | divided_by: aspect_ratio }}%"
+  >
+
+    {%- liquid
+
+      unless layout == 'shop'
+        if layout contains 'grid-4'
+          assign sizes = '(max-width: 1023px) calc((100vw - 100px) / 3), (max-width: 1280px) calc((100vw - 120px) / 4), 300px"'
+        else 
+          assign sizes= '(max-width: 1280px) calc((100vw - 120px) / 3), 420px"'
+        endif
+        assign sizes = sizes | prepend: 'sizes="(max-width: 359px) calc(100vw - 30px), (max-width: 767px) calc((100vw - 50px) / 2),'
+      else
+        assign sizes = 'sizes="(max-width: 474px) calc((100vw - 100px) / 2), (max-width: 767px) calc((100vw - 50px) / 2), (max-width: 1023px) calc((100vw - 100px) / 3), (max-width: 1280px) calc((100vw - 150px) / 4), 285px"'
+      endunless
+      
+      if product.media.size == 0 or blank_product
+        echo 'image' | placeholder_svg_tag
+      else
+        render 'lazy-image', image: product.featured_media, alt: product.title, ratio: aspect_ratio, fit: settings.product_card_aspect_ratio_fit, type: 'background', class: 'product-item__image-figure product-item__image-figure--primary lazy-image--animation', sizes: sizes, preload: preload
+    endif
+
+      if settings.product_card_show_secondary_image and product.media.size >= 2
+        render 'lazy-image', image: product.media[1], ratio: aspect_ratio, fit: settings.product_card_aspect_ratio_fit, type: 'background', class: 'product-item__image-figure product-item__image-figure--secondary lazy-image--animation', sizes: sizes
+      endif
+
+    -%}
+
+  </a>
+
+  <div class="card__text product-item__text gutter--regular spacing--xlarge remove-empty-space text-align--{{ settings.product_card_text_alignment }}">
+
+    <div 
+            class="product-item__price text-size--large equalize-white-space" 
+            {{ block.shopify_attributes }}
+          >
+            <div class="remove-line-height-space">
+              {% unless blank_product %}
+                {%- render 'product-price', target: product, variant: product_variant, product_price_varies: product.price_varies -%}
+              {%- else -%}
+                {{ 9999 | money }}
+              {%- endunless -%}
+            </div>
+          </div>      
+    
+    <a class="product-item__title" 
+            href="{{ product_url }}" title="{{ product.title | escape }}" 
+            {{ block.shopify_attributes }}
+          >
+            <div class="remove-line-height-space--small">
+              <span class="text-animation--underline text-size--{{ settings.product_card_text_size }} text-line-height--small text-weight--bold text-animation--underline">
+                {%- liquid 
+                  unless blank_product 
+                    echo product.title 
+                  else 
+                    echo 'general.onboarding.product_title' | t
+                  endunless
+                -%}
+              </span>
+            </div>
+          </a>
+
+       {% if block.setting.enable_vendor %} 
+          <div 
+            class="product-item__vendor text-size--large text-color--opacity equalize-white-space" 
+            {{ block.shopify_attributes }}
+          >
+            <div class="remove-line-height-space">{{ product.vendor }}</div>
+          </div>
+    {% endif %}
+      
+          <div 
+            class="product-item__ratings"
+            {{ block.shopify_attributes }}
+          >
+            {%- render 'product-rating', vendor: settings.reviews_app, product: product, hide_no_reviews_on_mobile: true -%}
+          </div>
+               
+
+
+          {%- if product.available -%}
+            {%- if settings.product_card_align_buy -%}
+              </div><div 
+                class="product-item__text gutter--regular spacing--xlarge remove-empty-space text-align--{{ settings.product_card_text_alignment }}" 
+                style="padding-top: 0;"
+              >
+            {%- endif -%}
+            <div 
+              class="product-item__quick-buy" 
+              {{ block.shopify_attributes }}
+            >
+              {%- render 'quick-buy', product: product, button_classes: 'button--regular button--fullwidth', layout: layout -%}
+            </div>
+          {%- endif -%}
+         
+   
+
+
+  </div>
+
+  {%- liquid
+    unless blank_product
+      render 'product-badges', product: product, text_class: 'text-size--xsmall'
+    endunless 
+  -%}
+
+</div>

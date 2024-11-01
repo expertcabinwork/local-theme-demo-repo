@@ -1,0 +1,267 @@
+{%- style -%}
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+    
+    @media screen and (min-width:769px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+    
+    .methyl_iwt_main {
+        display: grid;
+        gap: 40px;
+    }
+      .Multi_methyl_block{
+        grid-template-columns: 1fr 1fr;
+      }
+      .methyle_image_with_text {
+        display: grid;
+            grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    .left_methyl_image{
+      width:100%;
+      display:block;
+      text-align:center;
+    }
+    .left_methyl_image img {
+        max-width: 100%;
+    }
+       .mthyl_text_heading {
+        margin: 0 0 10px;
+        font-size: 20rem;
+        line-height: 1.135;
+        font-weight: 600;
+        }
+      .mthyl_text_des p {
+        font-size:16px;
+            color: #000;
+        letter-spacing: normal;
+line-height: 25.6px;
+            margin:0 0 10px 0;
+    }
+  .mthyl_social_share {
+    border-top: 1px solid;
+}
+  a.icon_wd_txt {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #32539f;
+    font-size: 16px;
+        padding-top: 12px;
+}
+  a.icon_wd_txt svg {
+    width: 20px;
+    height: 20px;
+    fill: #32539f;
+}
+      
+      @media (min-width: 1025px){
+      .inner_multi_container{
+        max-width:68vw;
+        margin:0 auto;
+      }
+    }
+       @media screen and (max-width: 767px) {
+      .Multi_methyl_block {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+         methyle_image_with_text {
+        gap: 20px;
+    }
+       }
+    @media screen and (max-width: 640px) {
+  .methyle_image_with_text {
+    grid-template-columns: 1fr;
+}
+    }
+    {%- endstyle -%}
+        
+        <div class="multi_section section-{{ section.id }}-padding">
+          <div class="container--large ">
+            <div class="inner_multi_container">
+             
+              <div class="iner_alo_multi">
+                <div class="methyl_iwt_main {% if section.blocks.size > 1 %} Multi_methyl_block {% endif %}">
+                   {%- for block in section.blocks -%}
+                 <div class="methyle_image_with_text">
+                   <div class="left_methyl_image">
+                      {% if block.settings.image != blank %}
+                          <img width="" height="" src="{{ block.settings.image |  img_url: '' }}">
+                     {% else %}
+                        {{ 'hero-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {% endif %}
+                   </div>
+                   <div class="right_mthyl_content">
+                     <h2 class="mthyl_text_heading">{{ block.settings.heading }}</h2>
+                     <div class="mthyl_text_des" >{{ block.settings.text }}</div>
+                     {% if block.settings.social %}
+                     <div class="mthyl_social_share">
+                       
+                       {% if block.settings.link_1 != blank %}
+                         <a class="icon_wd_txt" href="{{ block.settings.link_1}}">
+                           {{ block.settings.soical_icon_1 }}
+                            {{ block.settings.soical_text_1 }}
+                         </a>
+                       {% endif %}
+                       {% if block.settings.link_2 != blank %}
+                         <a class="icon_wd_txt" href="{{ block.settings.link_2 }}">
+                           {{ block.settings.soical_icon_2 }}
+                            {{ block.settings.soical_text_2 }}
+                         </a>
+                       {% endif %}
+                       {% if block.settings.link_3 != blank %}
+                         <a class="icon_wd_txt" href="{{ block.settings.link_3}}">
+                           {{ block.settings.soical_icon_3 }}
+                            {{ block.settings.soical_text_3 }}
+                         </a>
+                       {% endif %}
+                       
+                     </div>
+                     {% endif %}
+                     
+                   </div>
+                 </div>
+              {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {% schema %}
+        {
+        "name": "image with content",
+        "settings": [
+          
+        {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "padding top",
+        "default": 40
+        },
+        {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "unit": "px",
+        "label": "padding bottom",
+        "default": 40
+        }
+        ],
+        "blocks": [
+        {
+        "type": "image-with-text",
+        "name": "image with text",
+          "limit": 1,
+        "settings": [
+          {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+        },
+        {
+        "type": "inline_richtext",
+        "id": "heading",
+        "label": "Heading"
+        },
+        {
+        "type": "richtext",
+        "id": "text",
+        "default": "<p>Methyl-Life® Medical Reviewer</p>",
+        "label": "Text"
+        },
+          {
+        "type": "checkbox",
+        "id": "social",
+        "label": "Social account enable?",
+        "default": true
+        },
+          {
+        "type": "header",
+        "content": "social profile 1"
+        },
+          {
+        "type": "html",
+        "id": "soical_icon_1",
+        "label": "Soical Icon svg"
+        },
+          {
+        "type": "url",
+        "id": "link_1",
+        "label": "Link"
+        },
+          {
+        "type": "text",
+        "id": "soical_text_1",
+        "default": "Facebook Profile",
+        "label": "Social Text"
+        },
+          {
+        "type": "header",
+        "content": "social profile 2"
+        },
+          {
+        "type": "html",
+        "id": "soical_icon_2",
+        "label": "Soical Icon svg"
+        },
+          {
+        "type": "url",
+        "id": "link_2",
+        "label": "Link"
+        },
+          {
+        "type": "text",
+        "id": "soical_text_2",
+        "default": "Linkedin Profile",
+        "label": "Social Text"
+        },
+          {
+        "type": "header",
+        "content": "social profile 3"
+        },
+          {
+        "type": "html",
+        "id": "soical_icon_3",
+        "label": "Soical Icon svg"
+        },
+          {
+        "type": "url",
+        "id": "link_3",
+        "label": "Link"
+        },
+          {
+        "type": "text",
+        "id": "soical_text_3",
+        "default": "The Health Writer Website",
+        "label": "Social Text"
+        }
+        ]
+        }
+        ],
+        "presets": [
+          
+        {
+        "name": "image with content",
+        "blocks": [
+        {
+        "type": "image-with-text"
+        }
+        ]
+        }
+        ]
+        }
+        {% endschema %}

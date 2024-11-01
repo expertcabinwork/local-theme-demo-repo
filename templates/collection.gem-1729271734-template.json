@@ -1,0 +1,136 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_description": false,
+        "show_collection_image": false,
+        "alignment": "horizontal-left align-content--vertical-bottom",
+        "color_background_main": "rgba(0,0,0,0)",
+        "color_text_main": "rgba(0,0,0,0)"
+      }
+    },
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "bff9cb30-87eb-4218-8785-ef84dd4d3400": {
+          "type": "text",
+          "settings": {
+            "metafield": "custom.short_description",
+            "text_size": "text-size--regular",
+            "text_color": "#3154a1",
+            "text_transform": false
+          }
+        },
+        "quick_buy": {
+          "type": "quick_buy",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "price",
+        "title",
+        "bff9cb30-87eb-4218-8785-ef84dd4d3400",
+        "quick_buy"
+      ],
+      "disabled": true,
+      "settings": {
+        "layout": "grid-4 grid-portable-3 grid-lap-2 grid-tiny-1",
+        "products_number": 24,
+        "enable_filtering": true,
+        "enable_sorting": true
+      }
+    },
+    "tab_nav_2_BeCb38": {
+      "type": "tab-nav-2",
+      "settings": {
+        "collection_menu": "collections-menu",
+        "bg-color": "",
+        "container": 120,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "heading": "",
+        "heading-size": "medium",
+        "text": "",
+        "text-size": "body"
+      }
+    },
+    "featured_collection_h6BCtV": {
+      "type": "featured-collection",
+      "blocks": {
+        "price_XH4NaT": {
+          "type": "price",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "title_iGefkg": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "quick_buy_bU7rPK": {
+          "type": "quick_buy",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "price_XH4NaT",
+        "title_iGefkg",
+        "quick_buy_bU7rPK"
+      ],
+      "custom_css": [
+        ".product-item__quick-buy {display: none;}"
+      ],
+      "settings": {
+        "medium_container": false,
+        "heading": "",
+        "subheading": "",
+        "show_view_all": false,
+        "section_heading_layout": "section-heading--left",
+        "style": "grid",
+        "layout": "grid-3 grid-lap-2 grid-tiny-1",
+        "products_number": 16,
+        "collection": "{{ collection }}",
+        "section_background_color": "rgba(0,0,0,0)",
+        "section_heading_color": "rgba(0,0,0,0)",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "seo_h_tag": "h2"
+      }
+    },
+    "custom_liquid_U7QmyD": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "a {color: #3154a1;}",
+        ".container--fullwidth {color: #3154a1;}"
+      ],
+      "settings": {
+        "custom_liquid": "1- <a href=\"https:\/\/ijbpas.com\/archive\/archive-single-pdf\/6008\">https:\/\/ijbpas.com\/archive\/archive-single-pdf\/6008<\/a>\n<br>\n2- <a href=\"https:\/\/www.ncbi.nlm.nih.gov\/pmc\/articles\/PMC9380836\/\">https:\/\/www.ncbi.nlm.nih.gov\/pmc\/articles\/PMC9380836\/<\/a>\n<br>\n3- <a href=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/34886014\/\">https:\/\/pubmed.ncbi.nlm.nih.gov\/34886014\/<\/a>\n<br>\n4- <a href=\"https:\/\/pubmed.ncbi.nlm.nih.gov\/30632091\/\">https:\/\/pubmed.ncbi.nlm.nih.gov\/30632091\/<\/a>",
+        "full_width": true,
+        "padding_top": 20,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "tab_nav_2_BeCb38",
+    "featured_collection_h6BCtV",
+    "custom_liquid_U7QmyD"
+  ]
+}

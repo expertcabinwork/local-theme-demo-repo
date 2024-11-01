@@ -1,0 +1,102 @@
+{%- comment -%}
+This file has been modified by the Yoast SEO for Shopify app.
+You can learn more about this (and learn how to cleanly revert these changes) at https://yoa.st/removing-theme-changes.
+{%- endcomment -%}
+{% comment %}
+	GEMPAGE BUILDER (https://apps.shopify.com/gempage)
+
+	You SHOULD NOT modify source code in this page because
+	It is automatically generated from GEMPAGE BUILDER
+	Try to edit page with the live editor.
+{% endcomment %}
+<!--GEM_HEADER-->
+
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" class="gf-style">
+<link data-instant-track rel="stylesheet" type="text/css" href="https://d1um8515vdn9kb.cloudfront.net/files/vendor.css?refresh=1" class="gf-style" />
+<link data-instant-track rel="stylesheet" type="text/css" href="{{ 'gem-article-560113778863.css' | asset_url }}" class="gf_page_style">
+<!--GEM_HEADER_END-->
+{% capture captured_page %}
+<!-- /templates/article.liquid --><style>
+  .heero-banner {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin-bottom: 60px;
+  }
+  .heero-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }  .side-padding {
+    padding-left: 15px;
+    padding-right: 15px;
+  }  .section-header {
+    margin: 60px auto;
+    max-width: 1200px;
+    display: block !important;
+  }  .section-header h1 {
+    font-family: 'Source Sans Pro'
+    , sans-serif;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-align: left;
+  }  .blog-list-position {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+  }
+  @media (max-width: 468px) {
+    .blog-list-position {
+      position: absolute;
+      width: 320px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) translateY(50px);
+    }
+  }
+</style>
+<article
+  class="article"
+  {% if disabled_by_yoast_seo %}itemscope{% endif %}
+  {% if disabled_by_yoast_seo %}itemtype="http://schema.org/Article"{% endif %}>  {%- if article.image -%}
+    <div class="heero-banner">
+      <img
+        src="{{ article.image.src | img_url: 'original' }}"
+        alt="{{ article.title | escape }}"
+        loading="lazy" />      <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="blog-list-position">
+          {% include 'category-list' %}
+        </div>
+      </div>    </div>
+  {%- endif -%}  <div class="side-padding">
+    <header class="section-header">
+      <h1 style="text-align:left;">{{ article.title }}</h1>
+    </header>
+  </div>  <div class="article__content side-padding" {% if disabled_by_yoast_seo %}itemprop="articleBody"{% endif %}>
+    <!--Gem_Page_Main_Editor--><div class="clearfix"></div><div class="gryffeditor">
+<div class="gryffeditor">
+  
+</div><div id="divContentBk"></div></div><div id="divContentBk"></div><!--End_Gem_Page_Main_Editor-->
+  </div>  <ul class="tags tags--article inline-list">
+    {% include 'tags-article' %}
+  
+  </ul></article>
+{% endcapture %}
+{% include 'password-protect' %}
+<!--GEM_FOOTER-->
+{% capture GEM_FOOTER_SCRIPT %}
+<script data-instant-track type="text/javascript">
+	var pageLibs = [		'{{ 'gem-article-560113778863.js' | asset_url }}',	];
+</script>
+<script data-instant-track type="text/javascript">
+	var GEMVENDOR = GEMVENDOR || (function(){		var _js = {};		return {			init: function(Args) {				_js = Args;			},			getLibs: function() {				return _js;			}		};	}());	GEMVENDOR.init(pageLibs);</script>
+<script data-instant-track type="text/javascript" src="https://d1um8515vdn9kb.cloudfront.net/files/gempagev2.js?v=1.0" class="gf-script" defer></script>
+{% endcapture %}
+<!--GEM_FOOTER_END-->

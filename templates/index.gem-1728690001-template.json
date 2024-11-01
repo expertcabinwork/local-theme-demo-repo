@@ -1,0 +1,709 @@
+{
+  "sections": {
+    "1653646142d6a7c886": {
+      "type": "slideshow",
+      "blocks": {
+        "1653646142fd3f3126-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Methyl-Life_Homepage_Banner_blue.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/Methyl-Life_Mobile_Homepage_Banner.jpg",
+            "caption": "",
+            "title": "",
+            "subtitle": "<p><strong>Methylation & Nutritional <br\/>Support for MTHR!<\/strong><\/p>",
+            "heading-size": "large",
+            "popup": "",
+            "link": "\/pages\/what-should-i-order",
+            "open_in_new_window": true,
+            "button_label": "Start Here",
+            "color": "#ffffff",
+            "bg_color": "#dc2e91",
+            "hovercolor": "#dc2e91",
+            "hoverbg_color": "#ffffff",
+            "color_background_main": "rgba(0,0,0,0)",
+            "color_text_main": "#ffffff",
+            "seo_h_tag": "h3"
+          }
+        }
+      },
+      "block_order": [
+        "1653646142fd3f3126-0"
+      ],
+      "custom_css": [
+        "#element-1653646142fd3f3126-0 .card__text.spacing--xlarge.remove-empty-space {position: relative; top: -40px;}"
+      ],
+      "settings": {
+        "desktop_height": "80vh",
+        "mobile_height": "60vh",
+        "is_auto_height": true,
+        "autorotate_enable": false,
+        "autorotate_interval": 4,
+        "alignment": "horizontal-left align-content--vertical-middle",
+        "text_size": "regular",
+        "title_size": "h1",
+        "button_size": "large",
+        "button_style": "solid",
+        "is_fullwidth": true,
+        "section_background_color": "rgba(0,0,0,0)",
+        "section_heading_color": "rgba(0,0,0,0)",
+        "remove_margin": false,
+        "color_hide_borders": false,
+        "color_hide_shadow": true,
+        "bottom_txt": "<p><strong>Elevate Vitality with World's<br\/> Proven Purest L-Methylfolate<\/strong><\/p>",
+        "bg_color": "#3154a1"
+      }
+    },
+    "7dddd9c4-4f8b-4ba0-b670-4cda5756efe7": {
+      "type": "text-with-collection",
+      "blocks": {
+        "d8d696bc-5b42-4ef8-a052-d38fdae0f2eb": {
+          "type": "heading",
+          "settings": {
+            "heading": "Clinically Researched Supplements",
+            "heading-size": "medium"
+          }
+        },
+        "95f061e8-beea-41ab-8516-57ba9238e367": {
+          "type": "text",
+          "settings": {
+            "text": "<h6>If you have an MTHFR gene mutation, you may need to support your health with methylated nutrients such as methylfolate. Methyl-Life’s® superior methylfolate and science-based formulations have set the industry standard for MTHFR support.  Optimize your health and wellbeing with our innovative products and expert advice. <\/h6>",
+            "text-size": "body"
+          }
+        },
+        "40bae129-1ef8-412b-9155-f7337940be84": {
+          "type": "button",
+          "settings": {
+            "btn": "See  Our  Products",
+            "link": "shopify:\/\/collections",
+            "btn_style": "solid",
+            "color": "#ffffff",
+            "bg_color": "#52a646",
+            "hovercolor": "#52a646",
+            "hoverbg_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "d8d696bc-5b42-4ef8-a052-d38fdae0f2eb",
+        "95f061e8-beea-41ab-8516-57ba9238e367",
+        "40bae129-1ef8-412b-9155-f7337940be84"
+      ],
+      "custom_css": [
+        ".text_with_collection .products-block_wraper .button.button--solid:hover {background: transparent !important; color: #dc2e91 !important;}"
+      ],
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/bg.webp",
+        "bg-color": "",
+        "color": "",
+        "page_width": 110,
+        "align": "left",
+        "layout": "grid-2 grid-portable-2 grid-lap-2 grid-tiny-1",
+        "products_number": 4,
+        "collection": "researched-supplements",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "911177e2-be52-4220-903c-887ad8f0e53b": {
+      "type": "image_banner",
+      "blocks": {
+        "d396377a-8e4d-4468-a14a-ceb7955b4a96": {
+          "type": "caption",
+          "disabled": true,
+          "settings": {
+            "txt": "Methyl-Life® L-Methylfolate Supplements Shop",
+            "url": ""
+          }
+        },
+        "4369359e-e5f1-4079-a038-85de8b2b93a3": {
+          "type": "heading",
+          "settings": {
+            "heading": "Supplements and Support",
+            "heading-size": "medium"
+          }
+        },
+        "47d40f31-9c89-43f2-8ada-8e4655acd310": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Your journey to better health starts here! Optimize your wellbeing with Methyl-Life® <\/p>",
+            "text-size": "large"
+          }
+        },
+        "80434bec-0ac1-4dbf-9e29-441b6224f051": {
+          "type": "faq",
+          "settings": {
+            "question": "HOW DO I SUPPORT MY HEALTH WITH MTHFR?",
+            "answer": "<p>If you've been newly diagnosed with an MTHFR mutation or are just looking to take some concrete action that can better support your health and improve your quality of life, check out our <a href=\"https:\/\/methyl-life.com\/pages\/mthfr-newbies-page\" target=\"_blank\" title=\"https:\/\/methyl-life.com\/pages\/mthfr-newbies-page\">6 Helpful Steps for Treating MTHFR<\/a> page for some ideal guidelines.<\/p>"
+          }
+        },
+        "2cdf50fd-4030-4e0a-a76d-df1708c06095": {
+          "type": "faq",
+          "settings": {
+            "question": "A DOCTOR EXPLAINS MTHFR",
+            "answer": "<p><a href=\"https:\/\/methyl-life.com\/pages\/a-doctor-explains\" title=\"https:\/\/methyl-life.com\/pages\/a-doctor-explains\">Dr. Neil Rawlins<\/a> presents his 4-part video seminar on MTHFR, methylfolate and how to manage challenging genetic factors affecting folate metabolism, neurotransmitter production (i.e. serotonin, dopamine, etc.), methylation, homocysteine, detoxification and more.<\/p>"
+          }
+        },
+        "acfe2c7b-32e1-4a6a-8d8f-708f2167a5ee": {
+          "type": "faq",
+          "settings": {
+            "question": "NATUROPATHIC CONSULT SERVICES",
+            "answer": "<p>Need personalized support? Our Naturopath can review your personal medical history, genetics and recent blood tests and provide either:<\/p><ul><li>An email response to one of your health issues OR<\/li><li>A 60-minute online, real-time video consult addressing your top health concerns<\/li><\/ul>"
+          }
+        },
+        "dfce7d23-f9af-4ef7-addf-ae7cb6ff9f6f": {
+          "type": "toggle",
+          "disabled": true,
+          "settings": {
+            "title": "HOW DO I SUPPORT MY HEALTH WITH MTHFR?",
+            "subtitle": "",
+            "icon": "no-icon",
+            "button_label": "",
+            "button_link": "",
+            "body": "<p>Diagnosed with MTHFR? Want to improve your physical and mental wellness? We can help. Check out our <a href=\"https:\/\/methyl-life.com\/pages\/mthfr-newbies-page\" target=\"_blank\" title=\"https:\/\/methyl-life.com\/pages\/mthfr-newbies-page\">6 Helpful Steps for Treating MTHFR.<\/a><\/p>"
+          }
+        },
+        "4f0cb815-33c7-4f79-a2dd-1e7673b21eda": {
+          "type": "toggle",
+          "disabled": true,
+          "settings": {
+            "title": "A DOCTOR EXPLAINS MTHFR",
+            "subtitle": "",
+            "icon": "no-icon",
+            "button_label": "",
+            "button_link": "",
+            "body": "<p><a href=\"https:\/\/methyl-life.com\/pages\/a-doctor-explains-1\" target=\"_blank\" title=\"https:\/\/methyl-life.com\/pages\/a-doctor-explains-1\">Dr. Neil Rawlins<\/a> presents his video seminar on MTHFR, methylfolate, and how to manage genetic challenges affecting folate metabolism, mood, methylation, detoxification and more.<\/p>"
+          }
+        },
+        "9a4f2735-133a-44b3-9480-8d97a6a15426": {
+          "type": "toggle",
+          "disabled": true,
+          "settings": {
+            "title": "MTHFR CONSULTING SERVICES COMING",
+            "subtitle": "",
+            "icon": "no-icon",
+            "button_label": "",
+            "button_link": "",
+            "body": "<p>Need personalized support? We're working to partner with professionals who can review your personal medical history, genetics, and recent blood tests and provide either:<\/p><ol><li>An email response to one of your health issues OR<\/li><li>A 60-minute online, real-time video consult addressing your top health concerns<\/li><\/ol><p>Stay Tuned ... we're hoping to bring some individualized consultant(s) onboard soon.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "d396377a-8e4d-4468-a14a-ceb7955b4a96",
+        "4369359e-e5f1-4079-a038-85de8b2b93a3",
+        "47d40f31-9c89-43f2-8ada-8e4655acd310",
+        "80434bec-0ac1-4dbf-9e29-441b6224f051",
+        "2cdf50fd-4030-4e0a-a76d-df1708c06095",
+        "acfe2c7b-32e1-4a6a-8d8f-708f2167a5ee",
+        "dfce7d23-f9af-4ef7-addf-ae7cb6ff9f6f",
+        "4f0cb815-33c7-4f79-a2dd-1e7673b21eda",
+        "9a4f2735-133a-44b3-9480-8d97a6a15426"
+      ],
+      "custom_css": [
+        "ul {list-style: unset; margin-left: 20px;}",
+        "a:hover {text-decoration: underline !important;}"
+      ],
+      "settings": {
+        "bg_image": "shopify:\/\/shop_images\/family.webp",
+        "bg-color": "",
+        "color": "",
+        "page_width": 110,
+        "align": "left",
+        "open_first": false,
+        "padding_top": 120,
+        "padding_bottom": 120
+      }
+    },
+    "33b5988f-b35d-413f-975b-01471fbb39f3": {
+      "type": "tabs",
+      "blocks": {
+        "b33325f8-dc0a-44de-942e-d41179713245": {
+          "type": "tab",
+          "settings": {
+            "title": "L-Methylfolate",
+            "image": "shopify:\/\/shop_images\/L-Methylfolate-15-mg-tablets.jpg",
+            "heading": "L-Methylfolate",
+            "heading-size": "l",
+            "text": "<p>Methyl-Life®’s <strong>L-Methylfolate<\/strong> supplements contain the purest and most potent over-the-counter <strong>L-Methylfolate<\/strong> per USP standards. Choose therapeutic dosing when it comes to supporting your mood, cardiovascular function, pregnancy, mental clarity, and other health needs. <\/p>",
+            "text-size": "body",
+            "btn": "Boost Health with L-Methylfolate",
+            "link": "shopify:\/\/collections\/l-methylfolate",
+            "btn-style": "solid",
+            "color": "#ffffff",
+            "bg_color": "#52a646",
+            "hovercolor": "#52a646",
+            "hoverbg_color": "#ffffff"
+          }
+        },
+        "2779fc3e-2cf6-485c-9e20-52fc7941e9bc": {
+          "type": "tab",
+          "settings": {
+            "title": "Methyl-B12",
+            "image": "shopify:\/\/shop_images\/Methylated-B12-L-Methylfolate-3mg-3-sides.jpg",
+            "heading": "Methyl-B12",
+            "heading-size": "l",
+            "text": "<p>Methyl-Life®’s <strong>Methyl-B12<\/strong> contains the most active bioidentical <strong>methylated B12 sublingual<\/strong> form. When taken with L-Methylfolate, these vegan nutrients support DNA synthesis, energy production, nerve health, red blood cells, and folate metabolism.<\/p>",
+            "text-size": "body",
+            "btn": "Power Up with Methyl-B12",
+            "link": "shopify:\/\/collections\/methyl-b12",
+            "btn-style": "solid",
+            "color": "#ffffff",
+            "bg_color": "#52a646",
+            "hovercolor": "#52a646",
+            "hoverbg_color": "#ffffff"
+          }
+        },
+        "tab_hYG7pn": {
+          "type": "tab",
+          "settings": {
+            "title": "MTHFR Supplements",
+            "image": "shopify:\/\/shop_images\/mthfr-supplements-l-methylfolate-vitamin-b12-supplement-multivitamin-962.jpg",
+            "heading": "MTHFR Supplements",
+            "heading-size": "l",
+            "text": "<p>Methyl-Life®’s <strong>MTHFR supplements<\/strong> contain the most potent over-the-counter L-Methylfolate combined with synergistic nutrients that support the body’s folate metabolism. This in turn aids healthy DNA\/RNA replication, mood, energy, brain function, and other wellness processes.<\/p>",
+            "text-size": "body",
+            "btn": "Balance Your Body with MTHFR Support",
+            "link": "shopify:\/\/collections\/mthfr-supplements",
+            "btn-style": "solid",
+            "color": "#ffffff",
+            "bg_color": "#52a646",
+            "hovercolor": "#ffffff",
+            "hoverbg_color": ""
+          }
+        },
+        "3c78a899-6af2-4fa4-b933-7e394465dca6": {
+          "type": "tab",
+          "settings": {
+            "title": "Methylated Vitamins",
+            "image": "shopify:\/\/shop_images\/methylation-vitamins-methyl-b12-methylfolate-5-mthf-3-product-530_7afbed57-fc78-4444-9c71-5f1384380196.jpg",
+            "heading": "Methylated Vitamins",
+            "heading-size": "l",
+            "text": "<p>Methyl-Life®’s <strong>methylated vitamins<\/strong> contain the most potent over-the-counter L-Methylfolate and <strong>methylated B vitamins<\/strong> to support neurotransmitter production, energy levels, detoxification, red blood cell health, and other vitality needs.<\/p>",
+            "text-size": "body",
+            "btn": "Energize with Methylated Vitamins",
+            "link": "shopify:\/\/collections\/methylated-vitamins",
+            "btn-style": "solid",
+            "color": "#ffffff",
+            "bg_color": "#52a646",
+            "hovercolor": "#52a646",
+            "hoverbg_color": "#ffffff"
+          }
+        },
+        "tab_ymrXHM": {
+          "type": "tab",
+          "settings": {
+            "title": "B12 Supplements",
+            "image": "shopify:\/\/shop_images\/methylated-b-vitamins-mthfr-folate-b12-methylcobalamin-cofactors-514.jpg",
+            "heading": "B12 Supplements",
+            "heading-size": "l",
+            "text": "<p>Methyl-Life®’s <strong>B12<\/strong> products contain 3 bioactive vegan <strong>B12 sublingual <\/strong>forms to improve absorption and sufficiency. Taking B12 alongside L-Methylfolate supports DNA synthesis, energy production, protein metabolism, nervous system function, and red blood cell health.<\/p>",
+            "text-size": "body",
+            "btn": "Get Vital with B12",
+            "link": "shopify:\/\/collections\/b12",
+            "btn-style": "solid",
+            "color": "#ffffff",
+            "bg_color": "#52a646",
+            "hovercolor": "#ffffff",
+            "hoverbg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "b33325f8-dc0a-44de-942e-d41179713245",
+        "2779fc3e-2cf6-485c-9e20-52fc7941e9bc",
+        "tab_hYG7pn",
+        "3c78a899-6af2-4fa4-b933-7e394465dca6",
+        "tab_ymrXHM"
+      ],
+      "custom_css": [
+        ".tab-btn {padding-top: 15px; padding-bottom: 15px;}",
+        ".tab-btn:hover {background: transparent !important; color: #52a646 !important;}",
+        "h3.first-tab-title {display: none;}"
+      ],
+      "settings": {
+        "bg-color": "",
+        "container": 100,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "heading": "",
+        "heading-size": "medium",
+        "text": "",
+        "text-size": "body"
+      }
+    },
+    "e31d7208-4f0c-4bcc-92c0-adcdbdb75c88": {
+      "type": "slideshow",
+      "blocks": {
+        "61ba170b-7a00-4718-b114-044372ac1a17": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/duo_father_son.webp",
+            "caption": "",
+            "title": "Revitalize your health and reclaim YOU!",
+            "subtitle": "<p>If you have MTHFR, L-Methylfolate is the key to getting your spark back. Learn why our folate is the purest and most effective for MTHFR.<\/p>",
+            "heading-size": "x-small",
+            "popup": "",
+            "link": "\/pages\/methylfolate-types",
+            "open_in_new_window": true,
+            "button_label": "Compare the Difference",
+            "color": "#ffffff",
+            "bg_color": "#52a646",
+            "hovercolor": "#52a646",
+            "hoverbg_color": "#ffffff",
+            "color_background_main": "#000000",
+            "color_text_main": "#ffffff",
+            "seo_h_tag": "h3"
+          }
+        }
+      },
+      "block_order": [
+        "61ba170b-7a00-4718-b114-044372ac1a17"
+      ],
+      "custom_css": [
+        "@media (max-width: 768px) {.card__text-parent {position: static; background: #fff; color: #000; }}"
+      ],
+      "settings": {
+        "desktop_height": "80vh",
+        "mobile_height": "80vh",
+        "is_auto_height": true,
+        "autorotate_enable": false,
+        "autorotate_interval": 5,
+        "alignment": "horizontal-center align-content--vertical-middle",
+        "text_size": "regular",
+        "title_size": "h2",
+        "button_size": "large",
+        "button_style": "solid",
+        "is_fullwidth": true,
+        "section_background_color": "rgba(0,0,0,0)",
+        "section_heading_color": "rgba(0,0,0,0)",
+        "remove_margin": true,
+        "color_hide_borders": false,
+        "color_hide_shadow": true,
+        "bottom_txt": "",
+        "bg_color": ""
+      }
+    },
+    "75beab27-0bd3-4f77-814f-2ed84a7ef4bf": {
+      "type": "image_with_text",
+      "blocks": {
+        "972164de-9a10-4989-98f4-db7db3b79be4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Where SCIENCE and INTEGRITY intersect.",
+            "heading-size": "small"
+          }
+        },
+        "701e78bc-33ea-4e0c-b54d-560e23a64a8f": {
+          "type": "text",
+          "settings": {
+            "text": "<h6>Understand Methyl-Life’s® manufacturing, rigorous testing and potency standards.<\/h6>",
+            "text-size": "body"
+          }
+        },
+        "02246fb8-1865-40dc-ad31-8c4cc291fafc": {
+          "type": "button",
+          "settings": {
+            "popup": "show_newsletter_popup",
+            "btn": "Learn More",
+            "btn_style": "solid",
+            "color": "#ffffff",
+            "bg_color": "#52a646",
+            "hovercolor": "#52a646",
+            "hoverbg_color": "rgba(0,0,0,0)"
+          }
+        }
+      },
+      "block_order": [
+        "972164de-9a10-4989-98f4-db7db3b79be4",
+        "701e78bc-33ea-4e0c-b54d-560e23a64a8f",
+        "02246fb8-1865-40dc-ad31-8c4cc291fafc"
+      ],
+      "settings": {
+        "heading": "",
+        "heading-size": "medium",
+        "bg_image": "shopify:\/\/shop_images\/bt_1.webp",
+        "bg-color": "",
+        "img": "shopify:\/\/shop_images\/group_grande_4c96db44-534e-46ba-ad22-677af12dc1dc.png",
+        "color": "",
+        "page_width": 90,
+        "align": "left",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "3402c35f-0b18-4ae2-a513-4cff8c7313cb": {
+      "type": "multicolumn",
+      "blocks": {
+        "111c418b-b457-4c11-97f3-a30ef464e7a5": {
+          "type": "column",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/cycling_grande_4b5e22d9-0533-4c49-9607-e471c9004c7a.webp",
+            "heading": "Our Mission",
+            "heading-size": "small",
+            "text": "<p>The Methyl-Life® team is dedicated to enhancing and supporting the lives of those with MTHFR. We source the best ingredients and follow the latest research to support your health and happiness - for life! <\/p>",
+            "text-size": "body",
+            "btn": "See why our L-Methylfolate is the purest on the planet",
+            "btn_link": "\/pages\/methylfolate-types",
+            "link_color": "#3154a1",
+            "btn_style": "solid",
+            "color": "#ffffff",
+            "bg_color": "#52a646",
+            "hovercolor": "#52a646",
+            "hoverbg_color": "#ffffff"
+          }
+        },
+        "a46bdc18-9ea6-44d0-a322-3bde9b22d52e": {
+          "type": "column",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/docs_grande_dea9a1df-23e7-49a9-a5e6-973d5395f70f.webp",
+            "heading": "Join Our Wholesale Program",
+            "heading-size": "small",
+            "text": "<p>Methyl-Life® offers wholesale accounts to healthcare professionals or businesses reselling our products. If you are a healthcare practitioner or a business, just click below to register with us for a wholesale account. We look forward to having you on our team!<\/p>",
+            "text-size": "body",
+            "btn": "Open a wholesale account",
+            "btn_link": "shopify:\/\/pages\/wholesale-application-form",
+            "link_color": "#3154a1",
+            "btn_style": "solid",
+            "color": "#ffffff",
+            "bg_color": "#52a646",
+            "hovercolor": "#ffffff",
+            "hoverbg_color": "#52a646"
+          }
+        }
+      },
+      "block_order": [
+        "111c418b-b457-4c11-97f3-a30ef464e7a5",
+        "a46bdc18-9ea6-44d0-a322-3bde9b22d52e"
+      ],
+      "custom_css": [
+        ".button-111c418b-b457-4c11-97f3-a30ef464e7a5:hover,.button-a46bdc18-9ea6-44d0-a322-3bde9b22d52e:hover {background: transparent !important; color: #52a646 !important; border-color: #52a646 !important;}"
+      ],
+      "settings": {
+        "unique-class": "",
+        "heading": "",
+        "heading-size": "large",
+        "text": "",
+        "text-size": "body",
+        "bg-color": "",
+        "color": "",
+        "page_width": 90,
+        "align": "left",
+        "btn": "",
+        "btn_style": "solid",
+        "colorbtn": "#ffffff",
+        "link": "",
+        "bg_color": "#52a646",
+        "hovercolor": "#52a646",
+        "hoverbg_color": "#ffffff",
+        "grid": 2,
+        "mblgrid": 1,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "22879cd5-de20-43d7-a6b1-827b808a0296": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16220751823023__22879cd5-de20-43d7-a6b1-827b808a0296-title-1": {
+          "type": "title",
+          "settings": {
+            "title": "Dr. Conor Sheehy",
+            "title_size": "h2",
+            "seo_h_tag": "h2"
+          }
+        },
+        "template--16220751823023__22879cd5-de20-43d7-a6b1-827b808a0296-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Conor Sheehy, PharmD, BCPS, is a board-certified pharmacist who earned his PharmD from the University of Washington. He specializes in the management of patients with metabolic diseases, including diabetes mellitus. He is also a professional medical writer who believes in providing people with accurate and easy to understand information. Dr. Sheehy believes that medical information has the highest potential to improve people’s lives when it is accessible. His other clinical interests include anticoagulation, oncology, cardiology, and psychiatry.<\/p>",
+            "text_size": "regular"
+          }
+        },
+        "template--16220751823023__22879cd5-de20-43d7-a6b1-827b808a0296-button-1": {
+          "type": "button",
+          "settings": {
+            "button_label": "Learn More",
+            "link": "shopify:\/\/pages\/about-us",
+            "button_size": "large",
+            "button_style": "outline",
+            "color": "#ffffff",
+            "bg_color": "#dc2e91",
+            "hovercolor": "#dc2e91",
+            "hoverbg_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "template--16220751823023__22879cd5-de20-43d7-a6b1-827b808a0296-title-1",
+        "template--16220751823023__22879cd5-de20-43d7-a6b1-827b808a0296-text-1",
+        "template--16220751823023__22879cd5-de20-43d7-a6b1-827b808a0296-button-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Conor_Sheehy_Clinical_Pharmacist_1.png",
+        "image_position": "left",
+        "height": "regular",
+        "image_crop": true,
+        "text_alignment": "horizontal-left",
+        "is_fullwidth": false,
+        "section_background_color": "rgba(0,0,0,0)",
+        "remove_margin": false,
+        "color_background_main": "rgba(0,0,0,0)",
+        "color_text_main": "rgba(0,0,0,0)",
+        "color_accent_main": "rgba(0,0,0,0)",
+        "color_borders_main": "rgba(0,0,0,0)",
+        "color_shadow_main": "rgba(0,0,0,0)",
+        "color_hide_borders": true,
+        "color_hide_shadow": false
+      }
+    },
+    "cdaf9829-9310-4359-8e54-0e8b1124ab32": {
+      "type": "multicolumn",
+      "blocks": {
+        "09870189-1bf6-4cf3-bc77-c2073d6fcca8": {
+          "type": "column",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/s12.png",
+            "heading": "",
+            "heading-size": "large",
+            "text": "",
+            "text-size": "body",
+            "btn": "",
+            "btn_link": "",
+            "link_color": "",
+            "btn_style": "solid",
+            "color": "",
+            "bg_color": "",
+            "hovercolor": "",
+            "hoverbg_color": ""
+          }
+        },
+        "d8ded72d-365f-4ed5-8f5a-f9f84f4aa6ba": {
+          "type": "column",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/d2.png",
+            "heading": "",
+            "heading-size": "large",
+            "text": "",
+            "text-size": "body",
+            "btn": "",
+            "btn_link": "",
+            "link_color": "",
+            "btn_style": "solid",
+            "color": "",
+            "bg_color": "",
+            "hovercolor": "",
+            "hoverbg_color": ""
+          }
+        },
+        "6a5f992c-d294-4924-b489-cdb1efa75a5d": {
+          "type": "column",
+          "settings": {
+            "img": "shopify:\/\/shop_images\/s1.png",
+            "heading": "",
+            "heading-size": "large",
+            "text": "",
+            "text-size": "body",
+            "btn": "",
+            "btn_link": "",
+            "link_color": "",
+            "btn_style": "solid",
+            "color": "",
+            "bg_color": "",
+            "hovercolor": "",
+            "hoverbg_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "09870189-1bf6-4cf3-bc77-c2073d6fcca8",
+        "d8ded72d-365f-4ed5-8f5a-f9f84f4aa6ba",
+        "6a5f992c-d294-4924-b489-cdb1efa75a5d"
+      ],
+      "custom_css": [
+        ".multicolumn_desc p a {color: #3154a1;}",
+        ".multiccolum_title {margin-bottom: 30px; color: #3154a1;}",
+        "section.section-padding-template--16766294589615__cdaf9829-9310-4359-8e54-0e8b1124ab32 img {width: 250px; margin: 0 auto !important; padding-top: 20px; padding-bottom: 20px;}",
+        "section.section-padding-template--17471933513903__cdaf9829-9310-4359-8e54-0e8b1124ab32 img {width: 80%; margin: 0 auto !important; padding-top: 20px; padding-bottom: 20px;}"
+      ],
+      "settings": {
+        "unique-class": "",
+        "heading": "ABOUT US",
+        "heading-size": "medium",
+        "text": "<p>People with MTHFR have varying issues and needs, and our goal is to significantly enhance the quality of life of those searching for a solution. We will help alleviate your frustration, serve as a trusted resource, and most importantly, put you in a healthier place for life. <\/p>",
+        "text-size": "body",
+        "bg-color": "",
+        "color": "",
+        "page_width": 75,
+        "align": "center",
+        "btn": "LEARN ABOUT OUR STORY",
+        "btn_style": "solid",
+        "colorbtn": "#fbfbfb",
+        "link": "https:\/\/methyl-life.com\/pages\/about-us",
+        "bg_color": "#52a646",
+        "hovercolor": "#52a646",
+        "hoverbg_color": "#fbfbfb",
+        "grid": 3,
+        "mblgrid": 1,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "f883d299-43b5-403e-8993-9f912624bf13": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16220751823023__f883d299-43b5-403e-8993-9f912624bf13-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>People with MTHFR have varying issues and needs, and our goal is to significantly enhance the quality of life of those searching for a solution. We will help alleviate your frustration, serve as a trusted resource, and most importantly, put you in a healthier place for life. <\/p>",
+            "text_size": "large"
+          }
+        }
+      },
+      "block_order": [
+        "template--16220751823023__f883d299-43b5-403e-8993-9f912624bf13-text-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "image_position": "top no-image",
+        "height": "regular",
+        "image_crop": false,
+        "text_alignment": "horizontal-center",
+        "is_fullwidth": false,
+        "section_background_color": "rgba(0,0,0,0)",
+        "remove_margin": true,
+        "color_background_main": "rgba(0,0,0,0)",
+        "color_text_main": "rgba(0,0,0,0)",
+        "color_accent_main": "rgba(0,0,0,0)",
+        "color_borders_main": "rgba(0,0,0,0)",
+        "color_shadow_main": "rgba(0,0,0,0)",
+        "color_hide_borders": true,
+        "color_hide_shadow": true
+      }
+    },
+    "f8ebb06a-ddf8-4164-bd5d-a83bdad8e2ae": {
+      "type": "custom-liquid",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "custom_liquid": "<script src=\"https:\/\/cdnjs.cloudflare.com\/ajax\/libs\/jquery\/2.0.2\/jquery.min.js\" integrity=\"sha512-ew6biq+ZLL9Oatatxp3TMwzqfYWjPNVj555KxiE2mV5Sc2\/1Z5SOWSbViBH+KXU788ESsXDa5m0cgRKTBqO44w==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"><\/script>\n<div class='tb_review_carousel' data-review-id='carousel_13306'>\n<\/div>",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "1653646142d6a7c886",
+    "7dddd9c4-4f8b-4ba0-b670-4cda5756efe7",
+    "911177e2-be52-4220-903c-887ad8f0e53b",
+    "33b5988f-b35d-413f-975b-01471fbb39f3",
+    "e31d7208-4f0c-4bcc-92c0-adcdbdb75c88",
+    "75beab27-0bd3-4f77-814f-2ed84a7ef4bf",
+    "3402c35f-0b18-4ae2-a513-4cff8c7313cb",
+    "22879cd5-de20-43d7-a6b1-827b808a0296",
+    "cdaf9829-9310-4359-8e54-0e8b1124ab32",
+    "f883d299-43b5-403e-8993-9f912624bf13",
+    "f8ebb06a-ddf8-4164-bd5d-a83bdad8e2ae"
+  ]
+}

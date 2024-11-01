@@ -1,0 +1,648 @@
+{%- liquid
+  if type == 'classic'
+    assign links_class = 'text-animation--underline-in-header'
+  endif
+-%}
+
+<div class="site-nav style--{{ type }}">
+  <div class="site-nav-container">
+    <nav>
+      {%- assign mega_menus = false -%}
+
+      <ul class="link-list">
+        {%- for link in linklists[linklist].links -%}
+          {%- liquid
+            assign link_is_mega_menu = false
+            assign promotion_block = false
+            assign image_block = false
+            assign multimenu_block = false
+          -%}
+
+          {%- for block in blocks -%}
+            {%- if block.type == 'multi_colum' and block.settings.menu_handle == link.handle -%}
+              {%- assign link_is_mega_menu = true -%}
+              {%- assign mega_menus = true -%}
+              {%- assign multimenu_block = true -%}
+              {%- capture multimenu_block -%} 
+                        <li class="mega-link multi_colum_mnu">
+                          {% for i in (1..4) %}                            
+                            <div class="multi_menu_block"> 
+                          {% capture multi_image %}multi_image_{{ forloop.index }}{% endcapture %}
+                          {% capture multi_heading %}multi_heading_{{ forloop.index }}{% endcapture %}
+                            {% capture multi_text %}multi_text_{{ forloop.index }}{% endcapture %}
+                          {% capture multi_link %}multi_link_{{ forloop.index }}{% endcapture %}
+                              {% if block.settings[multi_image] != blank or block.settings[multi_heading] != blank  %}
+                            <div class="inner_multi_menu">
+                              <div class="left_multi_image">
+                            {% if block.settings[multi_link] != blank %}
+                             <a class="mega_link_menu" href="{{ block.settings[multi_link] }}">
+                              {% endif %}
+                            
+                            {% if block.settings[multi_image] != blank %}
+                                <img src="{{ block.settings[multi_image] | img_url:"" }}">
+                             
+                              {% endif %}
+                            {% if block.settings[multi_link] != blank %}
+                              </a>
+                               {% endif %}
+                               </div>
+                              <div class="right_multi_content">
+                            {% if block.settings[multi_link] != blank %}
+                             <a class="mega_link_menu" href="{{ block.settings[multi_link] }}">
+                              {% endif %}
+                            
+                             {% if block.settings[multi_heading] != blank %}
+                                 <div class="multi_hdngg">{{ block.settings[multi_heading] }}</div>
+                              {% endif %}
+                             {% if block.settings[multi_text] != blank %}
+                                 <div class="multi_descc">{{ block.settings[multi_text] }}</div>
+                              {% endif %}
+                            {% if block.settings[multi_link] != blank %}
+                              </a>
+                               {% endif %}
+                              </div>
+                            </div>
+                         {% endif %}
+                              </div>
+                            {% endfor %}
+                           </li>
+                          <li class="mega-link multi_colum_mnu">
+                          {% for i in (1..4) %}                            
+                            <div class="multi_menu_block"> 
+                          {% capture new_multi_image %}new_multi_image_{{ forloop.index }}{% endcapture %}
+                          {% capture new_multi_heading %}new_multi_heading_{{ forloop.index }}{% endcapture %}
+                            {% capture new_multi_text %}new_multi_text_{{ forloop.index }}{% endcapture %}
+                          {% capture new_multi_link %}new_multi_link_{{ forloop.index }}{% endcapture %}
+                              {% if block.settings[new_multi_image] != blank or block.settings[new_multi_heading] != blank  %}
+                                <div class="inner_multi_menu">
+                              <div class="left_multi_image">
+                            {% if block.settings[new_multi_link] != blank %}
+                             <a class="mega_link_menu" href="{{ block.settings[new_multi_link] }}">
+                              {% endif %}
+                            
+                            {% if block.settings[new_multi_image] != blank %}
+                                <img src="{{ block.settings[new_multi_image] | img_url:"" }}">
+                             
+                              {% endif %}
+                            {% if block.settings[new_multi_link] != blank %}
+                              </a>
+                               {% endif %}
+                               </div>
+                              <div class="right_multi_content">
+                            {% if block.settings[new_multi_link] != blank %}
+                             <a class="mega_link_menu" href="{{ block.settings[new_multi_link] }}">
+                              {% endif %}
+                            
+                             {% if block.settings[new_multi_heading] != blank %}
+                                 <div class="multi_hdngg">{{ block.settings[new_multi_heading] }}</div>
+                              {% endif %}
+                             {% if block.settings[new_multi_text] != blank %}
+                                 <div class="multi_descc">{{ block.settings[new_multi_text] }}</div>
+                              {% endif %}
+                            {% if block.settings[new_multi_link] != blank %}
+                              </a>
+                               {% endif %}
+                              </div>
+                            </div>
+                         {% endif %}
+                              </div>
+                            {% endfor %}
+
+                       {% if block.settings.menu-right-imgs != blank %}  
+                          <div class="menu-right-imgs">
+                            <img class="side-img" src="{{ block.settings.side-img | img_url:'master' }}">
+                            <div class="img-texts">
+                              <p>{{ block.settings.img-texts }}</p>
+                              <svg width="25" height="25" viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.43200000000000005"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#5879B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            </div>
+                           </div> 
+                           {% endif %}      
+                           </li>
+                          
+                            {% if block.settings.side-img != blank %}
+                           <li class="mega-link multi_colum_mnu">
+                          <div class="menu-right-imgs">
+                            <a href="{{ block.settings.link-src }}" class="link-src">
+                            <img class="side-img" src="{{ block.settings.side-img | img_url:'master' }}">
+                            <div class="img-texts">
+                              <p>{{ block.settings.img-texts }}</p>
+                              <svg width="24" height="24" viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.43200000000000005"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#5879B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            </div>
+                            </a>
+                           </div>      
+                           </li>
+                          {% endif %}
+
+                          {% if block.settings.side-img1 != blank %}
+                           <li class="mega-link multi_colum_mnu">
+                          <div class="menu-right-imgs">
+                            <a href="{{ block.settings.link-src1 }}" class="link-src">
+                            <img class="side-img" src="{{ block.settings.side-img1 | img_url:'master' }}">
+                            <div class="img-texts">
+                              <p>{{ block.settings.img-texts1 }}</p>
+                              <svg width="24" height="24" viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.43200000000000005"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#5879B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                            </div>
+                            </a>
+                           </div>      
+                           </li>
+                          {% endif %}
+                           {% if block.settings.headingmenu != blank %}
+                          <li class="mega-link multi_colum_mnu custom-h2-ul">
+                          <a class="menuheadinglink" href="{{ block.settings.headingmenulink }}" >{{ block.settings.headingmenu }}</a>
+                            <ul>
+                             {%- for link in block.settings.menu.links -%}
+                               <li class="mobile-nav__item">
+                                 <a href="{{ link.url }}" class="mobile-nav__link">
+                                   <span class="mobile-nav__label"> {{- link.title | escape -}}</span>
+                                 </a>
+                               </li>
+                              
+                               {% endfor %}
+                            </ul>
+                            </li>
+                            {% endif %}
+
+                            {% if block.settings.videoblock1 != blank %}
+                              <li class="mega-link multi_colum_mnu custom-video">
+                                <div class="menu-right-video">
+                                  
+                                  <!-- Video 1 -->
+                                  {{ block.settings.videoblock1 | video_tag: image_size: '1100x', autoplay: false, loop: false, playsinline: false, controls: true, muted: false, id: 'video1', class: 'lazy only-tablet'}}
+                                  
+                                  <!-- Video 2 -->
+                                  {{ block.settings.videoblock2 | video_tag: image_size: '1100x', autoplay: false, loop: false, playsinline: true, controls: true, muted: false, id: 'video2', style:'display:none', class: 'lazy only-tablet'}}
+                                  
+                                  <!-- Video 3 -->
+                                  {{ block.settings.videoblock3 | video_tag: image_size: '1100x', autoplay: false, loop: false, playsinline: true, controls: true, muted: false, id: 'video3', style:'display:none', class: 'lazy only-tablet'}}
+
+                                  <!-- Video 4 -->
+                                  {{ block.settings.videoblock4 | video_tag: image_size: '1100x', autoplay: false, loop: false, playsinline: true, controls: true, muted: false, id: 'video4', style:'display:none', class: 'lazy only-tablet'}}
+
+                                  <!-- Navigation buttons -->
+                                  <div class="video-btns">
+                                    <button id="prev-video-btn" class="video-nav-btn">Previous Video</button>
+                                    <button id="next-video-btn" class="video-nav-btn">Next Video</button>
+                                  </div>
+
+                                  <div class="img-video">
+                                    <p>{{ block.settings.img-texts3 }}</p>
+                                    <svg width="24" height="24" viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)">
+                                      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                      <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.43200000000000005"></g>
+                                      <g id="SVGRepo_iconCarrier"> 
+                                        <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#5879B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> 
+                                      </g>
+                                    </svg>
+                                  </div>
+                                </div>      
+                              </li>
+                            {% endif %}
+
+                            <style>.menu-right-video video {width: 100%;}
+                             .video-nav-btn {background-color: #5879B7;color: white;border: none;padding: 10px 20px;cursor: pointer;font-size: 14px;margin-top: 10px;border-radius: 5px;}
+                             .video-nav-btn:hover {background-color: #4a68a5;}
+                             .video-btns {display: flex;justify-content: space-between;}
+                            </style>
+                
+                            <script>
+                             document.addEventListener("DOMContentLoaded", function() {
+                               // Array of video elements
+                               var videos = [
+                                 document.getElementById('video1'),
+                                 document.getElementById('video2'),
+                                 document.getElementById('video3'),
+                                 document.getElementById('video4')
+                               ];
+
+                               var currentVideoIndex = 0; // Start with the first video
+
+                               // Get buttons
+                               var nextVideoBtn = document.getElementById('next-video-btn');
+                               var prevVideoBtn = document.getElementById('prev-video-btn');
+
+                               // Function to show the current video and hide/pause others
+                               function showVideo(index) {
+                                 videos.forEach(function(video, i) {
+                                   if (i === index) {
+                                     video.style.display = 'block';  // Show the current video
+                                     video.play();  // Play the current video
+                                   } else {
+                                     video.style.display = 'none';  // Hide the other videos
+                                     video.pause();  // Pause the other videos
+                                     video.currentTime = 0;  // Reset other videos to start
+                                                                }
+                                 });
+                               }
+
+                               // Event listener for "Next Video" button
+                               nextVideoBtn.addEventListener("click", function() {
+                                 // Pause the current video before switching
+                                 videos[currentVideoIndex].pause();
+
+                                 if (currentVideoIndex < videos.length - 1) {
+                                   currentVideoIndex++;  // Move to next video
+                                 } else {
+                                   currentVideoIndex = 0;  // Loop back to the first video
+                                 }
+                                 showVideo(currentVideoIndex);  // Show the next video
+                               });
+
+                               // Event listener for "Previous Video" button
+                               prevVideoBtn.addEventListener("click", function() {
+                                 // Pause the current video before switching
+                                 videos[currentVideoIndex].pause();
+
+                                 if (currentVideoIndex > 0) {
+                                   currentVideoIndex--;  // Move to previous video
+                                 } else {
+                                   currentVideoIndex = videos.length - 1;  // Loop back to the last video
+                                 }
+                                 showVideo(currentVideoIndex);  // Show the previous video
+                               });
+
+                               // Initially show the first video
+                               // showVideo(currentVideoIndex);
+                             });
+
+
+                             document.addEventListener("DOMContentLoaded", function() {
+                               // Array of video elements
+                               var videossticky = [
+                                 document.getElementById('video1-sticky'),
+                                 document.getElementById('video2-sticky'),
+                                 document.getElementById('video3-sticky'),
+                                 document.getElementById('video4-sticky')
+                               ];
+
+                               var currentVideostickyIndex = 0; // Start with the first video
+
+                               // Get buttons
+                               var nextVideostickyBtn = document.getElementById('next-video-btn-sticky');
+                               var prevVideostickyBtn = document.getElementById('prev-video-btn-sticky');
+
+                               // Function to show the current video and hide/pause others
+                               function showVideosticky(index) {
+                                 videossticky.forEach(function(videosticky, i) {
+                                   if (i === index) {
+                                     videosticky.style.display = 'block';  // Show the current video
+                                     videosticky.play();  // Play the current video
+                                   } else {
+                                     videosticky.style.display = 'none';  // Hide the other videos
+                                     videosticky.pause();  // Pause the other videos
+                                     videosticky.currentTime = 0;  // Reset other videos to start
+                                                                }
+                                 });
+                               }
+
+                               // Event listener for "Next Video" button
+                               nextVideostickyBtn.addEventListener("click", function() {
+                                 // Pause the current video before switching
+                                 videossticky[currentVideostickyIndex].pause();
+
+                                 if (currentVideostickyIndex < videossticky.length - 1) {
+                                   currentVideostickyIndex++;  // Move to next video
+                                 } else {
+                                   currentVideostickyIndex = 0;  // Loop back to the first video
+                                 }
+                                 showVideosticky(currentVideostickyIndex);  // Show the next video
+                               });
+
+                               // Event listener for "Previous Video" button
+                               prevVideostickyBtn.addEventListener("click", function() {
+                                 // Pause the current video before switching
+                                 videossticky[currentVideostickyIndex].pause();
+
+                                 if (currentVideostickyIndex > 0) {
+                                   currentVideostickyIndex--;  // Move to previous video
+                                 } else {
+                                   currentVideostickyIndex = videossticky.length - 1;  // Loop back to the last video
+                                 }
+                                 showVideosticky(currentVideostickyIndex);  // Show the previous video
+                               });
+
+                               // Initially show the first video
+                               // showVideo(currentVideoIndex);
+                             });
+
+                            </script>
+                            
+                     {%- endcapture -%}
+            {% endif %}
+
+            {%- if block.type == 'image-mega-menu' and block.settings.menu_handle == link.handle -%}
+              {%- assign link_is_mega_menu = true -%}
+              {%- assign mega_menus = true -%}
+              {%- assign image_block = true -%}
+              {%- capture image_block -%}
+                          {% for i in (1.. block.settings.menucount ) %}
+
+                        <li class="mega-link">
+                        <div class="image_mega_menu">
+                        
+                          {% capture image %}mega_image_{{ forloop.index }}{% endcapture %}
+                          {% capture heading %}mega_text_{{ forloop.index }}{% endcapture %}
+                          {% capture megalink %}mega_link_{{ forloop.index }}{% endcapture %}
+                          {% if block.settings[image] != blank %}
+                          <div class="inner_mega_image {% if block.settings[megalink] == blank %} spacing_mega {% endif %}">
+                            {% if block.settings[megalink] != blank %}
+                             <a class="mega_link_menu" href="{{ block.settings[megalink] }}">
+                              {% endif %}
+                            {% if block.settings[image] != blank %}
+                          <img src="{{ block.settings[image] | img_url:"" }}">
+                              {% endif %}
+                            <div class="icon-menu">   
+                            {% if block.settings[heading] != blank %}
+                          <h3>{{ block.settings[heading] }}</h3>
+                            <svg width="25" height="25" viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg" transform="rotate(0)"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.43200000000000005"></g><g id="SVGRepo_iconCarrier"> <path d="M6 12H18M18 12L13 7M18 12L13 17" stroke="#5879B7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg> 
+                              {% endif %}
+                             </div> 
+                             {% if block.settings[megalink] != blank %}
+                              </a>
+                               {% endif %}
+                          </div>
+                            {% endif %}
+                          
+                        </div>
+                        </li>
+                            {% endfor %}
+                          {% if block.settings.headingmenu != blank %}
+                          <li class="mega-link">
+                          <h2 class="custom-ul-desine">{{ block.settings.headingmenu }}</h2>
+                            <ul class="custom-ul-desine">
+                             {%- for link in block.settings.menu.links -%}
+                               <li class="mobile-nav__item">
+                                 <a href="{{ link.url }}" class="mobile-nav__link">
+                                   <span class="mobile-nav__label"> {{- link.title | escape -}}</span>
+                                 </a>
+                               </li>
+                              
+                               {% endfor %}
+                            </ul>
+                            </li>
+                            {% endif %}
+                          {%- endcapture -%}
+            {% endif %}
+
+            {%- if block.type == 'mega-menu' and block.settings.menu_handle == link.handle -%}
+              {%- assign link_is_mega_menu = true -%}
+              {%- assign mega_menus = true -%}
+
+              {%- if block.settings.show_promotion_block -%}
+                {%- assign promotion_block = true -%}
+
+                {%- capture promotion_block -%}
+
+									<li class="mega-link has-promotion custom_mega_links1">
+ 
+										<div class="menu-promotion align-content--vertical-middle align-content--horizontal-center gutter--regular element--border-radius custom-height-div" data-id="{{ block.id }}">
+
+											<div class="menu-promotion-content align-content gutter--regular spacing--large remove-empty-space">
+
+												{%- if block.settings.promotion_title != blank -%}
+													<span class="menu-promotion-title">
+														<span class="{{ block.settings.promotion_title_size }} text-weight--bold text-line-height--small">{{ block.settings.promotion_title | escape }}</span>
+													</span>
+												{%- endif -%}
+
+												{%- if block.settings.promotion_subtitle != blank -%}
+													<span class="menu-promotion-subtitle {{ block.settings.promotion_subtitle_size }}">{{ block.settings.promotion_subtitle | escape }}</span>
+												{%- endif -%}
+
+												{%- if block.settings.promotion_button_label != blank -%}
+													<a title="{{ block.settings.promotion_button_label | escape }}" class="menu-promotion-button button button--regular button--solid no-focus-link" href="{{ block.settings.promotion_button_link | escape }}">
+														{{ block.settings.promotion_button_label | escape }}
+													</a>
+												{%- endif -%}
+												
+											</div>
+					
+											{%- unless block.settings.promotion_image == blank -%}
+												<div class="menu-promotion-background-image">
+													{%- assign image = block.settings.promotion_image -%}
+													<img
+														src="{{ image | image_url: width: 240 }}" alt="{{ image.alt | escape }}"
+														srcset="{{ image | image_url: width: 240 }} 180w, {{ image | image_url: width: 360 }} 300w, {{ image | image_url: width: 600 }} 480w, {{ image | image_url: width: 860 }} 720w"
+														sizes="380px"
+														width="{{ image.width }}" height="{{ image.height }}"
+														loading="lazy" 
+													/>
+												</div>
+											{%- endunless -%}
+
+										</div>
+
+										<style type="text/css">
+											{%- liquid
+												assign color_text_brightness = block.settings.promotion_color_txt | color_brightness
+												if color_text_brightness > 150
+													assign color_text_foreground = '#000'
+												else
+													assign color_text_foreground = '#fff'
+												endif
+											-%}
+											.menu-promotion[data-id="{{ block.id }}"] {
+												color: {{ block.settings.promotion_color_txt }};
+											}
+											.menu-promotion[data-id="{{ block.id }}"] .menu-promotion-button {
+												color: {{ color_text_foreground }} !important;
+												background: {{ block.settings.promotion_color_txt }} !important;
+											}
+											.menu-promotion[data-id="{{ block.id }}"] .menu-promotion-button:hover {
+												background: {{ color_text_foreground }} !important;
+												color: {{ block.settings.promotion_color_txt }} !important;
+											}
+											{%- if block.settings.promotion_image == blank -%}
+												.menu-promotion[data-id="{{ block.id }}"] {
+													background: {{ block.settings.promotion_color_bg }};
+												}
+											{%- else -%}
+												.menu-promotion[data-id="{{ block.id }}"] .menu-promotion-background-image:after {
+													background: {{ block.settings.promotion_color_bg }};
+												}
+											{%- endif -%}
+										</style>
+										
+									</li>
+
+								{%- endcapture -%}
+              {%- endif -%}
+            {%- endif -%}
+          {%- endfor -%}
+
+          <li
+            {% if link.links != blank %}
+              class="has-submenu" aria-controls="SiteNavLabel-{{ link.handle }}-{{ type }}" aria-expanded="false"
+            {% elsif link_is_mega_menu %}
+              class="has-submenu submenu-is-mega-menu"
+            {% endif %}
+            id="menu-item-{{ link.handle }}"
+          >
+            <a
+              title="{{ link.title | escape }}"
+              class="menu-link {% if link.active or link.child_active %} active {% endif %} {% unless link.links != blank or link_is_mega_menu %} no-focus-link {% endunless %}"
+              href="{{ link.url }}"
+            >
+              <span>
+                <span class="{{ links_class }}">{{ link.title | escape }}</span>
+              </span>
+
+              {% if link.links != blank or link_is_mega_menu %}
+                <span class="icon">{%- render 'theme-symbols', icon: 'chevron' -%}</span>
+              {% endif %}
+            </a>
+
+            {% if link.links != blank or link_is_mega_menu %}
+              <ul
+                class="submenu {% if link_is_mega_menu %} mega-menu {% else %} normal-menu {% endif %}"
+                id="SiteNavLabel-{{ link.handle }}-{{ type }}"
+              >
+                <div class="submenu-holder {% if link_is_mega_menu and type == 'classic' %} container--large {% endif %}">
+                  <div class="grid-items"></div>
+                  {%- if link_is_mega_menu and image_block -%}
+                    <div class="submenu-masonry">
+                      {%- if type == 'sidebar' -%}
+                        <li class="submenu-back">
+                          <a
+                            ><span class="icon">{%- render 'theme-symbols', icon: 'chevron' -%}</span>
+                            {{- 'general.accessibility_labels.back' | t -}}
+                          </a>
+                        </li>
+                      {%- endif -%}
+                    </div>
+                  {% endif %}
+
+                  {%- if link.links != blank and link_is_mega_menu -%}
+                    <div
+                      class="custom-submenu-masonry1 submenu-masonry1 {% if image_block %} with-img_block {% else %} without-img_block {% endif %} {% if multimenu_block %} with_multi_menu {% else %} without_multi_menu {% endif %}   {% if promotion_block %} with-promotion {% else %} without-promotion {% endif %}"
+                    >
+                  {%- endif -%}
+
+                  {%- if type == 'sidebar' -%}
+                    <li class="submenu-back">
+                      <a
+                        ><span class="icon">{%- render 'theme-symbols', icon: 'chevron' -%}</span>
+                        {{- 'general.accessibility_labels.back' | t -}}
+                      </a>
+                    </li>
+                  {%- endif -%}
+
+                  {%- for childlink in link.links -%}
+                    <li
+                      {% if link_is_mega_menu %}
+                        class="mega-link {% if childlink.links != blank %}{% endif %} has-babymenu cutsom-none"
+                      {% elsif childlink.links != blank %}
+                        class="has-babymenu" aria-controls="SiteNavLabel-{{ childlink.handle }}-{{ type }}"
+                        aria-expanded="false"
+                      {% endif %}
+                    >
+                      <a
+                        title="{{ childlink.title | escape }}"
+                        class="menu-link {% if link_is_mega_menu == false and childlink.active or childlink.child_active %} active {% endif %} {% unless childlink.links != blank %} no-focus-link {% endunless %}"
+                        href="{{ childlink.url }}"
+                      >
+                        <span
+                          ><span class="{{ links_class }}">{{ childlink.title | escape }}</span></span
+                        >
+                        {%- if childlink.links != blank -%}
+                          <span class="icon">{%- render 'theme-symbols', icon: 'chevron' -%}</span>
+                        {%- endif -%}
+                      </a>
+
+                      {%- if childlink.links != blank -%}
+                        <div class="babymenu">
+                          <ul id="SiteNavLabel-{{ childlink.handle }}-{{ type }}">
+                            {%- if type == 'sidebar' -%}
+                              <li class="submenu-back">
+                                <a
+                                  ><span class="icon">{%- render 'theme-symbols', icon: 'chevron' -%}</span>
+                                  {{- 'general.accessibility_labels.back' | t -}}
+                                </a>
+                              </li>
+                            {%- endif -%}
+
+                            {% for babylink in childlink.links %}
+                              <li>
+                                <a
+                                  title="{{ babylink.title | escape }}"
+                                  class="menu-link has-babymenu cutsom-none {% if babylink.active %} active {% endif %} no-focus-link"
+                                  href="{{ babylink.url }}"
+                                  ><span
+                                    ><span class="{{ links_class }}">{{ babylink.title | escape }}</span></span
+                                  ></a
+                                >
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+
+                  {%- if link.links != blank and link_is_mega_menu -%}
+                    </div>
+                  {%- endif -%}
+
+                  {%- liquid
+                    if promotion_block
+                      echo promotion_block
+                    endif
+                  -%}
+                  {%- liquid
+                    if image_block
+                      echo image_block
+                    endif
+                  -%}
+                  {%- liquid
+                    if multimenu_block
+                      echo multimenu_block
+                    endif
+                  -%}
+                </div>
+              </ul>
+            {% endif %}
+          </li>
+        {%- endfor -%}
+
+        {%- if type == 'sidebar' and shop.customer_accounts_enabled -%}
+          <li id="menu-item-account">
+            <a
+              class="menu-link"
+              href="
+                {%- liquid
+                	if customer
+                		echo routes.account_url
+                	else
+                	 echo routes.account_login_url
+                	endif
+                -%}
+              "
+              title="{{ 'general.breadcrumb.account' | t }}"
+            >
+              <span style="display: inline-flex; align-items: center;">
+                {%- render 'theme-symbols', icon: 'account' -%}
+                {{ 'general.breadcrumb.account' | t }}
+              </span>
+            </a>
+          </li>
+        {%- endif -%}
+      </ul>
+
+      {%- if mega_menus and type == 'classic' -%}
+        <script src="{{ 'vendor-macy.js' | asset_url }}" defer onload="runMacy()"></script>
+        <script>
+          function runMacy(){
+          	document.querySelectorAll('.site-nav.style--classic .submenu-masonry').forEach(elm=>{
+          		const submenuMacy = new Macy({
+          			container: elm,
+          			columns: elm.classList.contains('with-promotion') ? 3 : 4
+          		});
+          		setTimeout(()=>{
+          			submenuMacy.reInit();
+          		}, 100);
+          	})
+          }
+        </script>
+      {%- endif -%}
+    </nav>
+  </div>
+</div>

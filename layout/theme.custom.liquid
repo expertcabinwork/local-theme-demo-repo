@@ -1,0 +1,162 @@
+{%- comment -%}
+This file has been modified by the Yoast SEO for Shopify app.
+You can learn more about this (and learn how to cleanly revert these changes) at https://yoa.st/removing-theme-changes.
+{%- endcomment -%}
+<!doctype html>
+<html class="no-js" lang="{{ shop.locale }}">
+  <head>
+    <script>
+      !function(s,a,e,v,n,t,z){if(s.saq)return;n=s.saq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!s._saq)s._saq=n;n.push=n;n.loaded=!0;n.version='1.0';n.queue=[];t=a.createElement(e);t.async=!0;t.src=v;z=a.getElementsByTagName(e)[0];z.parentNode.insertBefore(t,z)}(window,document,'script','https://tags.srv.stackadapt.com/events.js');saq('ts', 'fR8SCtnHzW2EZJyhumS1NA');
+    </script>
+    <script type="text/javascript">
+          (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "exynz1zrzs");
+    </script>
+    <meta charset="utf-8">
+    <!-- Title and description ================================================== -->
+    {%- comment -%}Auto-disabled. Yoast plugin is taking care of SEO output.{%- endcomment -%}
+{%- if disabled_by_yoast_seo -%}
+<title>
+      {{ page_title }}{% if current_tags %}
+        {% assign meta_tags = current_tags | join: ', ' %} &vert; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}
+      {% if current_page != 1 %}
+        &vert; {{ 'general.meta.page' | t: page: current_page }}{% endif %}
+      {% unless page_title contains Methyl-Life&trade; %}
+        {{ &vert; Methyl-Life&trade; }}{% endunless %}
+    </title>
+{%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+{%- endif -%}
+
+    {% if page_description %}
+      {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
+{%- if disabled_by_yoast_seo -%}
+<meta name="description" content="{{ page_description | escape }}">
+{%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+{%- endif -%}
+    {% endif %}
+
+    <!-- Helpers ================================================== -->
+    {% include 'social-meta-tags' %}
+    {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
+{%- if disabled_by_yoast_seo -%}
+<link rel="canonical" href="{{ canonical_url }}">
+{%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+{%- endif -%}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
+{%- if disabled_by_yoast_seo -%}
+<meta property="og:title" content="">
+{%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+{%- endif -%}
+    {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
+{%- if disabled_by_yoast_seo -%}
+<meta property="og:type" content="">
+{%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+{%- endif -%}
+    {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
+{%- if disabled_by_yoast_seo -%}
+<meta property="og:url" content="">
+{%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+{%- endif -%}
+    {%- comment -%}Auto-disabled. Yoast plugin is taking care of Meta Tags output.{%- endcomment -%}
+{%- if disabled_by_yoast_seo -%}
+<meta property="og:image" content="">
+{%- comment -%} End Yoast auto-disable. {%- endcomment -%}
+{%- endif -%}
+    {% if settings.favicon %}
+      <link
+        rel="shortcut icon"
+        href="{{ settings.favicon | img_url: '32x32' }}"
+        type="image/png" />
+    {% endif %}
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    {{ content_for_header }}
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous">
+    {{ 'cbf_main.css' | asset_url | stylesheet_tag }}
+
+    <meta name="theme-color" content="#fafafa">
+
+    
+
+    
+  </head>
+  <body id="{{ page_title | handle }}" class="{% if customer %}customer-logged-in {% endif %}template-{{ request.page_type | handle }}">
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-W9PTBFD"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    {{ content_for_layout }}
+
+    <!-- Tracking Codes ================================================== -->
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-W9PTBFD');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Hotjar Tracking Code for https://methyl-life.com -->
+    <script>
+          (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2026016,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+          })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '787607575074625');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=787607575074625&ev=PageView&noscript=1" /></noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Global site tag (gtag.js) - Google Ads: 961743265 -->
+    <script src="https://www.googletagmanager.com/gtag/js?id=AW-961743265" defer="defer"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'AW-961743265');
+    </script>
+  </body>
+</html>

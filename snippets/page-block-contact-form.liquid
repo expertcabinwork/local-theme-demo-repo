@@ -1,0 +1,98 @@
+{%- liquid
+  assign blockId = block.id
+  if product
+    assign blockId = block.id | append: product.id
+  endif
+-%}
+
+  <div class="page-width--narrow">
+
+    <div class=" ">
+      <div class="">
+        <div class="contact_bg">
+        {%- if block.settings.title != blank -%}
+          <div class="features-header text-center">
+            <h1> {{ block.settings.title }} </h1>
+             <p class="features_desc">{{ block.settings.details  | newline_to_br }}</p>
+          </div>
+        {%- endif -%}
+
+        <div class="form-vertical">
+  {%- assign form_id = 'contact-' | append: section.id -%}
+      {%- form 'contact', id: form_id, class: 'isolate' -%}
+
+        {%- liquid 
+          if form.posted_successfully?
+            assign message = 'general.contact_form.success_message' | t
+            render 'form-success', message: message
+          elsif form.errors
+            render 'form-errors', form: form
+          endif
+        -%}
+        
+        <div class="contact__fields">
+          
+          <div class="contact-form__row">
+            <label class="visually-hidden" for="{{ form_id }}-name">{{ 'general.contact_form.name_label' | t }}</label>
+            <input class="field__input" autocomplete="name" type="text" id="{{ form_id }}-name" name="contact[{{ 'general.contact_form.name_label' | t }}]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ 'general.contact_form.name_label' | t }}">
+          </div>
+
+          <div class="contact-form__row">
+            <label class="visually-hidden" for="{{ form_id }}-email">{{ 'general.contact_form.email_label' | t }} <span aria-hidden="true">*</span></label>
+            <input
+              autocomplete="email"
+              type="email"
+              id="{{ form_id }}-email"
+              class="field__input"
+              name="contact[email]"
+              spellcheck="false"
+              autocapitalize="off"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+              aria-required="true"
+              {% if form.errors contains 'email' %}
+                aria-invalid="true"
+                aria-describedby="{{ form_id }}-email-error"
+              {% endif %}
+              placeholder="{{ 'general.contact_form.email_label' | t }}"
+            >
+          </div>
+        </div>
+
+   
+          <div class="contact-form__row">
+            <label class="visually-hidden" for="{{ form_id }}-subject">{{ 'general.contact_form.subject_label' | t }}</label>
+            <input type="text" id="{{ form_id }}-subject" class="field__input" autocomplete="tel" name="contact[Subject]"  value="{% if form.subject %}{{ form.subject }}{% elsif customer %}{{ customer.subject }}{% endif %}" placeholder="{{ 'general.contact_form.subject_label' | t }}">
+          </div>
+        
+
+        
+          <div class="contact-form__row">
+            <label class="visually-hidden" for="{{ form_id }}-phone">{{ 'general.contact_form.phone_label' | t }}</label>
+            <input type="tel" id="{{ form_id }}-phone" class="field__input" autocomplete="tel" name="contact[{{ 'general.contact_form.phone_label' | t }}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ 'general.contact_form.phone_label' | t }}">
+            
+          </div>
+
+        <div class="contact-form__row">
+          <label class="visually-hidden" for="{{ form_id }}-body">{{ 'general.contact_form.message_label' | t }}</label>
+          <textarea
+            rows="10"
+            id="{{ form_id }}-body"
+            class="text-area field__input"
+            name="contact[{{ 'general.contact_form.message_label' | t }}]"
+            placeholder="{{ 'general.contact_form.message_label' | t }}"
+          >{{ form.body }}</textarea>
+        </div>
+
+        <div class="contact-form__row">
+          <button type="submit" class="button button--solid button--regular">
+            {{ 'general.contact_form.submit_label' | t }}
+          </button>
+        </div>
+        
+      {%- endform -%}
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

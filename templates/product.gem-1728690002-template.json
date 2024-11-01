@@ -1,0 +1,340 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "targetbay_product_reviews_product_stats_PNrXaL": {
+          "type": "shopify:\/\/apps\/targetbay-product-reviews\/blocks\/product-stats\/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {
+          }
+        },
+        "rating_JbiTUy": {
+          "type": "rating",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "custom_liquid_h49RRC": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "{% if product.metafields.custom.bullet_points != blank %}\n  <style>.ms-container{display:flex;flex-direction:column}.ms-container h1{order:1}.ms-container .targetbay-reviews-count-field{order:3}.ms-container ul{order:2;margin-left:20px}.ms-container ul li{margin-bottom:0;color:#365e99;font-size:14px;} .bullet li {list-style-type: disc}ul.bullet {margin-left: 20px;}\n<\/style>\n  {% assign tmpData = product.metafields.custom.bullet_points | split: ';' %}\n  <ul class=\"bullet\">\n  {% for val in tmpData %}\n    {% assign tmpVal = val | strip %}\n    <li>{{ tmpVal }}<\/li>\n  {% endfor %}\n  <\/ul>\n{% endif %}"
+          }
+        },
+        "text_XMXwLY": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_size": "text-size--large",
+            "text_color": "#33ae4a",
+            "text_transform": true,
+            "border": false
+          }
+        },
+        "icons_aadaG3": {
+          "type": "icons",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "icon_1_image": "shopify:\/\/shop_images\/Capture_36558f29-897f-4c5c-afa9-538edc98310c.jpg",
+            "icon_1_label": "PUREST BIOLOGICAL FORM OF FOLATE",
+            "icon_2_image": "shopify:\/\/shop_images\/Capture_36558f29-897f-4c5c-afa9-538edc98310c.jpg",
+            "icon_2_label": "90 CHEWABLE MINT TABLET",
+            "icon_3_label": "",
+            "icon_4_label": "",
+            "icon_5_label": "",
+            "icon_6_label": "",
+            "hide_block_if": false
+          }
+        },
+        "custom_blutpoint_QAxi8J": {
+          "type": "custom-blutpoint",
+          "settings": {
+          }
+        },
+        "variant_picker_mcngRn": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "variants_style": "radio",
+            "show_quantities": "no"
+          }
+        },
+        "text_dR9xdX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.short_description.value }}<\/p>",
+            "text_size": "text-size--regular",
+            "text_color": "#000000",
+            "text_transform": false,
+            "border": true
+          }
+        },
+        "price_8yFEBy": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_price": false,
+            "show_quantity_selector": false,
+            "show_preorder": false,
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "custom_review_nF9QDj": {
+          "type": "custom_review",
+          "settings": {
+          }
+        },
+        "complementary_dh49GT": {
+          "type": "complementary",
+          "disabled": true,
+          "settings": {
+            "heading": "Frequently Bought Together",
+            "show_price": true,
+            "show_rating": false,
+            "show_quick_buy": true,
+            "products_number": 3
+          }
+        },
+        "custom_tabs_hxTfzd": {
+          "type": "custom-tabs",
+          "settings": {
+          }
+        },
+        "collapsible_tab_wyc38z": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "",
+            "desc": "{{product.description}}",
+            "content": "",
+            "page": "",
+            "hide_block_if": false
+          }
+        },
+        "collapsible_tab_cf49MA": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "SUPPLEMENT FACTS",
+            "desc": "<div class=\"suggesteduse\"><span style=\"text-decoration: underline;\">SUGGESTED USE<\/span>: Consult with your healthcare practitioner before using this product. See&nbsp;<a href=\"\/dosage\">methyl-life.com\/dosage<\/a>&nbsp;for more recommendations.<br><\/div>\n<div class=\"suggesteduse\"><br><strong>Great for teeth, not for animals (contains xylitol).<\/strong><\/div>\n<br>\n<div class=\"supplementboxouter\">\n<div class=\"supplementfactsbox\">\n<div class=\"supplementservingsize\"><br><\/div>\n<div class=\"supplementlabel\">\n<div class=\"supplementcol2\">\n<table width=\"100%\">\n<tbody>\n<tr>\n<td style=\"width: 41.9963%;\"><strong> SUPPLEMENT FACTS <\/strong><\/td>\n<td style=\"width: 24.0037%; text-align: right;\"><strong><\/strong><\/td>\n<td style=\"width: 25%; text-align: right;\"><strong><\/strong><\/td>\n<\/tr>\n<tr>\n<td style=\"width: 41.9963%;\">\n<div class=\"supplementservingsize\">Serving Size: 1 Chewable Tablet<\/div>\n<\/td>\n<td style=\"width: 24.0037%; text-align: right;\"><strong><\/strong><\/td>\n<td style=\"width: 25%; text-align: right;\"><strong><\/strong><\/td>\n<\/tr>\n<tr>\n<td style=\"width: 41.9963%;\">90 servings per container<strong><\/strong><\/td>\n<td style=\"width: 24.0037%; text-align: right;\"><em>Amount per Serving<strong><\/strong> <\/em><\/td>\n<td style=\"width: 25%; text-align: right;\"><em> % Daily Value<strong><\/strong> <\/em><\/td>\n<\/tr>\n<tr>\n<td style=\"width: 41.9963%;\"><b>Folate<\/b><\/td>\n<td style=\"width: 24.0037%; text-align: right;\"><strong>29,135&nbsp;mcg DFE<\/strong><\/td>\n<td style=\"width: 25%; text-align: right;\"><strong>7,284%<\/strong><\/td>\n<\/tr>\n<tr>\n<td style=\"width: 41.9963%;\">(as L-5-Methyltetrahydrofolate, Calcium [equal to 22,000 mcg of&nbsp;<strong>Magnafolate® PRO<\/strong>])<\/td>\n<td style=\"width: 24.0037%; text-align: right;\">\n<div class=\"supplementcol2\"><br><\/div>\n<\/td>\n<td style=\"width: 25%; text-align: right;\">\n<div class=\"supplementcol2\"><br><\/div>\n<\/td>\n<\/tr>\n<\/tbody>\n<\/table>\n<\/div>\n<\/div>\n<\/div>\n<div class=\"supplementother\"><span style=\"text-decoration: underline;\"><\/span><\/div>\n<div class=\"supplementother\"><span style=\"text-decoration: underline;\">OTHER INGREDIENTS<\/span>:&nbsp;xylitol (Xylisorb®), microcrystalline cellulose (Microcel®), stearic acid, silicon dioxide, natural mint flavor (dextrose, silicon dioxide, natural flavor.<span style=\"font-size: 0.875rem;\">&nbsp;<\/span><\/div>\n<br><br>\n<div class=\"supplementother\"><\/div>\n<div class=\"supplementother\">Not a significant source of sugars.<\/div>\n<div class=\"supplementother\"><\/div>\n<\/div>\n<div class=\"supplementboxouter\"><strong><\/strong><\/div>\n<div class=\"supplementboxouter\"><\/div>\n<br><br>\n<div class=\"supplementboxouter\"><strong>Product Does NOT Contain:&nbsp;<\/strong>wheat, gluten, soy, dairy, tree nuts, animal products, GMO’s. No artificial ingredients or colorings.<\/div>",
+            "content": "<p>{{ product.metafields.custom.supplement_facts | metafield_tag }}<\/p>",
+            "page": "",
+            "hide_block_if": false
+          }
+        },
+        "collapsible_tab_tFfm4c": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "DOSAGE",
+            "desc": "",
+            "content": "{{ product.metafields.custom.dosage | metafield_tag }}",
+            "page": "",
+            "hide_block_if": false
+          }
+        },
+        "collapsible_tab_38zADx": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "RESEARCH",
+            "desc": "<iframe height=\"500px\" width=\"100%\" src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/0264\/6369\/9018\/files\/papakostas_2012_-_l-methylfolate_as_adjunctive_therapy_for_ssri-resistant_major_depression_-_results_of_two_randomized_double-blind_parallel-sequential_trials.pdf?v=1591251787\">\n    <\/iframe>",
+            "content": "",
+            "page": "",
+            "hide_block_if": false
+          }
+        },
+        "collapsible_tab_EHifeg": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "FAQS",
+            "desc": "",
+            "content": "{{ product.metafields.custom.faq | metafield_tag }}",
+            "page": "",
+            "hide_block_if": false
+          }
+        },
+        "mob_tabs_KhGM9X": {
+          "type": "Mob-tabs",
+          "settings": {
+            "heading": "",
+            "desc": "{{product.description}}",
+            "content": "",
+            "page": "",
+            "hide_block_if": false
+          }
+        }
+      },
+      "block_order": [
+        "targetbay_product_reviews_product_stats_PNrXaL",
+        "rating_JbiTUy",
+        "title",
+        "custom_liquid_h49RRC",
+        "text_XMXwLY",
+        "icons_aadaG3",
+        "custom_blutpoint_QAxi8J",
+        "variant_picker_mcngRn",
+        "text_dR9xdX",
+        "price_8yFEBy",
+        "buy_buttons",
+        "custom_review_nF9QDj",
+        "complementary_dh49GT",
+        "custom_tabs_hxTfzd",
+        "collapsible_tab_wyc38z",
+        "collapsible_tab_cf49MA",
+        "collapsible_tab_tFfm4c",
+        "collapsible_tab_38zADx",
+        "collapsible_tab_EHifeg",
+        "mob_tabs_KhGM9X"
+      ],
+      "settings": {
+        "gallery_style": "slider",
+        "gallery_ratio": "natural",
+        "gallery_fit": true,
+        "show_border": true,
+        "gallery_card_design": false,
+        "gallery_padding": 0,
+        "gallery_pagination": "thumbnails",
+        "enable_zoom": true,
+        "enable_video_looping": true
+      }
+    },
+    "custom_tab_section_AQJmNg": {
+      "type": "custom-tab-section",
+      "blocks": {
+        "tab_N6D8N3": {
+          "type": "tab",
+          "settings": {
+            "tab-title": "Description",
+            "tab-content": "<div class=\"tab-spec\">\n{{ product.metafields.custom.tab_description }}<\/div>"
+          }
+        },
+        "tab_w66wbR": {
+          "type": "tab",
+          "settings": {
+            "tab-title": "Dosage",
+            "tab-content": "<div class=\"tab-spec\">\n{{ product.metafields.custom.tab_dosage }}<\/div>"
+          }
+        },
+        "tab_g7XJGM": {
+          "type": "tab",
+          "settings": {
+            "tab-title": "Video \/ SUPPLEMENT FACTS",
+            "tab-content": "<div class=\"tab-spec\">\n{{ product.metafields.custom.tab_videos }}\n<br>\n{{ product.metafields.custom.tab_supplement_facts }}\n<\/div>"
+          }
+        },
+        "tab_HdigzD": {
+          "type": "tab",
+          "settings": {
+            "tab-title": "Research",
+            "tab-content": "<div class=\"tab-spec\">\n{{ product.metafields.custom.tab_research }}<\/div>"
+          }
+        },
+        "tab_AdJGcT": {
+          "type": "tab",
+          "settings": {
+            "tab-title": "FAQ'S",
+            "tab-content": "<div class=\"tab-spec\">\n{{ product.metafields.custom.tab_faq_s }}<\/div>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_N6D8N3",
+        "tab_w66wbR",
+        "tab_g7XJGM",
+        "tab_HdigzD",
+        "tab_AdJGcT"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": ""
+      }
+    },
+    "frequently_bought_dwMXwV": {
+      "type": "frequently-bought",
+      "settings": {
+        "title": "Frequently Bought Together",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "product_details_column_pmnhee": {
+      "type": "product-details-column",
+      "settings": {
+        "heading": "CLEAN, SAFE & EFFECTIVE INGREDIENTS"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "blocks": {
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "quick_buy": {
+          "type": "quick_buy",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "price",
+        "title",
+        "quick_buy"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "subheading": "",
+        "section_heading_layout": "section-heading--center",
+        "layout": "grid-4 grid-portable-3 grid-lap-2 grid-tiny-1",
+        "products_number": 4,
+        "section_background_color": "rgba(0,0,0,0)",
+        "section_heading_color": "rgba(0,0,0,0)",
+        "remove_margin": true
+      }
+    },
+    "1704622660fbd7443e": {
+      "type": "apps",
+      "blocks": {
+        "23136e7b-5c5a-430c-8d7c-90a27f9fe1cb": {
+          "type": "shopify:\/\/apps\/targetbay-product-reviews\/blocks\/product-reviews\/ab28a41b-cb7d-4239-b063-4e8140ce7d86",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "23136e7b-5c5a-430c-8d7c-90a27f9fe1cb"
+      ],
+      "settings": {
+        "full_width": false,
+        "remove_margin": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "custom_tab_section_AQJmNg",
+    "frequently_bought_dwMXwV",
+    "product_details_column_pmnhee",
+    "product-recommendations",
+    "1704622660fbd7443e"
+  ]
+}

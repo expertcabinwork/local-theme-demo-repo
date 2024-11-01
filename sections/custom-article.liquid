@@ -1,0 +1,1611 @@
+{{ 'custom-article-section.css' | asset_url | stylesheet_tag }}
+{{ 'table-section.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  .table-of-content__main{
+    padding-bottom: 16px 
+  }
+  .table-of-content__inner a{
+    display:block;
+    text-transform: capitalize;
+    color: rgb(36, 85, 166);
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+  .table-of-content__inner a img{
+    width: 14px;
+    height: 13px;
+    object-fit: contain;
+    margin-right: 18px;
+
+  }
+  .table-of-content__main h4{
+    text-transform: uppercase;
+    color: #3154a1;
+    border-bottom: 1px solid #242424;
+    padding-bottom: 10px 
+  }
+  /* .table-of-content__inner a::before{
+    content: "";
+      display: inline-block;
+      width: 13px;
+      height: 14px ;
+      background: url('{{ 'play-button.png' | asset_url }}') no-repeat center center;
+      background-size: cover; 
+      margin-right: 10px;
+      position: relative;
+      top: 2px;
+      left: 0px;
+  } */
+  @media screen and (max-width: 768px) {
+    .table-of-content__inner a{
+      font-size:13px;
+      margin-bottom: 2px;
+       align-items:unset;
+    }
+    .table-of-content__inner a img{
+      position: relative;
+      top: 5px;
+    }
+  }
+  .key-takeaways__main{
+    margin: 16px 0;
+  }
+  .key-takeaways__container{
+    background: #cccccc45;
+    padding: 18px;
+    border-radius: 24px;
+    box-shadow: 1px 2px 6px 1px #ccc;
+  }
+  .key-takeaways__container h4{
+    color: #3154a1;
+  }
+  .key-content li, .key-content p, .key-content span, key-content a{
+    color: rgb(49, 84, 161);
+  }
+  .key-content li::before {
+    content: url('{{ 'play-button2.png' | asset_url }}');
+    margin-right: 5px; /* Adjust the spacing between the icon and text */
+    display: block;
+    top: 2px;
+    position: relative;
+}
+  .key-content li{
+    display: flex;
+  }
+  .key-content li 
+  {%- endstyle -%}
+<div class="custom_article_section section-{{ section.id }}-padding ">
+  <div class="container--large">
+    <div class="main_custom_article">
+      <div class=" {% if section.settings.sidebar_enable %}left_custom_article{% endif %}">
+   
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when 'key-takeaways'  -%}
+            <div class="key-takeaways__main">
+            <div class="key-takeaways__container">
+            {% if block.settings.key_title != blank %}
+            <h4>{{ block.settings.key_title }}</h4>
+            {% endif %}  
+            {% if block.settings.key_paragraph != blank %}
+            <div class="key-content">
+              {{ block.settings.key_paragraph }}
+            </div>
+            {% endif %}  
+            </div>
+            </div>
+            {%- when 'table-of_content'  -%}
+            <div class="table-of-content__main">
+              <h4>Table of Contents</h4>
+            <div class="table-of-content__inner">
+              {% if block.settings.content_heading1 != blank %}
+              <a href="{{ block.settings.content_url1 }}"><img src="{{ 'play-button.png' | asset_url }}">{{ block.settings.content_heading1 }}</a>
+              {% endif %}
+            {% if block.settings.content_heading2 != blank %}
+              <a href="{{ block.settings.content_url2 }}"><img src="{{ 'play-button.png' | asset_url }}">{{ block.settings.content_heading2 }}</a>
+              {% endif %}
+            {% if block.settings.content_heading3 != blank %}
+              <a href="{{ block.settings.content_url3 }}"><img src="{{ 'play-button.png' | asset_url }}">{{ block.settings.content_heading3 }}</a>
+              {% endif %}
+            {% if block.settings.content_heading4 != blank %}
+              <a href="{{ block.settings.content_url4 }}"><img src="{{ 'play-button.png' | asset_url }}">{{ block.settings.content_heading4 }}</a>
+              {% endif %}
+            {% if block.settings.content_heading5 != blank %}
+              <a href="{{ block.settings.content_url5 }}"><img src="{{ 'play-button.png' | asset_url }}">{{ block.settings.content_heading5 }}</a>
+              {% endif %}
+            {% if block.settings.content_heading6 != blank %}
+              <a href="{{ block.settings.content_url6 }}"><img src="{{ 'play-button.png' | asset_url }}">{{ block.settings.content_heading6 }}</a>
+              {% endif %}
+            {% if block.settings.content_heading7 != blank %}
+              <a href="{{ block.settings.content_url7 }}"><img src="{{ 'play-button.png' | asset_url }}">{{ block.settings.content_heading7 }}</a>
+              {% endif %}
+            {% if block.settings.content_heading8 != blank %}
+              <a href="{{ block.settings.content_url8 }}"><img src="{{ 'play-button.png' | asset_url }}">{{ block.settings.content_heading8 }}</a>
+              {% endif %}
+            {% if block.settings.content_heading9 != blank %}
+              <a href="{{ block.settings.content_url9 }}"><img src="{{ 'play-button.png' | asset_url }}">{{ block.settings.content_heading9 }}</a>
+              {% endif %}
+            {% if block.settings.content_heading10 != blank %}
+              <a href="{{ block.settings.content_url10 }}"><img src="{{ 'play-button.png' | asset_url }}">{{ block.settings.content_heading10 }}</a>
+              {% endif %}
+            </div>  
+            </div>
+            {%- when 'image_with_details' -%}
+        <div id="{{ block.settings.tbl_heading }}" class="image_with_description">
+          {% if block.settings.heading != blank %}
+          <h2 class="iwd_heading">{{ block.settings.heading }}</h2>
+          {% endif %}
+            {% if block.settings.enable_article_date %}
+          <div class="iwd_subheading publish_date">
+            <span> Written by  </span> {{ article.author | escape }} - <span>Published on </span> {{ article.published_at | date: "%b %d, %y" }}
+          </div>
+          {% endif %}
+          {% if block.settings.subheading != blank %}
+          <div class="iwd_subheading">{{ block.settings.subheading }}</div>
+          {% endif %}
+          {% if block.settings.image != blank %}
+          <img class="iwd_image" src="{{ block.settings.image | img_url:"" }}" alt="image" {% if block.settings.description == blank %} style="padding-bottom:0;"{% endif %} >
+           
+           {% endif %}
+          {% if block.settings.description != blank %}
+          {{ block.settings.description }}
+             {% endif %}
+          {% if block.settings.text_with_img %}
+            <div class="text_with_image">
+              <div class="contents_data">
+                <div class="inner_right_col">
+                    {% if block.settings.left_col != blank %}
+                         <div class="left_col mul_coll">{{ block.settings.left_col }}</div>
+                      {% endif %}
+                        {% if block.settings.right_col != blank %}
+                            <div class="right_col mul_coll">{{ block.settings.right_col }}</div>
+                          {% endif %}
+                 </div>
+               </div>
+              <div class="image_data">
+                {% if block.settings.product_img != blank %}
+                     <img src="{{ block.settings.product_img | img_url:"" }}">
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
+        </div>
+        {%- when 'image_with_text' -%}
+            <div id="{{ block.settings.tbl_heading }}" class="artcl_img_wth_txt">
+                  {% if block.settings.heading != blank %}
+                    <h2 class="iwd_heading">{{ block.settings.heading }}</h2>
+                  {% endif %}
+                  {% if block.settings.subheading != blank %}
+                  <div class="iwd_subheading">{{ block.settings.subheading }}</div>
+                  {% endif %}
+              <div class="article_data">
+                 {% if block.settings.article_content != blank %}
+                         <div class="article_content_data">{{ block.settings.article_content }}</div>
+                  {% endif %}
+               
+              <div class="article_image_data">
+                {% if block.settings.artcile_img != blank %}
+                     <img src="{{ block.settings.artcile_img | img_url:"" }}">
+                {% endif %} 
+                 {% if block.settings.artcile_img2 != blank %}
+                     <img src="{{ block.settings.artcile_img2 | img_url:"" }}">
+                {% endif %}
+              </div>
+            </div>
+          </div>
+             {%- when 'Multicolumn' -%}
+            <div class="multi_column">
+               {% if block.settings.heading != blank %}
+                  <h2 class="iwd_heading">{{ block.settings.heading }}</h2>
+                {% endif %}
+              <div class="inner_multi_column">
+                {% for i in (1..3) %}
+                  {% capture image %}image_{{ forloop.index }}{% endcapture %}
+                  {% capture heading %}heading_{{ forloop.index }}{% endcapture %}
+                  {% capture description %}description_{{ forloop.index }}{% endcapture %}
+                <div class="multicolumn_content">
+                  {% if block.settings[image] != blank %}
+                      <img class="multicol_img" src="{{ block.settings[image] | img_url:"" }}" alt="image">
+                  {% else %}
+                    {{ 'product-1' | placeholder_svg_tag }}
+                  {% endif %}
+                  {% if block.settings[heading] != blank %}
+                      <div class="multicolum_heading">{{ block.settings[heading] }}</div>
+                  {% endif %}
+                  {% if block.settings[description] != blank %}
+                      {{ block.settings[description]  }}
+                    {% endif %}
+                </div>
+                   {% endfor %}
+              </div>
+            </div>
+            
+             {%- when 'promotion_banner' -%}
+            <div class="promotion_banner">
+              <div class="inner_promotion_banner">
+            {% if block.settings.title != blank %}
+              <div class="promotion_heading">{{ block.settings.title }}</div>
+              {% endif %}
+            {% if block.settings.btn_text != blank %}
+              <div class="promotion_btn">
+                <a href="{{ block.settings.link }}">{{ block.settings.btn_text }}</a>
+              </div>
+              {% endif %}
+              </div>
+            </div>
+            
+        {%- when 'customer_review' -%}
+            <div class="customer_reviews">
+             {% if block.settings.heading != blank %}
+                <h2 class="iwd_heading">{{ block.settings.heading }}</h2>
+              {% endif %}
+              <div class="inner_customer_review">
+            {% for i in (1..4) %}
+                  {% capture star %}star_{{ forloop.index }}{% endcapture %}
+                  {% capture heading %}heading_{{ forloop.index }}{% endcapture %}
+                  {% capture description %}description_{{ forloop.index }}{% endcapture %}
+                  {% capture image %}image_{{ forloop.index }}{% endcapture %}
+                  {% capture Name %}client_name_{{ forloop.index }}{% endcapture %}
+                  {% capture verified %}verified_{{ forloop.index }}{% endcapture %}
+            <div class="reviews_block">
+              <div class="review_stars">
+                {%- if block.settings[star] == 'quote' -%}
+                    <span class="quote-icon"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-quote" viewBox="0 0 41 35"><path d="M10.208 17.711h6.124v16.332H0V21.684C0 8.184 5.444.956 16.332 0v6.125c-4.083 1.14-6.124 4.414-6.124 9.82v1.766zm24.498 0h6.124v16.332H24.498V21.684C24.498 8.184 29.942.956 40.83 0v6.125c-4.083 1.14-6.124 4.414-6.124 9.82v1.766z" fill="#000" fill-rule="evenodd"/></svg></span>
+                  {%- elsif block.settings[star] == '5-stars' -%}
+                    <span class="testimonial-stars">
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                    </span>
+                  {%- elsif block.settings[star] == '4-stars' -%}
+                    <span class="testimonial-stars">
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                    </span>
+                  {%- elsif block.settings[star] == '3-stars' -%}
+                    <span class="testimonial-stars">
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                    </span>
+                  {%- elsif block.settings[star] == '2-stars' -%}
+                    <span class="testimonial-stars">
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                    </span>
+                  {%- elsif block.settings[star] == '1-star' -%}
+                    <span class="testimonial-stars">
+                      <svg fill="currentColor" height="16px" class="gf_icon" icon-class="bootstrap-regular-star-fill" width="16px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z" fill="#faad14"></path></svg>
+                    </span>
+                  {%- endif -%}
+               </div>
+              {% if block.settings[heading] != blank %}
+                      <div class="review_title">{{ block.settings[heading]  }}</div>
+                {% endif %}
+              {% if block.settings[description] != blank %}
+                      {{ block.settings[description] }}
+                {% endif %}
+            <div class="clinet_info">
+              {%- if block.settings[image] != blank -%}
+              <div class="client_img">
+                 <img src="{{block.settings[image] | img_url:'60x'}}">
+              </div>
+              {%endif%}
+              <div class="clinet_dtls">
+                  {% if block.settings[Name] != blank %}
+                  <div class="client_name">{{ block.settings[Name] }}</div>
+                    {% endif %}
+                  {% if block.settings[verified] != blank %}
+                    <div class="verified_client">
+                    <img src="https://cdn.shopify.com/s/files/1/0264/6369/9018/files/432750572815254551-eebffd28-f1ce-4d35-9bf0-3629d3f49ef9_768x768_4455b87f-7533-4cd7-b2ad-046397e76327.png?v=1705347793" />
+                    <span>{{ block.settings[verified] }}</span>
+                    </div>
+                    {% endif %}
+              </div>
+            </div>
+            </div>
+              {% endfor %}
+              </div>
+            </div>
+{% when 'countdown_banner' %}
+            <div class="conut_down_banner">
+              <div class="count_heading">{{ block.settings.heading | newline_to_br }}</div>
+            {{ block.settings.description }}
+            {% if block.settings.btn_text != blank %}
+              <div class="promotion_btn count_btn">
+                <a href="{{ block.settings.link }}">{{ block.settings.btn_text }}</a>
+              </div>
+              <p> {{ block.settings.btn_note }}</p>
+              {% endif %}
+            {% render 'article-countdown', end_date: block.settings.enddate %}
+            </div>
+           
+ {% when 'faq' %}
+            <div class="article_faq">
+            {% if block.settings.heading != blank %}
+                <h2 class="iwd_heading">{{ block.settings.heading }}</h2>
+              {% endif %}
+              <div class="inner_faq">
+            {% for i in (1..10) %}
+                  {% capture heading %}heading_{{ forloop.index }}{% endcapture %}
+                  {% capture description %}description_{{ forloop.index }}{% endcapture %}
+              {% if block.settings[heading] != blank %}
+                <div class="accordion">
+                <div class="accordion-item">
+                <button id="accordion-button-1"{% if forloop.index  == 1 %} aria-expanded="true" {% else %} aria-expanded="false" {% endif %}>
+               {% if block.settings[heading] != blank %}
+                <span class="accordion-title">{{ block.settings[heading]}}</span>
+                 {% endif %}
+                <span class="icon" aria-hidden="true"></span>
+                </button>
+                <div class="accordion-content">
+               {% if block.settings[description] != blank %}
+                {{ block.settings[description] }}
+                 {% endif %}
+                </div>
+                </div>
+                </div>
+                {% endif %}
+              {% endfor %}
+              </div>
+            </div>
+        
+        {% when 'table' %}
+  <section class="designed-better">
+    <div class="designed-better-main">
+      {% if block.settings.heading != blank %}
+          <h2 class="iwd_heading">{{ block.settings.heading }}</h2>
+          {% endif %}
+      <div class="my-tb-container">
+        <div class="Nacove-content">
+          <div class="nacove-first-border">
+{% for i in (1..3) %}
+                  {% capture image %}nacove_img_{{ forloop.index }}{% endcapture %}
+                  {% capture heading %}nacove_hd_{{ forloop.index }}{% endcapture %}
+            <div class="first-col">
+              {% if block.settings[image] != blank %}
+                <img src="{{ block.settings[image] | img_url:"80x" }}">
+                {% endif %}
+                {% if block.settings[heading] != blank %}
+                <h2>{{ block.settings[heading] }}</h2>
+              {% endif %}
+            </div>
+{% endfor %}
+          </div>
+          <div class="nacove-main-content">
+            {% for i in (1..8) %}
+               {% capture label %}label_{{ forloop.index }}{% endcapture %}
+                  {% capture vector %}vector_{{ forloop.index }}{% endcapture %}
+               {% capture cross %}corss_{{ forloop.index }}{% endcapture %}
+              <div class="nacove-main-flex">
+                <div class="nacove-main-col">
+              {% if block.settings[label] != blank %}
+                  <p>{{ block.settings[label] }}</p>
+                {% endif %}
+                </div>
+                <div class="nacove-main-col">
+                  {% if block.settings[vector] != blank %}
+                    <img src="{{ block.settings[vector] | img_url:'' }}" alt="lazy">
+                  {% endif %}
+                </div>
+                <div class="nacove-main-col">
+                  {% if block.settings[cross] != blank %}
+                    <img src="{{ block.settings[cross] | img_url:'' }}" alt="lazy">
+                  {% endif %}
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+  </div>
+    {% if block.settings.btn_text != blank %}
+              <div class="table_btn promotion_btn">
+                <a href="{{ block.settings.link }}">{{ block.settings.btn_text }}</a>
+                <p>{{ block.settings.btn_note }}</p>
+              </div>
+              {% endif %}
+</section>
+            {%- endcase -%}
+        {% endfor %}
+
+      </div>
+      {% if section.settings.sidebar_enable %}
+      <div class="right_sidbar_article">
+        <div class="inner_right_sidebar">
+          <div class="righsidbar_main">
+            <div class="ryt_bar_content mul_coll">
+              {% if section.settings.heading != blank %}
+              <div class="ryt_sidebar_hd">{{ section.settings.heading }}</div>
+                {% endif %}
+                {% if section.settings.content != blank %}
+              {{ section.settings.content }}
+                {% endif %}
+            </div>
+      {% if section.settings.image != blank %}
+            <div class="sidbar_img"><img src="{{ section.settings.image | img_url:"" }}"></div>
+        {% endif %}
+      {% if section.settings.btn_text != blank %}
+            <div class="table_btn promotion_btn">
+                <a href=" {{ section.settings.link }}"> {{ section.settings.btn_text }}</a>
+                <p> {{ section.settings.btn_note }}</p>
+              </div>
+        {% endif %}
+          </div>
+        </div>
+      </div>
+        {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+	{
+    "name": "Custom article",
+    "blocks": [
+      {
+        "type": "@app"
+      },
+      {
+        "type": "key-takeaways",
+        "name": "key takeaways",
+        "settings":[ 
+       {
+          "type": "text",
+          "id": "key_title",
+          "label": "Heading",
+          "default": "Key Takeaways"
+        },
+        {
+        "type": "richtext",
+        "id": "key_paragraph",
+        "label": "Content"
+        }
+     ]
+      },
+      {
+        "type": "table-of_content",
+        "name": "Table of Content",
+        "settings": [
+          {
+            "id": "content_heading1",
+            "type": "text",
+            "label": "Link Title1"
+          },
+          {
+            "id": "content_url1",
+            "type": "text",
+            "label": "Link Path1"
+          },
+          {
+            "id": "content_heading2",
+            "type": "text",
+            "label": "Link Title2"
+          },
+          {
+            "id": "content_url2",
+            "type": "text",
+            "label": "Link Path2"
+          },
+          {
+            "id": "content_heading3",
+            "type": "text",
+            "label": "Link Title3"
+          },
+          {
+            "id": "content_url3",
+            "type": "text",
+            "label": "Link Path3"
+          },
+          {
+            "id": "content_heading4",
+            "type": "text",
+            "label": "Link Title4"
+          },
+          {
+            "id": "content_url4",
+            "type": "text",
+            "label": "Link Path4"
+          },
+          {
+            "id": "content_heading5",
+            "type": "text",
+            "label": "Link Title5"
+          },
+          {
+            "id": "content_url5",
+            "type": "text",
+            "label": "Link Path5"
+          },
+          {
+            "id": "content_heading6",
+            "type": "text",
+            "label": "Link Title6"
+          },
+          {
+            "id": "content_url6",
+            "type": "text",
+            "label": "Link Path6"
+          },
+          {
+            "id": "content_heading7",
+            "type": "text",
+            "label": "Link Title7"
+          },
+          {
+            "id": "content_url7",
+            "type": "text",
+            "label": "Link Path7"
+          },
+          {
+            "id": "content_heading8",
+            "type": "text",
+            "label": "Link Title8"
+          },
+          {
+            "id": "content_url8",
+            "type": "text",
+            "label": "Link Path8"
+          },
+          {
+            "id": "content_heading9",
+            "type": "text",
+            "label": "Link Title9"
+          },
+          {
+            "id": "content_url9",
+            "type": "text",
+            "label": "Link Path9"
+          },
+          {
+            "id": "content_heading10",
+            "type": "text",
+            "label": "Link Title10"
+          },
+          {
+            "id": "content_url10",
+            "type": "text",
+            "label": "Link Path10"
+          }
+        ]
+      },
+      {
+        "type": "image_with_details",
+        "name": "Image With Details",
+        "settings": [
+          {
+            "id": "tbl_heading",
+            "type": "text",
+            "label": "Table of Content Link"
+          },
+          {
+            "id": "heading",
+            "type": "text",
+            "default": "[Heading 1] Describe the needs of users who are interested in the product.",
+            "label": "Heading"
+          },
+          
+          {
+            "id": "enable_article_date",
+            "type": "checkbox",
+            "default": false,
+            "label": "Enable data and author?"
+          },
+          {
+            "id": "subheading",
+            "type": "html",
+            "default": "<span> Written by </span> Dr.Marcus - <span>Published on </span> Feb 28, 2023",
+            "label": "SubHeading"
+          },
+          {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Main Image"
+          },
+          {
+            "id": "description",
+            "type": "richtext",
+            "default": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
+            "label": "Description"
+          },
+          {
+      "type": "header",
+      "content": "Additional text with image"
+    },
+          {
+            "id": "text_with_img",
+            "type": "checkbox",
+            "default": false,
+            "label": "Enable text and image?"
+          },
+           {
+          "type": "liquid",
+          "id": "left_col",
+          "label": " Colum1 Data",
+          "default":"<ul><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Ingredient 1</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Ingredient 2</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Ingredient 3</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Ingredient 4</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Ingredient 5</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Ingredient 6</li></ul>"
+        },
+    {
+          "type": "liquid",
+          "id": "right_col",
+          "label": "Colum2 data",
+      "default":"<ul><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Ingredient 7</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Ingredient 8</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Ingredient 9</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Ingredient 10</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Ingredient 11</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Ingredient 12</li></ul>"
+        },
+      {
+      "type": "image_picker",
+      "id": "product_img",
+      "label": "Image"
+    }
+        ]
+      },
+      
+      {
+        "type": "image_with_text",
+        "name": "image with text",
+        "settings":[ 
+          {
+            "id": "tbl_heading",
+            "type": "text",
+            "label": "Table of Content Link"
+          },
+          {
+            "id": "heading",
+            "type": "text",
+            "default": "[Heading 2] Describe the timeframe to achieve the desired results",
+            "label": "Heading"
+          },
+          {
+            "id": "subheading",
+            "type": "richtext",
+            "default": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
+            "label": "SubHeading"
+          },
+          
+          {
+            "id": "article_content",
+            "type": "richtext",
+            "default": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
+            "label": "Dvescription"
+          },
+          {
+            "id": "artcile_img",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "artcile_img2",
+            "type": "image_picker",
+            "label": "Image"
+          }
+        ]
+      },
+      {
+        "type": "table",
+        "name": "Table",
+        "settings": [
+          {
+            "id": "heading",
+            "type": "text",
+            "default": "[Heading 2] Compare with other products",
+            "label": "Heading"
+          },
+            {
+      "type": "header",
+      "content": "table header 1"
+    },
+          {
+            "id": "nacove_img_1",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "nacove_hd_1",
+            "type": "text",
+            "label": "Heading"
+          },
+               {
+      "type": "header",
+      "content": "table header 2"
+    },
+          {
+            "id": "nacove_img_2",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "nacove_hd_2",
+            "type": "text",
+            "default": "Your Brand",
+            "label": "Heading"
+          },
+               {
+      "type": "header",
+      "content": "table header 3"
+    },
+          {
+            "id": "nacove_img_3",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "nacove_hd_3",
+            "type": "text",
+            "default": "Other Brands",
+            "label": "Heading"
+          },
+               {
+      "type": "header",
+      "content": "table content 1"
+    },
+          {
+            "type":"text",
+            "id":"label_1",
+            "label":"Label",
+            "default":"Differentiation Point 1"
+          },
+          {
+            "type":"image_picker",
+            "id":"vector_1",
+            "label":"Vector"
+          },
+          {
+            "type":"image_picker",
+            "id":"corss_1",
+            "label":"Vector"
+          },
+          {
+"type": "header",
+"content": "table content 2"
+},
+{
+"type":"text",
+"id":"label_2",
+"label":"Label",
+"default":"Differentiation Point 2"
+},
+{
+"type":"image_picker",
+"id":"vector_2",
+"label":"Vector"
+},
+{
+"type":"image_picker",
+"id":"corss_2",
+"label":"Vector"
+},
+{
+"type": "header",
+"content": "table content 3"
+},
+{
+"type":"text",
+"id":"label_3",
+"label":"Label",
+"default":"Differentiation Point 3"
+},
+{
+"type":"image_picker",
+"id":"vector_3",
+"label":"Vector"
+},
+{
+"type":"image_picker",
+"id":"corss_3",
+"label":"Vector"
+},
+{
+"type": "header",
+"content": "table content 4"
+},
+{
+"type":"text",
+"id":"label_4",
+"label":"Label",
+"default":"Differentiation Point 4"
+},
+{
+"type":"image_picker",
+"id":"vector_4",
+"label":"Vector"
+},
+{
+"type":"image_picker",
+"id":"corss_4",
+"label":"Vector"
+},
+{
+"type": "header",
+"content": "table content 5"
+},
+{
+"type":"text",
+"id":"label_5",
+"label":"Label",
+"default":"Differentiation Point 5"
+},
+{
+"type":"image_picker",
+"id":"vector_5",
+"label":"Vector"
+},
+{
+"type":"image_picker",
+"id":"corss_5",
+"label":"Vector"
+},
+{
+"type": "header",
+"content": "table content 6"
+},
+{
+"type":"text",
+"id":"label_6",
+"label":"Label",
+"default":"Differentiation Point 6"
+},
+{
+"type":"image_picker",
+"id":"vector_6",
+"label":"Vector"
+},
+{
+"type":"image_picker",
+"id":"corss_6",
+"label":"Vector"
+},
+{
+"type": "header",
+"content": "table content 7"
+},
+{
+"type":"text",
+"id":"label_7",
+"label":"Label",
+"default":"Differentiation Point 7"
+},
+{
+"type":"image_picker",
+"id":"vector_7",
+"label":"Vector"
+},
+{
+"type":"image_picker",
+"id":"corss_7",
+"label":"Vector"
+},
+{
+"type": "header",
+"content": "table content 8"
+},
+{
+"type":"text",
+"id":"label_8",
+"label":"Label",
+"default":"Differentiation Point 8"
+},
+{
+"type":"image_picker",
+"id":"vector_8",
+"label":"Vector"
+},
+{
+"type":"image_picker",
+"id":"corss_8",
+"label":"Vector"
+},
+          {
+            "id": "btn_text",
+            "type": "text",
+            "default": "CHECK AVAILABILITY 👉",
+            "label": "Button Text"
+          },
+          {
+            "id": "link",
+            "type": "url",
+            "label": "Button Link"
+          },
+          {
+            "id": "btn_note",
+            "type": "text",
+            "default": "✔️ 30-Day Money-Back Guarantee",
+            "label": "Button Note"
+          }
+          
+        ]
+      },
+      {
+        "type": "countdown_banner",
+        "name": "Countdown Banner",
+        "settings": [
+          {
+            "id": "heading",
+            "type": "textarea",
+            "default": "TO DAY’S OFFER: GET A FREE PAIR OF SMART COMPRESSION SOCKS",
+            "label": "Title"
+          },
+          {
+            "id": "description",
+            "type": "richtext",
+            "default": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>",
+            "label": "Description"
+          },
+          {
+            "id": "btn_text",
+            "type": "text",
+            "default": "CHECK AVAILABILITY 👉",
+            "label": "Button Text"
+          },
+          {
+            "id": "link",
+            "type": "url",
+            "label": "Button Link"
+          },
+          {
+            "id": "btn_note",
+            "type": "text",
+            "default": "Hurry up! Sale ends once the timer hits zero",
+            "label": "Button Note"
+          },
+          {
+            "id": "enddate",
+            "type": "text",
+            "default": "May 30, 2024",
+            "label": "Timer End data"
+          }
+        ]
+      },
+      {
+        "type": "promotion_banner",
+        "name": "Promotion Banner",
+        "settings": [
+          {
+            "id": "title",
+            "type": "text",
+            "default": "Significant sleep improvement to maintain your positive energy every day.",
+            "label": "Title"
+          },
+          {
+            "id": "btn_text",
+            "type": "text",
+            "default": "CHECK AVAILABILITY 👉",
+            "label": "Button Text"
+          },
+          {
+            "id": "link",
+            "type": "url",
+            "label": "Button Link"
+          }
+        ]
+      },
+      {
+        "type": "Multicolumn",
+        "name": "Multicolumn",
+        "settings": [
+          {
+            "id": "heading",
+            "type": "text",
+            "default": "[Heading 2] Product manual",
+            "label": "Heading"
+          },
+            {
+      "type": "header",
+      "content": "Multicolum 1"
+    },
+          {
+            "id": "image_1",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "heading_1",
+            "type": "text",
+            "default": "Step 1: Dosage",
+            "label": "Heading"
+          },
+          
+          {
+            "id": "description_1",
+            "type": "richtext",
+            "default": "<p>It is a long established fact that a reader will be distracted.</p>",
+            "label": "Description"
+          },
+            {
+      "type": "header",
+      "content": "Multicolum 2"
+    },
+          {
+            "id": "image_2",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "heading_2",
+            "type": "text",
+            "default": "Step 2: Use warm water",
+            "label": "Heading"
+          },
+          
+          {
+            "id": "description_2",
+            "type": "richtext",
+            "default": "<p>It is a long established fact that a reader will be distracted.</p>",
+            "label": "Description"
+          },
+            {
+      "type": "header",
+      "content": "Multicolum 3"
+    },
+          {
+            "id": "image_3",
+            "type": "image_picker",
+            "label": "Image"
+          },
+          {
+            "id": "heading_3",
+            "type": "text",
+            "default": "Step 3: Prior to bedtime",
+            "label": "Heading"
+          },
+          
+          {
+            "id": "description_3",
+            "type": "richtext",
+            "default": "<p>It is a long established fact that a reader will be distracted.</p>",
+            "label": "Description"
+          }
+          
+        ]
+      },
+            {
+        "type": "customer_review",
+        "name": "Customer Review",
+        "settings": [
+          {
+            "id": "heading",
+            "type": "text",
+            "default": "[Heading 2] Show social proof",
+            "label": "Heading"
+          },
+            {
+      "type": "header",
+      "content": "Review 1"
+    },
+          {
+            "type": "select",
+            "id": "star_1",
+            "label": "Icons / star",
+            "default": "5-stars",
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "quote",
+                "label": "Quote"
+              },
+              {
+                "value": "5-stars",
+                "label": "5 stars"
+              },
+              {
+                "value": "4-stars",
+                "label": "4 stars"
+              },
+              {
+                "value": "3-stars",
+                "label": "3 stars"
+              },
+              {
+                "value": "2-stars",
+                "label": "2 stars"
+              },
+              {
+                "value": "1-star",
+                "label": "1 star"
+              }
+            ]
+          },
+          {
+            "id": "heading_1",
+            "type": "text",
+            "default": "It tastes delicious and aids with my sleep",
+            "label": "title"
+          },
+          {
+            "id": "description_1",
+            "type": "richtext",
+            "default": "<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth</p>",
+            "label": "Details"
+          },
+          {
+            "id": "image_1",
+            "type": "image_picker",
+            "label": "Cient Image"
+          },
+          {
+            "id": "client_name_1",
+            "type": "text",
+            "default": "David Alaba",
+            "label": "Client Name"
+          },
+          {
+            "id": "verified_1",
+            "type": "text",
+            "default": "Verified Buyer",
+            "label": "verified badge text"
+          },
+            {
+      "type": "header",
+      "content": "Review 2"
+    },
+          {
+            "type": "select",
+            "id": "star_2",
+            "label": "Icons / star",
+            "default": "5-stars",
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "quote",
+                "label": "Quote"
+              },
+              {
+                "value": "5-stars",
+                "label": "5 stars"
+              },
+              {
+                "value": "4-stars",
+                "label": "4 stars"
+              },
+              {
+                "value": "3-stars",
+                "label": "3 stars"
+              },
+              {
+                "value": "2-stars",
+                "label": "2 stars"
+              },
+              {
+                "value": "1-star",
+                "label": "1 star"
+              }
+            ]
+          },
+          {
+            "id": "heading_2",
+            "type": "text",
+            "default": "Well rested and an awake feeling in the morning",
+            "label": "title"
+          },
+          {
+            "id": "description_2",
+            "type": "richtext",
+            "default": "<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth</p>",
+            "label": "Details"
+          },
+          {
+            "id": "image_2",
+            "type": "image_picker",
+            "label": "Cient Image"
+          },
+          {
+            "id": "client_name_2",
+            "type": "text",
+            "default": "Serena Gon",
+            "label": "Client Name"
+          },
+          {
+            "id": "verified_2",
+            "type": "text",
+            "default": "Verified Buyer",
+            "label": "verified badge text"
+          },
+            {
+      "type": "header",
+      "content": "Review 3"
+    },
+          {
+            "type": "select",
+            "id": "star_3",
+            "label": "Icons / star",
+            "default": "5-stars",
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "quote",
+                "label": "Quote"
+              },
+              {
+                "value": "5-stars",
+                "label": "5 stars"
+              },
+              {
+                "value": "4-stars",
+                "label": "4 stars"
+              },
+              {
+                "value": "3-stars",
+                "label": "3 stars"
+              },
+              {
+                "value": "2-stars",
+                "label": "2 stars"
+              },
+              {
+                "value": "1-star",
+                "label": "1 star"
+              }
+            ]
+          },
+          {
+            "id": "heading_3",
+            "type": "text",
+            "default": "It tastes delicious and aids with my sleep",
+            "label": "title"
+          },
+          {
+            "id": "description_3",
+            "type": "richtext",
+            "default": "<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth</p>",
+            "label": "Details"
+          },
+          {
+            "id": "image_3",
+            "type": "image_picker",
+            "label": "Cient Image"
+          },
+          {
+            "id": "client_name_3",
+            "type": "text",
+            "default": "Rayul Mike",
+            "label": "Client Name"
+          },
+          {
+            "id": "verified_3",
+            "type": "text",
+            "default": "Verified Buyer",
+            "label": "verified badge text"
+          },
+            {
+      "type": "header",
+      "content": "Review 4"
+    },
+          {
+            "type": "select",
+            "id": "star_4",
+            "label": "Icons / star",
+            "default": "5-stars",
+            "options": [
+              {
+                "value": "none",
+                "label": "None"
+              },
+              {
+                "value": "quote",
+                "label": "Quote"
+              },
+              {
+                "value": "5-stars",
+                "label": "5 stars"
+              },
+              {
+                "value": "4-stars",
+                "label": "4 stars"
+              },
+              {
+                "value": "3-stars",
+                "label": "3 stars"
+              },
+              {
+                "value": "2-stars",
+                "label": "2 stars"
+              },
+              {
+                "value": "1-star",
+                "label": "1 star"
+              }
+            ]
+          },
+          {
+            "id": "heading_4",
+            "type": "text",
+            "default": "Great product! It helps my dad wake up well-rested",
+            "label": "title"
+          },
+          {
+            "id": "description_4",
+            "type": "richtext",
+            "default": "<p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth</p>",
+            "label": "Details"
+          },
+          {
+            "id": "image_4",
+            "type": "image_picker",
+            "label": "Cient Image"
+          },
+          {
+            "id": "client_name_4",
+            "type": "text",
+            "default": "Anna Chirstin",
+            "label": "Client Name"
+          },
+          {
+            "id": "verified_4",
+            "type": "text",
+            "default": "Verified Buyer",
+            "label": "verified badge text"
+          } 
+        ]
+      },
+      {
+        "type": "faq",
+        "name": "FAQ",
+        "settings": [
+          {
+            "id": "heading",
+            "type": "text",
+            "default": "[Heading 2] Frequently asked questions",
+            "label": "Heading"
+          },
+          {
+          "type": "header",
+          "content": "FAQ 1"
+          },
+          {
+          "id": "heading_1",
+          "type": "text",
+          "default": "How do I wash and care for my Crazy Compression Socks?",
+          "label": "Question"
+          },
+          
+          {
+          "id": "description_1",
+          "type": "richtext",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+          "label": "Answer"
+          },
+          {
+          "type": "header",
+          "content": "FAQ 2"
+          },
+          {
+          "id": "heading_2",
+          "type": "text",
+          "default": "How long will it take to get my orders?",
+          "label": "Question"
+          },
+          
+          {
+          "id": "description_2",
+          "type": "richtext",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+          "label": "Answer"
+          },
+          {
+          "type": "header",
+          "content": "FAQ 3"
+          },
+          {
+          "id": "heading_3",
+          "type": "text",
+          "default": "What is the compression rating?",
+          "label": "Question"
+          },
+          
+          {
+          "id": "description_3",
+          "type": "richtext",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+          "label": "Answer"
+          },
+          {
+          "type": "header",
+          "content": "FAQ 4"
+          },
+          {
+          "id": "heading_4",
+          "type": "text",
+          "default": "What material are Crazy Compression Socks made of?",
+          "label": "Question"
+          },
+          
+          {
+          "id": "description_4",
+          "type": "richtext",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+          "label": "Answer"
+          },
+          {
+          "type": "header",
+          "content": "FAQ 5"
+          },
+          {
+          "id": "heading_5",
+          "type": "text",
+          "default": "Can I return my Crazy Compression Socks?",
+          "label": "Question"
+          },
+          
+          {
+          "id": "description_5",
+          "type": "richtext",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+          "label": "Answer"
+          },
+          {
+          "type": "header",
+          "content": "FAQ 6"
+          },
+          {
+          "id": "heading_6",
+          "type": "text",
+          "label": "Question"
+          },
+          
+          {
+          "id": "description_6",
+          "type": "richtext",
+          "label": "Answer"
+          },
+          {
+          "type": "header",
+          "content": "FAQ 7"
+          },
+          {
+          "id": "heading_7",
+          "type": "text",
+          "label": "Question"
+          },
+          
+          {
+          "id": "description_7",
+          "type": "richtext",
+          "label": "Answer"
+          },
+          {
+          "type": "header",
+          "content": "FAQ 8"
+          },
+          {
+          "id": "heading_8",
+          "type": "text",
+          "label": "Question"
+          },
+          
+          {
+          "id": "description_8",
+          "type": "richtext",
+          "label": "Answer"
+          },
+          {
+          "type": "header",
+          "content": "FAQ 9"
+          },
+          {
+          "id": "heading_9",
+          "type": "text",
+          "label": "Question"
+          },
+          
+          {
+          "id": "description_9",
+          "type": "richtext",
+          "label": "Answer"
+          },
+          {
+          "type": "header",
+          "content": "FAQ 10"
+          },
+          {
+          "id": "heading_10",
+          "type": "text",
+          "label": "Question"
+          },
+          
+          {
+          "id": "description_10",
+          "type": "richtext",
+          "label": "Answer"
+          }
+          
+        ]
+      }
+    ],
+    "settings": [
+      
+      {
+            "id": "sidebar_enable",
+            "type": "checkbox",
+            "default": true,
+            "label": "Sidebar Enable ?"
+          },
+      {
+      "type": "header",
+      "content": "sidebar content"
+    },
+      {
+            "id": "heading",
+            "type": "text",
+            "default": "Unique Value Proposition",
+            "label": "Sidebar Heading"
+          },
+       {
+            "id": "content",
+            "type": "liquid",
+            "default": "<ul><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Product benefit 1</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Product benefit 2</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Product benefit 3</li><li><img src='https://cdn.shopify.com/s/files/1/0264/6369/9018/files/check-circle-fill.svg'>Product benefit 4</li></ul>",
+            "label": "Sidebar content"
+          },
+      {
+            "id": "image",
+            "type": "image_picker",
+            "label": "Sidebar Image"
+          },
+      {
+            "id": "btn_text",
+            "type": "text",
+            "default": "CHECK AVAILABILITY 👉",
+            "label": "Button Text"
+          },
+          {
+            "id": "link",
+            "type": "url",
+            "label": "Button Link"
+          },
+          {
+            "id": "btn_note",
+            "type": "text",
+            "default": "✔️ 30-Day Money-Back Guarantee",
+            "label": "Button Note"
+          },
+      
+      {
+      "type": "header",
+      "content": "section spaces"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding bottom",
+      "default": 48
+    }
+    ]
+  }
+{% endschema %}

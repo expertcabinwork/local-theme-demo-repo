@@ -1,0 +1,254 @@
+{%- style -%}
+  .banner-hero--{{ section.id }} {
+height: {{ section.settings.page_image_height }}px;
+  {% if section.settings.page_banner_bg != blank %}
+    background: url({{ section.settings.page_banner_bg | img_url: '' }});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:{{ section.settings.horiontal_position }}% {{ section.settings.verticle_position }}%;
+    padding: 6rem 0;
+    box-shadow: inset 0 0 0 1000px rgba(255,255,255,0.1);
+    {% else %}
+background-color:{{section.settings.banner_clr}};
+    
+    {% endif %}
+}
+  .banner-hero--{{ section.id }} .page-title h1, .page-title p{
+    color:{{section.settings.textcolor}}
+  }
+  @media screen and (max-width: 768px) {
+.banner-hero--{{ section.id }}{
+height: {{ section.settings.page_image_height }}px;
+}
+}
+  .banner-hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+   {% if section.settings.page_banner_bg != blank %}
+.banner-hero--{{ section.id }}:after{
+    content: "";
+    position: absolute;
+    background: #000;
+    top: 0;
+    width: 100%;
+    height: 100%;
+     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+  }
+     {% endif %}
+    .page_image_section {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    transform: translate(0, -50%);
+}
+  .overlay_content{
+        padding:25px 20px;
+    background-color: #0000009e;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .content_full_width{
+    max-width:100%;
+  }
+  .page-title h1 {
+font-weight: 700;
+font-size: 40px;
+line-height: 125%;
+text-align: center;
+text-transform: capitalize;
+margin:0;
+}
+  .page-title p{
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 34.32px;
+    text-align: center;
+    margin:0;
+    letter-spacing: normal;
+  }
+  .easy-faq-search-bar {
+    width: 45%;
+    border-radius: 32px;
+    border: 2px solid white;
+    color: white;
+    padding: 6px 24px;
+    margin: 20px auto auto;
+}
+ .easy-faq-search-bar input {
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+   padding:8px;
+}
+   .easy-faq-search-bar input::placeholder {
+     color:#fff;
+     opacity:1;
+   }
+@media only screen and (max-width: 989px){
+  .page-title h1{
+    font-size:30px;
+  }
+}
+  @media only screen and (max-width: 768px){
+  .easy-faq-search-bar {
+    width: 90%;
+    padding: 4px 16px;
+  }
+}
+  
+@media only screen and (max-width: 480px){
+  .page-title h1{
+    font-size:24px;
+  }
+  .page-title p {
+    font-size:14px;
+        line-height: 170%;
+  }
+}
+{%- endstyle -%}
+
+<div class="banner-hero banner-hero--{{ section.id}}">  
+  <div class="page_image_section">
+    <div class="container--large">
+        <div class="animation-contents page-title text-center {% if section.settings.full_width %} content_full_width {% endif %} {% if section.settings.text_overlay %} overlay_content {% endif %}">
+          {% if section.settings.title != blank %}
+          <h1>{{ section.settings.title }}</h1>
+          {% else %}
+            <h1>{{ page.title }}</h1>
+            {% endif %}
+            {{ section.settings.des | newline_to_br }}
+        </div>
+      {% if section.settings.searchbar %}
+      <div id="easy-faq-search-bar-section" class="easy-faq-search-bar" >
+        <input type="text" placeholder="FREQUENTLY ASKED QUESTIONS">
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+ {% if section.settings.searchbar %}
+<script>
+var searchBar = document.querySelector('#easy-faq-search-bar-section input[type="text"]');
+searchBar.addEventListener('keyup', function () {
+  var searchTerm = this.value.toLowerCase();
+  var accordionSections = document.querySelectorAll('.faq_accordion');
+  accordionSections.forEach(function (accordion) {
+    var accordionTitle = accordion.querySelector('.collapse_btn').textContent.toLowerCase();
+    if (accordionTitle.includes(searchTerm)) {
+      accordion.style.display = 'block';
+    } else {
+      accordion.style.display = 'none';
+    }
+  });
+});
+
+</script>
+   {% endif %}
+
+
+{% schema %}
+{
+"name": "banner design",
+"settings": [
+  {
+      "type": "image_picker",
+      "id": "page_banner_bg",
+      "label": "Page Banner Background"
+    },
+{
+"type": "range",
+"id": "page_image_height",
+"label": "Image height",
+"default": 310,
+"min": 200,
+"max": 750,
+"step": 10,
+"unit": "px"
+},
+{
+"type": "color",
+"id": "banner_clr",
+"label": "banner color",
+"default":"#52a646"
+},
+    {
+"type": "color",
+"id": "textcolor",
+"label": "Text color",
+"default":"#fff"
+},
+{
+  "type": "range",
+  "id": "image_overlay_opacity",
+  "min": 0,
+  "max": 100,
+  "step": 10,
+  "unit": "%",
+  "label": "Image overlay opacity",
+  "default": 40
+},
+   {
+      "type": "range",
+      "id": "horiontal_position",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "%",
+      "label": "horiontal position",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "verticle_position",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "%",
+      "label": "verticle position",
+      "default": 30
+    },
+
+   {
+      "type": "checkbox",
+      "id": "text_overlay",
+      "label": "content overlay ?",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "content full width ?",
+      "default": false
+    },
+  
+{
+"type": "text",
+"id": "title",
+"label": "title"
+},
+  {
+"type": "richtext",
+"id": "des",
+"label": "Description"
+},
+     {
+      "type": "checkbox",
+      "id": "searchbar",
+      "label": "searchbar enable ?",
+      "default": false
+    }
+],
+"presets": [{
+"name": "banner design"
+}]
+}
+{% endschema %}

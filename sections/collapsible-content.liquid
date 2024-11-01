@@ -1,0 +1,296 @@
+{%- style -%}
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+      background:{{ section.settings.bg_clr}};
+      
+    }
+
+    @media screen and (min-width: 750px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  .custom_faq .container--large {
+    max-width: 1100px;
+}
+  .custom_faq{
+  width:100%;
+  display:block;
+}
+  .faq_heading {
+       font-size: 27px;
+    line-height: normal;
+    letter-spacing: 0px;
+    color: #365e99;
+    text-align: center;
+    margin-bottom: 20px;
+}
+  .faq_accordion {
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.collapse_btn {
+  position: relative;
+  /* display: block; */
+  /* text-align: left; */
+  width: 100%;
+  /* padding: 8px 0 8px 1.8rem;   */
+    margin: 0;
+  border: none;
+  background: none;
+  outline: none;
+
+  border-radius: 16px;
+    background: #52a646;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    cursor: pointer;
+}
+
+  .faq_accordion-title{
+     font-size: 15pt;
+    margin: 0;
+    color: #fff;
+    font-weight: 700;
+    text-align:left;
+  }
+.collapse_btn:hover,
+.collapse_btn:focus {
+  cursor: pointer;
+  color: #000;
+}
+.faq_icon {
+  display: inline-block;
+  position: absolute;
+  top:50%;
+  right: 0;
+}
+
+.faq_icon::before {
+     display: block;
+    position: absolute;
+    content: '';
+    top: 50%;
+    right: 20px;
+    width: 13px;
+    height: 3px;
+    background: #fff;
+}
+.faq_icon::after {
+       display: block;
+    position: absolute;
+    content: "";
+    top: -5px;
+    right: 25px;
+    width: 3px;
+    height: 13px;
+    background: #fff;
+}
+  .collapse_btn:hover{
+     background: #3154a1;
+  }
+  .collapse_btn[aria-expanded='true'] {
+        background: #3154a1;
+        border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+.faq_accordion-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 200ms linear, max-height 200ms linear;
+  will-change: opacity, max-height;
+
+}
+  .faq_contents{
+        padding: 20px 30px;
+    background: #fff;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+.faq_accordion-content p,
+  .faq_accordion-content ul li{
+  font-size: 16px;
+    line-height: 1.5em;
+       color: #707070;
+  margin-bottom:12px;
+}
+  .faq_contents p a,
+  .faq_accordion-content ul li a{
+    color:#3154a1;
+    font-weight:600;
+  }
+  .faq_accordion-content ul {
+       list-style: circle;
+    padding-left: 20px;
+    
+  }
+  .collapse_btn[aria-expanded='true'] .faq_icon::after {
+  width: 0;
+}
+.collapse_btn[aria-expanded='true'] + .faq_accordion-content {
+  opacity: 1;
+  max-height: fit-content;
+  transition: all 200ms linear;
+  will-change: opacity, max-height;
+}
+  @media screen and (max-width: 590px) {
+    .faq_heading {
+    font-size: 22px;
+  }
+  }
+  {% endstyle %}
+<div class="custom_faq section-{{ section.id }}-padding">
+  <div class="container--large">
+  {% if section.settings.heading != blank %}
+    <h2 class="faq_heading">{{ section.settings.heading }}</h2>
+  {% endif %}
+  <div class="inner_faq_sec">
+    {% for block in section.blocks %}
+      {% if block.settings.heading != blank %}
+        <div class="faq_accordion">
+          <div class="faq_accordion-item">
+            <button class="collapse_btn"
+              {% if forloop.index == 1 %}
+                aria-expanded="true"
+              {% else %}
+                aria-expanded="false"
+              {% endif %}
+            >
+              {% if block.settings.heading != blank %}
+                <span class="faq_accordion-title">{{ block.settings.heading }}</span>
+              {% endif %}
+              <span class="faq_icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq_accordion-content">
+              <div class="faq_contents">
+              {% if block.settings.description != blank %}
+                {{ block.settings.description }}
+                {% endif %}
+                 {% if block.settings.custom_liquid != blank %}
+                <div class="collapse_liquid">{{ block.settings.custom_liquid }}</div>
+                {% endif %}
+                 {% if block.settings.description2 != blank %}
+                {{ block.settings.description2 }}
+              {% endif %}
+                {% if block.settings.custom_liquid2 != blank %}
+                <div class="collapse_liquid">{{ block.settings.custom_liquid2 }}</div>
+                {% endif %}
+                 {% if block.settings.description3 != blank %}
+                {{ block.settings.description3 }}
+              {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  </div>
+</div>
+
+  <script>
+      const collapse = document.querySelectorAll('.collapse_btn');
+      function faqAccordion() {
+        const faqToggle = this.getAttribute('aria-expanded');
+      
+        for (i = 0; i < collapse.length; i++) {
+          collapse[i].setAttribute('aria-expanded', 'false');
+        }
+      
+        if (faqToggle == 'false') {
+          this.setAttribute('aria-expanded', 'true');
+        }
+      }
+      collapse.forEach((item) => item.addEventListener('click', faqAccordion));
+  </script>
+{% schema %}
+{
+  "name": "Collapsible content",
+  "settings": [
+     {
+      "type": "color",
+      "id": "bg_clr",
+      "label": "Background color",
+"default":"#f5f6f9"
+    },
+    {
+      "id": "heading",
+      "type": "text",
+      "default": "Frequently asked questions",
+      "label": "Heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding top",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "padding bottom",
+      "default": 48
+    }
+  ],
+    "blocks":[
+      {
+        "type": "Collapsible",
+        "name": "Faq Collapsible",
+        "settings": [
+          {
+          "id": "heading",
+          "type": "text",
+          "default": "What should I give/take for ADHD (both kids and adults)",
+          "label": "Question"
+          },
+          
+          {
+          "id": "description",
+          "type": "richtext",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>",
+          "label": "Answer"
+          },
+          {
+          "type": "liquid",
+          "id": "custom_liquid",
+          "label": "Custom HTML / Liquid"
+        },
+          {
+          "id": "description2",
+          "type": "richtext",
+          "label": "Description2"
+          },
+          {
+          "type": "liquid",
+          "id": "custom_liquid2",
+          "label": "Custom HTML / Liquid"
+        },
+          {
+          "id": "description3",
+          "type": "richtext",
+          "label": "Description3"
+          }
+        ]
+      }           
+    ],
+  "presets":[
+  {
+  "name":"Collapsible Content"
+  }
+  ]
+}
+{% endschema %}

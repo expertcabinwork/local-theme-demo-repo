@@ -1,0 +1,565 @@
+{%- style -%}
+.abt_vd--{{ section.id }} {
+padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    background: {{ section.settings.section_bg}};
+  overflow: hidden;
+}
+@media screen and (min-width: 750px) {
+.abt_vd--{{ section.id }} {
+padding-top: {{ section.settings.padding_top }}px;
+padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+}
+   
+  .about_txt_vdo{
+    width:100%;
+    display:block;
+  }
+  .main_abt_txtvdo{
+    display:grid;    
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items:center;
+  }
+  .innner_rytvideo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+  .multi_img{position:relative;}
+  .multiple_vid img, .multiple_vid iframe{width:100%;height:200px;object-fit:cover;border:none;display:block;}
+ .multi_img  .position_play svg{width:30px;}
+  .main_abt_txtvdo .image-with-text__text p{
+  max-width:520px;
+}
+  @media only screen and (min-width: 1620px){
+     .innner_rytvideo{
+       gap:50px;
+     }
+   }
+   @media only screen and (max-width: 989px){
+     .multiple_vid img, .multiple_vid iframe {
+    height: 150px;
+     }
+   }
+  @media only screen and (max-width: 800px){
+    .main_abt_txtvdo{ 
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+    .main_abt_txtvdo .image-with-text__text p{
+  max-width:100%;
+}
+    .multiple_vid img, .multiple_vid iframe {
+    height: 200px;
+     }
+  }
+    @media only screen and (max-width: 480px){
+      .innner_rytvideo {
+    grid-template-columns: 1fr 1fr;
+}
+      .multiple_vid img, .multiple_vid iframe {
+    height: 170px;
+}
+    }
+{%- endstyle -%}
+<div class="about_txt_vdo abt_vd--{{section.id  }}">
+  <div class="page-width">
+    <div class="main_abt_txtvdo">
+      {%- for block in section.blocks -%}
+       {% if block.type == 'abttext' %}
+          {%- assign product =all_products[block.settings.single_prodcucts] -%}
+               <div class="left_text_dv"> 
+                 <h2 class="image-with-text__heading {{ block.settings.heading_size }}">
+                {{ block.settings.heading | newline_to_br }}
+              </h2>
+              <div class="image-with-text__text rte {{ block.settings.text_style }}">{{ block.settings.text }}</div>
+               {%- if block.settings.button_label != blank -%}
+                <a{% if block.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link }}"{% endif %} class="{% if block.settings.button_style_secondary %}link-btn button--secondary{% else %}button button--primary{% endif %}">
+                  {{ block.settings.button_label | escape }}
+                {% if block.settings.button_style_secondary %}
+                  {% render 'icon-arrow' %}
+                {% endif %}  
+                </a>
+              {%- endif -%}
+               </div>
+         {% endif %}
+       {% if block.type == 'multiplevideo' %}
+           <div class="right_video_dv">
+                  <div class="innner_rytvideo">
+                     {% for i in (1..9) %}
+                       {% assign index = 'multiple_vdo_' | append: i %}
+                        {% assign popvideo_id = 'video_id_' | append: i %}
+                        {% assign vidoeindex = 'video_url_' | append: i %}
+                      
+                         <div class="multiple_vid">
+                           {% if block.settings[index] != blank %}
+                             <div class="multi_img">
+                               <img src="{{ block.settings[index] | img_url:"" }}">
+                                {% if block.settings[popvideo_id]!= blank %}
+                            <div class="position_play">
+                                <a href="javascript:void(0)" onclick="videos(1,'{{ block.settings[popvideo_id] }}')" title="">
+                                    <svg width="64" height="66" viewBox="0 0 64 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <g clip-path="url(#clip0_359_9934)">
+                                            <path
+                                                d="M32.08 0.430176C14.78 0.430176 0.75 14.9702 0.75 32.9102C0.75 50.8502 14.78 65.3902 32.08 65.3902C49.38 65.3902 63.41 50.8502 63.41 32.9102C63.41 14.9702 49.38 0.430176 32.08 0.430176ZM23.94 48.1802V18.1202L49.05 33.1502L23.94 48.1802Z"
+                                                fill="#F8F6EF"
+                                            />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_359_9934">
+                                                <rect width="62.65" height="64.96" fill="white" transform="translate(0.75 0.430176)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </a>
+                            </div>
+                            {% endif %}
+                             </div>
+                             {% else %}
+                             <iframe height="200" width="100%"
+                                      id="y-frame"
+                                      data-id="{{ block.settings[vidoeindex].id }}"
+                                    src="https://www.youtube.com/embed/{{ block.settings[vidoeindex].id }}"
+                                    class="js-youtube"
+                                    allow="autoplay; encrypted-media"
+                                    allowfullscreen
+                                    
+                                  ></iframe>
+                             {% endif %}
+                         </div>
+                       {% endfor %}
+                  </div>      
+             </div>
+                {% endif %}
+
+                                                  {% if block.type == 'singlevideo' %}
+                                                     <div class="right_video_dv">
+           <div class="single_video">
+             {% if block.settings.video_url == blank and block.settings.mp4url == blank	%}
+                <div class="video-wrapper">
+                  <iframe src="//www.youtube.com/embed/_9VUPq3SxOc?rel=0&showinfo=0&vq=720" width="100%" height="480" frameborder="0" allowfullscreen></iframe>
+                </div>
+              {% else %}         
+                {% if block.settings.video_url.type == "youtube" %}        
+                <div class="video-wrapper"><iframe src="//www.youtube.com/embed/{{ block.settings.video_url.id }}?autoplay=1&mute=1&loop=1" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></div>
+                {% endif %}
+                {% if block.settings.video_url.type == "vimeo" %}
+                <div class="video-wrapper"><iframe src="//player.vimeo.com/video/{{ block.settings.video_url.id }}?byline=0&portrait=0&badge=0" width="850" height="480" frameborder="0" allowfullscreen></iframe></div>
+                {% endif %}     
+
+                  {% if block.settings.video_url == blank and block.settings.mp4url != blank %}
+                  <video poster="https://cdn.shopify.com/s/files/1/0711/0924/7263/files/TOV-S68615-L68616_1_a7f54fb6-0c7c-4e07-84f9-34eab8627dba.png?v=1689935705" style="display:block; width:100%;object-fit: cover;" {% if block.settings.enable_cntrl %}controls {% endif %}width="100%" {% if block.settings.is_autoplay and block.settings.enable_sound == true %}autoplay {% elsif block.settings.is_autoplay and block.settings.enable_sound == false %}autoplay muted {% endif %}{% if block.settings.enable_sound == false %}muted {% endif %}loop playsinline>
+                    <source src="{{block.settings.mp4url}}" codecs="avc1.4d002a, mp4a.40.2" type="video/mp4">
+                  </video>    
+                {% endif %} 
+               
+              {% endif %} 
+           </div>
+                                                       </div>
+           {% endif %}
+          
+   {% endfor %}
+    </div>
+  </div>
+</div>
+<div class="video_play_div showd_video" style="display:none;" > 
+<div class="video_max_width">
+<div class="set_video_popup">
+  <div class="closeup" onclick="videos(2)">
+    <img src="//cdn.shopify.com/s/files/1/0398/1741/2770/t/3/assets/close.png?v=12287237605190313288" alt="" title="">
+  </div>
+  <iframe width="100%" src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div>
+</div>
+</div>  
+{% schema %}
+  {
+    "name": "about-text-with-video",
+    "settings": [
+       {
+  "id":"section_bg",
+  "type":"color",
+  "label":"Section Background",
+    "default":"#fff"
+  },
+            {
+"type": "range",
+"id": "padding_top",
+"min": 0,
+"max": 100,
+"step": 1,
+"unit": "px",
+"label": "padding top",
+"default": 50
+},
+{
+"type": "range",
+"id": "padding_bottom",
+"min": 0,
+"max": 100,
+"step": 1,
+"unit": "px",
+"label": "padding bottom",
+"default": 50
+}
+    ],
+    "blocks": [
+      {
+        "type": "abttext",
+        "name": "About Content",
+        "settings": [
+        {
+          "type": "textarea",
+          "id": "heading",
+          "default": "Image with text",
+          "label": "heading"
+        },
+          {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "small"
+            },
+            {
+              "value": "h1",
+              "label": "medium"
+            },
+            {
+              "value": "h0",
+              "label": "large"
+            }
+          ],
+          "default": "h1",
+          "label": "medium"
+        },
+          {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+          "label": "Text"
+        },
+          
+          {
+          "type": "text",
+          "id": "button_label",
+          "default": "Button label",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "label": "Link Button Style"
+        }
+        ]
+      },
+      {
+"type": "singlevideo",
+"name": "singlevideo",
+"settings": [
+{
+        "type": "header",
+        "content": "YouTube or Vimeo link"
+      },
+          {
+          "type": "video_url",
+          "id": "video_url",
+          "label": "Video link",
+          "accept": ["youtube", "vimeo"]
+          },     
+         {
+            "type": "header",
+            "content": "Or MP4 Video [recommended]"
+          }, 
+         {
+          "type": "textarea",
+          "id": "mp4url",
+          "label": "Mp4 video link",
+          "info":"Paste video url. Upload and copy video url from Settings --> File. Video  size must not exceed 20 mb. It is shopify limit for video"      
+          },
+			{
+            "type":"checkbox",
+            "id":"enable_cntrl",
+            "label":"Enable Controls",
+            "default": false,
+			"info":"Display video play/pause buttons"
+          },
+          {
+            "type":"checkbox",
+            "id":"is_autoplay",
+            "label":"Enable Autoplay",
+            "default": true,
+			"info":"Autoplay will not work on Mobile with SOUND"
+          },
+ 		 {
+            "type":"checkbox",
+            "id":"enable_sound",
+            "label":"Enable Sound?",
+            "default": false,
+			"info":"If Video is Autoplay with Sound, autoplay will not work on Mobile."
+          }
+]
+},
+      
+      {
+        "type": "multiplevideo",
+        "name": "Multiple Videoes",
+        "settings": [
+          {
+            "type": "header",
+            "content": "image with pop video"
+          },
+        {
+            "id": "multiple_vdo_1",
+            "type": "image_picker",
+            "label": "image 1"
+          },
+          {
+            "id": "video_id_1",
+            "type": "text",
+            "label": "popup Video Id 1"
+          },
+          {
+            "type": "header",
+            "content": "Only video",
+            "info": "if image is blank than you can display video without popup "
+          },
+           {
+      "type": "video_url",
+      "id": "video_url_1",
+      "accept": ["youtube"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "Youtube Video 1"
+    },
+          {
+            "type": "header",
+            "content": "image with pop video"
+          },
+          {
+            "id": "multiple_vdo_2",
+             "type": "image_picker",
+            "label": "image 2"
+          },
+          {
+            "id": "video_id_2",
+            "type": "text",
+            "label": "popup Video Id 2"
+          },
+          {
+            "type": "header",
+            "content": "Only video",
+            "info": "if image is blank than you can display video without popup "
+          },
+          {
+      "type": "video_url",
+      "id": "video_url_2",
+      "accept": ["youtube"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "Youtube Video 2"
+    },
+          {
+            "type": "header",
+            "content": "image with pop video"
+          },
+          {
+            "id": "multiple_vdo_3",
+             "type": "image_picker",
+            "label": "image 3"
+          },
+          {
+            "id": "video_id_3",
+            "type": "text",
+            "label": "popup Video Id 3"
+          },
+          {
+            "type": "header",
+            "content": "Only video",
+  "info": "if image is blank than you can display video without popup "
+          },
+          {
+      "type": "video_url",
+      "id": "video_url_3",
+      "accept": ["youtube"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "Youtube Video 3"
+    },
+          {
+            "type": "header",
+            "content": "image with pop video"
+          },
+          {
+            "id": "multiple_vdo_4",
+             "type": "image_picker",
+            "label": "image 4"
+          },
+          {
+            "id": "video_id_4",
+            "type": "text",
+            "label": "popup Video Id 4"
+          },
+          {
+            "type": "header",
+            "content": "Only video",
+            "info": "if image is blank than you can display video without popup "
+          },
+          {
+      "type": "video_url",
+      "id": "video_url_4",
+      "accept": ["youtube"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "Youtube Video 4"
+    },
+          {
+            "type": "header",
+            "content": "image with pop video"
+          },
+          {
+            "id": "multiple_vdo_5",
+            "type": "image_picker",
+            "label": "image 5"
+          },
+          {
+            "id": "video_id_5",
+            "type": "text",
+            "label": "popup Video Id 5"
+          },
+          {
+            "type": "header",
+            "content": "Only video",
+            "info": "if image is blank than you can display video without popup "
+          },
+          {
+      "type": "video_url",
+      "id": "video_url_5",
+      "accept": ["youtube"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "Youtube Video 5"
+    },
+          {
+            "type": "header",
+            "content": "image with pop video"
+          },
+          {
+            "id": "multiple_vdo_6",
+             "type": "image_picker",
+            "label": "image 6"
+          },
+          {
+            "id": "video_id_6",
+            "type": "text",
+            "label": "popup Video Id 6"
+          },
+          {
+            "type": "header",
+            "content": "Only video",
+            "info": "if image is blank than you can display video without popup "
+          },
+          {
+      "type": "video_url",
+      "id": "video_url_6",
+      "accept": ["youtube"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "Youtube Video 6"
+    },
+          {
+            "type": "header",
+            "content": "image with pop video"
+          },
+          {
+            "id": "multiple_vdo_7",
+             "type": "image_picker",
+            "label": "image 7"
+          },
+          {
+            "id": "video_id_7",
+            "type": "text",
+            "label": "popup Video Id 7"
+          },
+          {
+            "type": "header",
+            "content": "Only video",
+            "info": "if image is blank than you can display video without popup "
+          },
+          {
+      "type": "video_url",
+      "id": "video_url_7",
+      "accept": ["youtube"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "Youtube Video 7"
+    },
+          {
+            "type": "header",
+            "content": "image with pop video"
+          },
+          {
+            "id": "multiple_vdo_8",
+             "type": "image_picker",
+            "label": "image 8"
+          },
+          {
+            "id": "video_id_8",
+            "type": "text",
+            "label": "popup Video Id 8"
+          },
+          {
+            "type": "header",
+            "content": "Only video",
+            "info": "if image is blank than you can display video without popup "
+          },
+          {
+      "type": "video_url",
+      "id": "video_url_8",
+      "accept": ["youtube"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "Youtube Video 8"
+    },
+          {
+            "type": "header",
+            "content": "image with pop video"
+          },
+          {
+            "id": "multiple_vdo_9",
+             "type": "image_picker",
+            "label": "image 9"
+          },
+          {
+            "id": "video_id_9",
+            "type": "text",
+            "label": "popup Video Id 9"
+          },
+          {
+            "type": "header",
+            "content": "Only video",
+            "info": "if image is blank than you can display video without popup "
+          },
+          {
+      "type": "video_url",
+      "id": "video_url_9",
+      "accept": ["youtube"],
+      "default": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+      "label": "Youtube Video 9"
+    }
+        ]
+      }
+    ],
+      "presets":[
+  {
+  "name":"about-text-with-video"
+  }
+  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

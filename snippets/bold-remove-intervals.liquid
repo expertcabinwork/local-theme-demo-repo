@@ -1,0 +1,32 @@
+{% comment %}
+This will affect ALL subscription widgets on the store.
+
+Enter the interval option values you wish to remove from the widget.
+{% endcomment %}
+
+<script>
+  if (window.BOLD && BOLD.common && BOLD.common.eventEmitter && typeof BOLD.common.eventEmitter.on === 'function'){
+    BOLD.common.eventEmitter.on("BOLD_RECURRING_ORDERS_widget_loaded", function (e){
+      // Put in the values you would like to remove. NOTE: Make sure to include quotes. 
+      var removeIntervalOptions = ['30', '60', '90'];
+      var frequencyNum = document.querySelector('.bold-ro__frequency-num');
+      var frequencyNumValues = document.querySelectorAll('.bold-ro__frequency-num > option');
+      debugger;
+
+//       removeIntervalOptions.forEach(function(options){
+//         frequencyNumValues.forEach(function(values){
+//           if (values.value != options){
+//             values.remove();
+//           }
+//         })
+//       })
+      if(document.getElementsByName('frequency_type')[0].value == "1"){
+        frequencyNumValues.forEach(function(values){
+          !removeIntervalOptions.includes(values.value) ? values.remove() : "";
+        })
+      }
+      
+      
+    })
+  }
+</script>

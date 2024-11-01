@@ -1,0 +1,102 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="img-text section-{{ section.id }}-padding ">
+    <div class="container--large">
+        <div class="imgtxt-wrap" data-aos="zoom-in">
+            <div class="imgtxt-inner">
+              <h2 class="bodr-line">{{ section.settings.heading }}</h2>
+              <span>{{ section.settings.subtitle }}</span>              
+              {{ section.settings.content }}
+              {% if section.settings.button_label != blank %}
+                <a href="{{ section.settings.button_link }}" class="btn btn-blue">{{ section.settings.button_label }}</a>
+              {% endif %}
+            </div>
+            <div class="imgtxt-inner">
+                <img width="" height="" src="{{ section.settings.image | img_url: '' }}" alt="image">
+            </div>				
+        </div>
+    </div>
+</section>
+
+{% schema %}
+  {
+    "name": "landing Img with Text",
+    "settings": [
+      {
+        "type": "inline_richtext",
+        "id": "heading",
+        "default": "Empower your practice",
+        "label": "Heading"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "default": "Fast. Clinical. Personalized. Evidence-Backed.",
+        "label": "Subtitle"
+      },
+      {
+        "type": "richtext",
+        "id": "content",
+        "label": "Content"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button Link"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "default": "VIEW SAMPLE REPORTS",
+        "label": "Button Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      
+      {
+        "type": "header",
+        "content": "Spacing"
+      },
+      {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "padding top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "padding bottom",
+        "default": 36
+      }
+    ],
+    "presets": [
+      {
+        "name": "landing Img with Text"
+      }
+    ]
+  }
+{% endschema %}

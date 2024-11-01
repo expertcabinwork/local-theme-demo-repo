@@ -1,0 +1,133 @@
+<div class="tab-container">
+  <ul class="tab-menu">
+    <li><a href="#l-methylfolate" class="active-tab">L-Methylfolate</a></li>
+    <li><a href="#methylated-vitamins">Methylated Vitamins</a></li>
+    <li><a href="#methyl-b12">Methyl-B12</a></li>
+    <li><a href="#vitamin-b12">Vitamin B12</a></li>
+    <li><a href="#mthfr-supplements">MTHFR Supplements</a></li>
+  </ul>
+
+  <!-- Tab Content -->
+
+  <!-- L-Methylfolate Tab -->
+  <div id="l-methylfolate" class="tab-content">
+    <h2>L-Methylfolate</h2>
+    <p>Methyl-Life®’s L-Methylfolate supplements contain the purest and most potent OTC L-Methylfolate per USP standards. Choose therapeutic dosing when it comes to supporting your mood, cardiovascular function, pregnancy, mental clarity, and other health needs.</p>
+    <a href="/collections/l-methylfolate-supplements" class="btn">Shop L-Methylfolate</a>
+  </div>
+
+  <!-- Methylated Vitamins Tab -->
+  <div id="methylated-vitamins" class="tab-content">
+    <h2>Methylated Vitamins</h2>
+    <p>Methyl-Life®’s methylated vitamins contain the most potent OTC L-Methylfolate and methylated B vitamins to support neurotransmitter production, energy levels, detoxification, red blood cell health, and other vitality needs.</p>
+    <a href="/collections/methylated-vitamins" class="btn">Shop Methylated Vitamins</a>
+  </div>
+
+  <!-- Methyl-B12 Tab -->
+  <div id="methyl-b12" class="tab-content">
+    <h2>Methyl-B12</h2>
+    <p>Methyl-Life®’s Methyl-B12 contains the most active bioidentical methylated B12 sublingual form. When taken with L-Methylfolate, these vegan nutrients support DNA synthesis, energy production, nerve health, red blood cells, and folate metabolism.</p>
+    <a href="/collections/methyl-b12-supplements" class="btn">Shop Methyl-B12</a>
+  </div>
+
+  <!-- Vitamin B12 Tab -->
+  <div id="vitamin-b12" class="tab-content">
+    <h2>Vitamin B12</h2>
+    <p>Methyl-Life®’s B12 products contain 3 bioactive vegan B12 sublingual forms to improve absorption and sufficiency. Taking B12 alongside L-Methylfolate supports DNA synthesis, energy production, protein metabolism, nervous system function, and red blood cell health.</p>
+    <a href="/collections/vitamin-b12-supplements" class="btn">Shop Vitamin B12</a>
+  </div>
+
+  <!-- MTHFR Supplements Tab -->
+  <div id="mthfr-supplements" class="tab-content">
+    <h2>MTHFR Supplements</h2>
+    <p>Methyl-Life®’s MTHFR supplements contain the most potent OTC L-Methylfolate combined with synergistic nutrients that support the body’s folate metabolism. This in turn aids healthy DNA/RNA replication, mood, energy, brain function, and other wellness processes.</p>
+    <a href="/collections/mthfr-supplements" class="btn">Shop MTHFR Supplements</a>
+  </div>
+</div>
+
+<!-- Add some CSS for tab navigation -->
+<style>
+  .tab-container {
+    margin: 20px 0;
+  }
+
+  .tab-menu {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .tab-menu li {
+    margin-right: 10px;
+  }
+
+  .tab-menu li a {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #0E80F1;
+    color: white;
+  }
+
+  .tab-menu li a.active-tab {
+    background-color: #54CA70;
+  }
+
+  .tab-content {
+    display: none;
+    margin-top: 20px;
+  }
+
+  .tab-content h2 {
+    font-size: 24px;
+  }
+
+  .tab-content p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0E80F1;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+</style>
+
+<!-- Add JavaScript for Tab functionality -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var tabs = document.querySelectorAll('.tab-menu li a');
+    var contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        // Remove active class from all tabs
+        tabs.forEach(function (t) {
+          t.classList.remove('active-tab');
+        });
+
+        // Hide all tab content
+        contents.forEach(function (content) {
+          content.style.display = 'none';
+        });
+
+        // Add active class to the clicked tab
+        tab.classList.add('active-tab');
+
+        // Show the associated content
+        var target = document.querySelector(tab.getAttribute('href'));
+        target.style.display = 'block';
+      });
+    });
+
+    // Set the first tab and content to active by default
+    tabs[0].classList.add('active-tab');
+    contents[0].style.display = 'block';
+  });
+</script>

@@ -1,0 +1,145 @@
+{% style %}
+  .product_details_column{
+    width:100%;
+    display:block;
+    background:#f7f7f7;
+    padding:50px 0;
+    margin-top:50px;
+  }
+  .product_details_column .container--large{
+        max-width: 1110px;
+  }
+  .inner_multicolumn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+.pdp_column_heading {
+    font-size: 60px;
+    text-align: center;
+    margin: 0 0 30px 0;
+}
+.product_multicolumn {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.right_column_content h4 {
+    margin: 0;
+    margin-bottom: 8px;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #2c56a4;
+    font-weight: 600;
+}
+
+.right_column_content p {
+    margin: 0;
+    font-size: 14px;
+    line-height: normal;
+}
+  @media only screen and (max-width: 991px) {
+    .pdp_column_heading {
+    font-size: 50px;
+}
+  }
+   @media only screen and (max-width:767px) {
+    .pdp_column_heading {
+    font-size: 40px;
+}
+  }
+    @media only screen and (max-width:600px) {
+    .pdp_column_heading {
+    font-size: 40px;
+}
+      .product_multicolumn {
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+        
+  }
+  
+    @media only screen and (max-width:480px) {
+    .pdp_column_heading {
+    font-size: 30px;
+}
+    }
+  {% endstyle %}
+<div class="product_details_column">
+  <div class="container--large">
+    {% if section.settings.heading != blank %}
+    <h3 class="pdp_column_heading">{{ section.settings.heading }}</h3>
+    {% endif %}
+    <div class="product_multicolumn">
+      {% for block in section.blocks %}
+        <div class="inner_multicolumn">
+          {% if block.settings.image != blank %}
+          <div class="left_column_img">
+            <img width="" height="" src="{{ block.settings.image | img_url:"80x" }}">
+          </div>
+           {% endif %}
+          {% if block.settings.title != blank or block.settings.text != blank %}
+          <div class="right_column_content">
+           {% if block.settings.title != blank %}
+            <h4> {{ block.settings.title }} </h4>
+            {% endif %}
+            {% if block.settings.text != blank %}
+            {{ block.settings.text }}
+              {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Product MultiColumn",
+    "settings": [
+      {
+            "id":"heading",
+            "type":"text",
+            "label":"Heading",
+        "default":"CLEAN, SAFE & EFFECTIVE INGREDIENTS "
+          }
+    ],
+    "blocks":[
+      {
+        "type": "Multicolumn",
+        "name": "pdp Multicolumn",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "image"
+          },
+          {
+            "id":"title",
+            "type":"text",
+            "label":"Title",
+        "default":"N-HA"
+          },
+          {
+            "id":"text",
+            "type":"richtext",
+            "label":"Text",
+        "default":"<p>A non-toxic fluoride alternative that keeps teeth safe from decay Benefits: Restores and strengthens enamel </p>"
+          }
+        ]
+      }           
+    ],
+    "presets":[
+      {
+        "name": "product MultiColumn"
+      }
+    ]
+  }
+{% endschema %}

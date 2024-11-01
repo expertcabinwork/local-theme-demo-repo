@@ -1,0 +1,160 @@
+<style>
+   .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+ .naturo-banner--{{ section.id }} .naturo-banner--inner{
+   background-image:url('{{section.settings.bg_image | img_url:''}}');
+   background-size: cover;
+    height: auto;
+    width: 100%;
+ }  
+  .naturo-banner--container{
+  padding-top: 5%;
+}
+  .naturo--logo{
+    width:230px
+  }
+.natur-content--main{
+  display: flex;
+    align-items: center;
+}
+.naturo-text{
+  width: 75%;
+}
+.naturo-media{
+  width: 25%;
+}
+  .natur-content--main h2{
+    font-size: 44px;
+    font-weight: 700;
+    color: #000;
+    line-height: 54px;
+  }
+  .natur-content--main p{
+   color: #000;
+    font-size: 22px;
+    line-height: 34px;
+  }
+   @media screen and (max-width: 768px) {
+     .naturo-banner--inner{
+       background-position: bottom;
+       padding-top: 34px;
+     }
+     .natur-content--main{
+    flex-direction: column;
+  }
+     .naturo-media img{
+     width:50%
+       
+     }
+  .naturo-text{
+    width: 100%;
+  }
+     .natur-content--main h2{
+       font-size: 27px;
+    line-height: 40px;
+     }
+     .natur-content--main p {
+    font-size: 16px;
+    line-height: 28px;
+}
+     .naturo-media{
+       width: 100%;
+       text-align: center;
+     }
+   }
+</style>
+<section class="naturo-banner--main naturo-banner--{{ section.id }} section-{{ section.id }}-padding">
+  <div class="naturo-banner--inner">
+    <div class="page-width">
+      <div class="naturo-banner--container">
+        <div class="naturo--logo">
+          {% if section.settings.logo_image != blank %}
+          <img src="{{ section.settings.logo_image | img_url:'' }}">
+            {% endif %}
+        </div>
+        <div class="natur-content--main">
+          <div class="naturo-text">
+            <h2>{{ section.settings.title | newline_to_br }}</h2>
+           <p>
+  {{ section.settings.paragraph }}
+        </p>         
+          </div>
+          {% if section.settings.right_image != blank %}
+          <div class="naturo-media">
+            <img src="{{ section.settings.right_image | img_url:'' }}">
+          </div>
+            {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Naturo banner",
+ 
+  "settings": [
+    {
+  "type": "image_picker",
+  "id": "bg_image",
+  "label": "background image"
+},
+   {
+  "type": "image_picker",
+  "id": "logo_image",
+  "label": "logo image"
+}, 
+{
+      "type": "textarea",
+      "id": "title",
+      "label": "heading"
+    },
+    {
+  "type": "richtext",
+  "id": "paragraph",
+  "label": "Paragraph"
+},
+    {
+  "type": "image_picker",
+  "id": "right_image",
+  "label": "right image"
+},
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "spacing top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "spacing bottom",
+      "default": 36
+    }
+
+  ],
+  
+  "presets": [
+    {
+      "name": "Naturo banner"
+    }
+  ]
+}
+{% endschema %}

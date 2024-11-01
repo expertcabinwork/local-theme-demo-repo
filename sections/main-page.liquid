@@ -1,0 +1,68 @@
+{% style %}
+  .default_page_content p{
+    font-size:16px;
+    font-weight:400;
+    line-height:25.008px;
+    margin:0;
+  }
+  .default_page_content p a {
+    color: #32539f;
+    text-decoration: none;
+    border:none;
+  }
+ .default_page_content blockquote {
+    padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 17.5px;
+    border-left: 5px solid #eee;
+}
+  .default_page_content h2{
+    margin:0;
+        color: #365e99;
+    font-size:27px;
+    font-weight:500;
+    line-height:38px;
+  }
+  .default_page_content h4{
+    margin:0;
+        color: #365e99;
+    font-size:20px;
+    font-weight:400;
+  }
+ .default_page_content hr {
+    clear: both;
+    border-top: solid #1c1d1d;
+    border-width: 1px 0 0;
+    margin: 30px 0;
+    height: 0;
+}
+  .default_page_content hr,  .default_page_content .hr--small,  .default_page_content .hr--medium,  .default_page_content .hr--large {
+    border-width: 3px 0 0 0;
+    width: 50px;
+}
+  {% endstyle %}
+
+<div class="container {% if section.settings.center %} container--medium {% else %} container--large {% endif %} container--vertical-space-small main-page gutter-bottom--page">
+
+  <!-- <h1 class="title h2">{{ page.title | escape }}</h1> -->
+
+  <div class="rte default_page_content">
+    {{ page.content }}
+  </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "t:sections.main-page.name",
+    "class": "section--remove-bottom-margin-after",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "center",
+        "label": "t:sections.local-extra-words.sections.main-page.settings.center.label",
+        "default": false
+      }
+    ]
+  }
+{% endschema %}

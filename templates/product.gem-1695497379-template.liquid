@@ -1,0 +1,54 @@
+{%- include 'bold-ro' -%}
+{% capture captured_page %}
+{% include 'shogun-products', content: product %}
+{{product.metafields.shogun.above}}
+<!-- /templates/product.liquid -->
+{% comment %}
+  The contents of the product.liquid template can be found in /sections/product-template.liquid
+{% endcomment %}
+
+{% section 'product-template' %}
+{% section 'product-recommendations' %}
+
+{% if collection %}
+  <hr class="hr--clear">
+  <div class="text-center">
+    <a href="{{ collection.url }}" class="return-link">&larr; {{ 'products.general.collection_return' | t: collection: collection.title }}</a>
+  </div>
+{% endif %}
+
+
+{{product.metafields.shogun.below}}
+
+
+{% endcapture %}
+{% include 'password-protect' %}
+
+<script type="text/javascript">
+  var _learnq = _learnq || [];
+
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+</script>

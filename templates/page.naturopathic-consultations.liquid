@@ -1,0 +1,19 @@
+  {{ 'maincss.css' | asset_url | stylesheet_tag }}
+
+{% capture captured_page %}
+<!-- /templates/page.liquid -->
+
+
+{% section 'naturo-banner-top' %}
+    
+{% section 'naturo-text-content' %}
+ {% section 'naturo-img-text' %}
+{% section 'naturo-text-bg' %}
+   {% section 'naturo-img-txt2' %}
+{% section 'naturo-text-bg2' %}
+  {% section 'naturo-how-to-book' %}
+   {% section 'naturo-img-txt3' %}
+  {% section 'naturo-simple--banner' %}
+ 
+{% endcapture %}
+{% include 'password-protect' %}

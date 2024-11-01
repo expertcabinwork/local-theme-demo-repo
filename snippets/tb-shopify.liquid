@@ -1,0 +1,16 @@
+<script type="text/javascript">
+  var tb_product_id = '{{product.id}}';
+ if(tb_product_id !== ''){
+ 
+   var checkClassExit = document.getElementsByClassName('product-single__title')[0];
+   if (checkClassExit !== null && checkClassExit !== undefined) {
+   	checkClassExit.className += " product-name";
+   }
+   var dta = document.getElementsByClassName('product-single__description')[0];
+   if (dta !== null && dta !== undefined) {
+     dta.insertAdjacentHTML('afterend', '<div id="targetbay_reviews"></div>');
+   }
+ }
+  
+  var tbCustomerNameCheck="{{customer.name}}";""===tbCustomerNameCheck&&(tbCustomerNameCheck="anonymous");var orderIdNew="{{order.order_number}}",tbConfig={apiStatus:"app",apiKey:"d1e40f63-4b75-450d-8297-e38e37748a6c",apiToken:"8a0bd969-15ea-4e10-8b98-a96eaf2806e8",apiUrl:"/webhooks/",apiVersion:"v1",trackingType:"1",productName:"{{product.title | escape}}",productId:"{{product.id}}",productImageUrl:"{{ product.images[0] | product_img_url: 'medium' }}",productUrl:"{{product.url}}",productPrice:"{{product.price  | money_without_currency}}",productStockStatus:"{{product.available}}",productStock:"{{product.available}}",productCollection:"{{product.collections[0]}}",collectionTitle:"{{collection.title}}",collectionId:"{{collection.id}}",collectionUrl:"{{collection.url}}",userId:"{{customer.id}}",userMail:"{{customer.email}}",userName:tbCustomerNameCheck,userAvatar:"",pageName:"{{page.title}}",pageUrl:"",pageData:"",orderId:orderIdNew,platform:"sf",tbTrack:!0,tbMessage:!1,tbAccessToken:"",tbWooBulkReview:!0,tbReview:{tbSiteReview:!0,tbProductReview:!0,tbCustomProductReview:!1,tbBulkReview:!0,tbQa:!0,tbReviewBadge:!1,tbReviewPopup:!1}};
+</script>

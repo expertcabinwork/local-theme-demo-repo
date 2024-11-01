@@ -1,0 +1,274 @@
+<style>
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-Black.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-Black.woff' | file_url }}') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-Bold.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-Bold.woff' | file_url }}') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-Bold.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-Bold.woff'  | file_url }}') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-BoldItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-BoldItalic.woff' | file_url }}') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-Book.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-Book.woff' | file_url }}') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-BookItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-BookItalic.woff' | file_url }}') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-BookItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-BookItalic.woff' | file_url }}') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-Light.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-Light.woff' | file_url }}') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-Light.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-Light.woff' | file_url }}') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-LightItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-LightItalic.woff' | file_url }}') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-Medium.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-Medium.woff' | file_url }}') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-Thin.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-Thin.woff' | file_url }}') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-MediumItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-MediumItalic.woff' | file_url }}') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-Medium.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-Medium.woff' | file_url }}') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-ThinItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-ThinItalic.woff' | file_url }}') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-XLight.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-XLight.woff' | file_url }}') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-UltraItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-UltraItalic.woff' | file_url }}') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('{{ 'Gotham-XLightItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Gotham-XLightItalic.woff' | file_url }}') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('{{ 'Roboto-Bold.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Roboto-Bold.woff' | file_url }}') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('{{ 'Roboto-Black.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Roboto-Black.woff' | file_url }}') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('{{ 'Roboto-BlackItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Roboto-BlackItalic.woff' | file_url }}') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('{{ 'Roboto-BoldItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Roboto-BoldItalic.woff' | file_url }}') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('{{ 'Roboto-Italic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Roboto-Italic.woff' | file_url }}') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('{{ 'Roboto-Light.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Roboto-Light.woff' | file_url }}') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('{{ 'Roboto-LightItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Roboto-LightItalic.woff' | file_url }}') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('{{ 'Roboto-Medium.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Roboto-Medium.woff' | file_url }}') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('{{ 'Roboto-MediumItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Roboto-MediumItalic.woff' | file_url }}') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('{{ 'Roboto-Regular.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Roboto-Regular.woff' | file_url }}') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('{{ 'Roboto-Thin.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Roboto-Thin.woff' | file_url }}') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('{{ 'Roboto-ThinItalic.woff2' | file_url }}') format('woff2'),
+        url('{{ 'Roboto-ThinItalic.woff' | file_url }}') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+  
+</style>

@@ -1,0 +1,294 @@
+<style>
+ .naturo-book--{{ section.id }} .naturo-book--inner{
+   /* background-image:url('https://cdn.shopify.com/s/files/1/0264/6369/9018/files/Group_60.png?v=1695755141'); */
+   background: #2C56A4;
+   background-size: cover;
+    width: 100%;
+   /* min-height: 450px; */
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+   padding: 76px 0;
+   position:relative
+ }  
+  .bk--left {
+    position: absolute;
+    width: 20%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    opacity: 0.5;
+  }
+  .bk--right{
+    position: absolute;
+    width: 20%;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    opacity: 0.5;
+  }
+  .naturo-book--container{
+    max-width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 5;
+    position: relative;
+  }
+  .naturo-book-text{
+    color:#fff
+  }
+  .naturo-book-text h2{
+    /* color: #fff;
+    font-size: 40px;
+    font-weight: 600; */
+  }
+  .naturo-book-text p{
+    font-size: 19px;
+  }
+  .naturo-book-buttons a{
+    background: #3B9A46;
+    padding: 8px 18px;
+    color: #fff;
+    
+  }
+  .naturo-book-buttons a span{
+    margin-right: 6px;
+  }
+  .naturo-book-buttons a span img{
+    width: 32px;
+  }
+  .naturo-book-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+  }
+  .naturo-book-text .heading-1{
+    color:#fff!important
+  }
+  @media screen and (max-width: 768px) {
+    .naturo-book--container {
+    max-width: 100%;
+    }
+      .naturo-book-text p {
+    font-size: 16px;
+}
+    .naturo-book-buttons{
+       gap: 1rem;
+   }
+    .naturo-book-buttons a{
+      font-size: 13px;
+  }
+  }
+   @media screen and (max-width: 480px) {
+     .naturo-book-buttons{
+       flex-direction: column;
+    
+     }
+    .naturo-book-buttons a{
+       text-align: left;
+    }
+   }
+ .overlay2 {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2; /* Place the overlay above the popup */
+        }
+  /* Style for the popup container */
+        .popup-container, .popup-container2 {
+            display: none;
+            position: fixed;
+          top: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 80%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+
+          padding: 34px 0;
+        }
+
+        /* Style for the popup content */
+        .popup-content, .popup-content2 {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+          overflow-y: scroll;
+    height: 100%;
+        }
+
+        /* Style for the close button */
+        .close-button {
+            position: absolute;
+            top: 44px;
+            right: 14px;
+            cursor: pointer;
+          width: 24px;
+    height: 24px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    z-index: 999;
+        }
+  .cf-cancel{
+    display:none!important
+  }
+  .cf-form-inner input::placeholder, .cf-form-inner textarea::placeholder, .cf-select-wrap option, .cf-select-wrap select{
+    color:gray!important;
+    font-size:15px!important;
+    font-weight:500!important;
+    font-style:normal
+  }
+  .cf-field  ul{
+    padding-left: 24px!important;
+  }
+  .cf-field h2{
+    color:#000!important
+  }
+  .cf-form-inner .cf-field label, .cf-form-inner p, .cf-form-inner legend{
+    font-size: 18px!important;
+    font-style: normal!important;
+    color: #000!important;
+  }
+  .cf-step-title{
+    color:#000!important
+  }
+  .bold-heading{
+    color: #365e99!important;      
+  }
+  @media screen and (max-width: 768px) {
+    .popup-container, .popup-container2{
+      width: 96%
+    }
+    .cf-form-inner .cf-field label, .cf-form-inner p, .cf-form-inner legend{
+      font-size: 15px!important;
+    }
+    .cf-form-inner input::placeholder, .cf-form-inner textarea::placeholder, .cf-select-wrap option, .cf-select-wrap select{
+    color:gray!important;
+    font-size:13px!important;
+    font-weight:500!important;
+    font-style:normal
+  }
+    }
+</style>
+
+<section class="naturo-book--main naturo-book--{{ section.id }}">
+  <div class="naturo-book--inner">
+    <div class="page-width">
+      <div class="naturo-book--container">
+        <div class="naturo-book--main">
+          <div class="naturo-book-text">
+            <h2 class="heading-1">How to book </h2>
+            <p>
+              Please complete the intake form. This form provides me with a clear picture of what’s going on for you and how I can help. You will be asked to explain your health issue as clearly as possible, and what you need help with. 
+            </p>
+            <div class="naturo-book-buttons">
+              <a href="#" id="openButton"><span><img src="https://cdn.shopify.com/s/files/1/0264/6369/9018/files/Group_47.png?v=1695836048"></span>Book Email Consult - $75</a>
+              <a href="#" id="openButton2"><span><img src="https://cdn.shopify.com/s/files/1/0264/6369/9018/files/zoom_1.png?v=1695836048"></span>Book 60-Min Online Consult - $175</a>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <img class="bk-img bk--left" src="https://cdn.shopify.com/s/files/1/0264/6369/9018/files/businessman-hand-holding-letter-iconemail-iconscontact-us-by-newsletter-email-protect-your-personal-information-from-spam-mailcustomer-service-call-center-contact-usemail-marketing-ne_0df1a068-9aeb-4f06-bd13-e5b7c938741f.png?v=1696011885">
+      <img class="bk-img bk--right" src="https://cdn.shopify.com/s/files/1/0264/6369/9018/files/businessman-hand-holding-letter-iconemail-iconscontact-us-by-newsletter-email-protect-your-personal-information-from-spam-mailcustomer-service-call-center-contact-usemail-marketing-ne.png?v=1696011884">
+
+  </div>
+   <div id="overlay2" class="overlay2"></div>
+  <div id="popup" class="popup-container">
+    <span id="closeButton1" class="close-button">X</span>
+  <div class="hel--main popup-content">
+    <form data-cf-form="bbtpv0"></form>
+  </div>
+  </div>
+   <div id="popup2" class="popup-container2">
+     <span id="closeButton2" class="close-button">X</span>
+  <div class="hel--main popup-content">
+    <form data-cf-form="dGtWjY"></form>
+  </div>
+  </div>
+</section>
+<script>
+        const openLink = document.getElementById("openButton");
+        const closeButton1 = document.getElementById("closeButton1");
+        const overlay = document.getElementById("overlay2");
+        const popup = document.getElementById("popup");
+
+        // Function to open the popup and show the overlay
+        function openPopup() {
+            popup.style.display = "block";
+            overlay.style.display = "block";
+        }
+
+        // Function to close the popup and hide the overlay
+        function closePopup() {
+            popup.style.display = "none";
+            overlay.style.display = "none";
+        }
+openLink.addEventListener("click", (e) => {
+            e.preventDefault();
+        });
+        // Attach click event listeners to the link and close button
+        openLink.addEventListener("click", openPopup);
+        closeButton1.addEventListener("click", closePopup);
+
+        // Prevent the default behavior of the anchor link (e.g., navigating to a different page)
+        
+    </script>
+    <script>
+        const openLink2 = document.getElementById("openButton2");
+        const closeButton2 = document.getElementById("closeButton2");
+        const overlay2 = document.getElementById("overlay2");
+        const popup2 = document.getElementById("popup2");
+
+        // Function to open the popup and show the overlay
+        function openPopup2() {
+            popup2.style.display = "block";
+            overlay2.style.display = "block";
+        }
+
+        // Function to close the popup and hide the overlay
+        function closePopup2() {
+            popup2.style.display = "none";
+            overlay2.style.display = "none";
+        }
+openLink2.addEventListener("click", (e) => {
+            e.preventDefault();
+        });
+        // Attach click event listeners to the link and close button
+        openLink2.addEventListener("click", openPopup2);
+        closeButton2.addEventListener("click", closePopup2);
+
+        // Prevent the default behavior of the anchor link (e.g., navigating to a different page)
+        
+    </script>
+{% schema %}
+{
+  "name": "Naturo how to book",
+ 
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "Naturo how to book"
+    }
+  ]
+}
+{% endschema %}

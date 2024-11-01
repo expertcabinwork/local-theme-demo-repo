@@ -1,0 +1,456 @@
+
+<style>
+  #c-1596583590745.lefside-product-recomendation{
+    width: 100%;
+    padding: 0;
+  }
+  #c-1596583590745.lefside-product-recomendation #r-1725052299329{
+    position: unset !important;
+    padding-top: 5px;
+  }
+  #c-1596583590745.lefside-product-recomendation #r-1725052299329 .gf_gs-text-heading-2{
+    font-size: 20px !important;
+    margin-bottom:2rem;
+  }
+  #c-1596583590745.lefside-product-recomendation #c-1722013267623 {
+    padding:0
+  }
+  #c-1596583590745.lefside-product-recomendation #c-1722013267623 #m-1725052299402{
+    border:0;
+  }
+  #c-1596583590745.lefside-product-recomendation #c-1722013267623 .product-single__title{
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 500;
+  }
+  #c-1596583590745.lefside-product-recomendation #c-1722013267623 .gf_icon-wrap {
+    color: #fad43d!important;
+  }
+  #c-1596583590745.lefside-product-recomendation #c-1722013267623 .gf_icon-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  #c-1596583590745.lefside-product-recomendation #c-1722013267623 .money{
+    font-size: 20px;
+    font-weight: 600;
+  }
+  #c-1596583590745.lefside-product-recomendation #c-1722013267623 #e-1725052299354 ul li{
+    color: #3154a1;
+  }
+  #c-1596583590745.lefside-product-recomendation .custom-add-to-cart-btn{
+    text-align: center;
+    margin-top: 2rem;
+  }
+  #c-1596583590745.lefside-product-recomendation .custom-add-to-cart-btn #add-to-cart-btn{
+    background: #dc2e91 ;
+    border-color: #dc2e91 ;
+    transition: 0.3s;
+    color: #fff;
+    padding: 0.6rem 2rem;
+  }
+  #c-1596583590745.lefside-product-recomendation .custom-add-to-cart-btn #add-to-cart-btn:hover{
+    background:transparent;
+    color: #dc2e91 ;
+  }
+</style>
+ 
+ 
+ <div id="c-1596583590745" class="lefside-product-recomendation gf_column gf_col-sm-4 gf_col-xs-12 gf_col-md-3 gf_col-lg-3" data-id="1596583590745"
+    style="min-height:auto;display:block;flex-direction:unset;justify-content:unset;transform:none;z-index:50">
+   
+    <div data-label="Row" data-key="row" data-atomgroup="row" id="r-1725052299329" class="gf_row fixed"
+        data-icon="gpicon-row" data-id="1725052299329" data-extraclass="fixed"
+        style="position:fixed;top:0px;left:0px;display:block;flex-wrap:unset;visibility:visible">
+        <div class="gf_column gf_col-lg-12 gf_col-md-12 gf_col-sm-12 gf_col-xs-12" id="c-1722013267623"
+            data-id="1722013267623"
+            style="display:block;flex-direction:unset;justify-content:unset;min-height:auto">
+            <div data-label="Heading" data-key="heading" data-atomgroup="element" id="e-1725052299342"
+                class="element-wrap" data-icon="gpicon-heading" data-ver="2" data-id="1725052299342">
+                <div class="elm text-edit gf-elm-center gf-elm-center-md gf-elm-center-sm gf-elm-center-xs gf-elm-center-lg"
+                    data-gemlang="en" data-exc="">
+                    <h2 class="gf_gs-text-heading-2 article-section-heading"><span
+                            style="font-weight:bold;color:rgb(82, 166, 70)">Product
+                            Recommendation</span></h2>
+                </div>
+            </div>
+            
+            <div data-label="Product" data-key="product" data-atomgroup="product" id="m-1725052299402"
+                class="module-wrap" data-icon="gpicon-product" data-ver="3.1" data-id="1725052299402"
+                data-assigned-ver="4" style="min-height:auto;transform:none;z-index:50">
+                <div class="module" data-variant="auto" style="" data-current-variant="31134620811338">
+                    <product-form> {% assign product_handle =
+                        page.metafields.custom.select_recommended_product %}
+                        {% assign product = all_products[product_handle] %} {% unless product.empty?
+                        %}{% form 'product', product, id: "", class: "AddToCartForm ", data-productid:
+                        product.id %}<input name="id" type="hidden"
+                            value="{{product.selected_or_first_available_variant.id}}"
+                            data-productid="{{product.id}}">
+                        <div data-index="1" class="item-content">
+                            <div data-label="(P) Title" data-key="p-title"
+                                data-atomgroup="child-product" id="m-1725052299361" class="module-wrap"
+                                data-icon="gpicon-product-title" data-ver="1.0" data-id="1725052299361">
+                                <div class="module gf_module-center gf_module-center-lg gf_module--md gf_module--sm gf_module--xs "
+                                    data-pid="{{product.id}}">
+                                    <h3 itemprop="name" class="product-single__title">{% if '1' == '1'
+                                        %}<a href="{{ product.url }}"
+                                            class="gf_product-title gf_gs-text-heading-3">{{
+                                            product.title }}</a>{% else %}<span
+                                            class="gf_product-title gf_gs-text-heading-3">{{
+                                            product.title }}</span>{% endif %}</h3>
+                                </div>
+                            </div>
+                            <div data-label="Icon List Hoz" data-key="icon-list-hoz"
+                                data-atomgroup="module" id="m-1725052299450" class="module-wrap"
+                                data-icon="gpicon-iconlist2" data-ver="1.0" data-id="1725052299450"
+                                style="display:block">
+                                <div
+                                    class="module gf_module-center gf_module-center-lg gf_module--md gf_module--sm gf_module--xs ">
+                                    <ul class="gf_icon-list">
+                                        <li class="item" style="width:19px">
+                                            <div data-index="1" data-key="content" class="item-content">
+                                                <div data-label="Icon" id="e-1725052299450-1"
+                                                    data-ver="2" class="element-wrap"
+                                                    data-icon="eicon-post" data-id="1725052299450-1">
+                                                    <div class="elm gf-elm-center gf-elm-center-md gf-elm-center-sm gf-elm-center-xs gf-elm-center-lg"
+                                                        data-exc="">
+                                                        <div class="gf_icon-wrap"><svg
+                                                                fill="currentColor" height="100%"
+                                                                class="gf_icon"
+                                                                icon-class="bootstrap-regular-star-fill"
+                                                                width="100%"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 16 16">
+                                                                <path fill-rule="evenodd"
+                                                                    clip-rule="evenodd"
+                                                                    d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z"
+                                                                    fill="currentColor"></path>
+                                                            </svg></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="item" style="width:19px">
+                                            <div data-index="2" data-key="content" class="item-content">
+                                                <div data-label="Icon" id="e-1725052299450-2"
+                                                    data-ver="2" class="element-wrap"
+                                                    data-icon="eicon-post" data-id="1725052299450-2">
+                                                    <div class="elm gf-elm-center gf-elm-center-md gf-elm-center-sm gf-elm-center-xs gf-elm-center-lg"
+                                                        data-exc="">
+                                                        <div class="gf_icon-wrap"><svg
+                                                                fill="currentColor" height="100%"
+                                                                class="gf_icon"
+                                                                icon-class="bootstrap-regular-star-fill"
+                                                                width="100%"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 16 16">
+                                                                <path fill-rule="evenodd"
+                                                                    clip-rule="evenodd"
+                                                                    d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z"
+                                                                    fill="currentColor"></path>
+                                                            </svg></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="item" style="width:19px">
+                                            <div data-index="3" data-key="content" class="item-content">
+                                                <div data-label="Icon" id="e-1725052299450-3"
+                                                    data-ver="2" class="element-wrap"
+                                                    data-icon="eicon-post" data-id="1725052299450-3">
+                                                    <div class="elm gf-elm-center gf-elm-center-lg gf-elm-center-md gf-elm-center-sm gf-elm-center-xs"
+                                                        data-exc="">
+                                                        <div class="gf_icon-wrap"><svg
+                                                                fill="currentColor" height="100%"
+                                                                class="gf_icon"
+                                                                icon-class="bootstrap-regular-star-fill"
+                                                                width="100%"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 16 16">
+                                                                <path fill-rule="evenodd"
+                                                                    clip-rule="evenodd"
+                                                                    d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z"
+                                                                    fill="currentColor"></path>
+                                                            </svg></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="item" style="width:19px">
+                                            <div data-index="4" data-key="content" class="item-content">
+                                                <div data-label="Icon" id="e-1725052299450-4"
+                                                    data-ver="2" class="element-wrap"
+                                                    data-icon="eicon-post" data-id="1725052299450-4">
+                                                    <div class="elm gf-elm-center gf-elm-center-lg gf-elm-center-md gf-elm-center-sm gf-elm-center-xs"
+                                                        data-exc="">
+                                                        <div class="gf_icon-wrap"><svg
+                                                                fill="currentColor" height="100%"
+                                                                class="gf_icon"
+                                                                icon-class="bootstrap-regular-star-fill"
+                                                                width="100%"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 16 16">
+                                                                <path fill-rule="evenodd"
+                                                                    clip-rule="evenodd"
+                                                                    d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z"
+                                                                    fill="currentColor"></path>
+                                                            </svg></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="item" style="width:19px">
+                                            <div data-index="5" data-key="content" class="item-content">
+                                                <div data-label="Icon" id="e-1725052299450-5"
+                                                    data-ver="2" class="element-wrap"
+                                                    data-icon="eicon-post" data-id="1725052299450-5">
+                                                    <div class="elm gf-elm-center gf-elm-center-md gf-elm-center-sm gf-elm-center-xs gf-elm-center-lg"
+                                                        data-exc="">
+                                                        <div class="gf_icon-wrap"><svg
+                                                                fill="currentColor" height="100%"
+                                                                class="gf_icon"
+                                                                icon-class="bootstrap-regular-star-fill"
+                                                                width="100%"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 16 16">
+                                                                <path fill-rule="evenodd"
+                                                                    clip-rule="evenodd"
+                                                                    d="M3.612 15.443c-0.386 0.198 -0.824 -0.149 -0.746 -0.592l0.83 -4.73L0.173 6.765c-0.329 -0.314 -0.158 -0.888 0.283 -0.95l4.898 -0.696L7.538 0.792c0.197 -0.39 0.73 -0.39 0.927 0l2.184 4.327 4.898 0.696c0.441 0.062 0.612 0.636 0.282 0.95l-3.522 3.356 0.83 4.73c0.078 0.443 -0.36 0.79 -0.746 0.592L8 13.187l-4.389 2.256z"
+                                                                    fill="currentColor"></path>
+                                                            </svg></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="module-wrap" id="m-1725052299402-0" data-id="1725052299402-0"
+                                data-label="(P) Image" data-icon="gpicon-product-image" data-ver="1.1">
+                                <div class="module gf_module-center gf_module-center-lg gf_module--md gf_module--sm gf_module--xs"
+                                    data-effect="default" data-pid="{{product.id}}"
+                                    data-image-type="variant" data-default-variant="{{defaultVariant}}"
+                                    data-select-text="{{selectText}}" data-zoom-level="1.2"
+                                    data-ori-size="1024x1024" data-displaytype="percentage"
+                                    data-displayunit="%" data-badgemod="0">{% assign modelMedia = false
+                                    %}{% assign videoMedia = false %}{% if 'variant' == 'model' %}{%
+                                    assign modelMedia = product.media | where: "media_type", "model" |
+                                    first %}{%endif%}{% if 'variant' == 'video' %}{% assign videoMedia =
+                                    product.media | where: "media_type", "video" | first %}{%endif%}{%
+                                    if 'variant' == 'first' %}{% assign current_variant =
+                                    product.selected %}{% else %}{% assign current_variant =
+                                    product.selected_or_first_available_variant %}{% endif %}{% assign
+                                    featured_image = current_variant.featured_image | default:
+                                    product.featured_image %}{% if '0' == '1' %}{% assign anchorClass =
+                                    'active' %}{%else%}{% assign anchorClass = 'hide' %}{%endif%}{%if
+                                    '0'=='1' %}{% assign currentPrice = current_variant.price | plus: 0
+                                    %}{% assign comparePrice = current_variant.compare_at_price | plus:
+                                    0 %}{% if currentPrice and currentPrice %}{% if currentPrice
+                                    <comparePrice %}{% assign diff=comparePrice | minus: currentPrice
+                                        %}{%else%}{% assign diff=currentPrice | minus: comparePrice
+                                        %}{%endif%}{% assign comparePriceFloat=comparePrice | times: 1.0
+                                        %}{% if comparePriceFloat !=0 %}{% assign diff=diff |
+                                        divided_by: comparePriceFloat %}{% endif %}{% assign diff=diff |
+                                        times: 100.0 %}{% assign saleOffValue=diff |round
+                                        %}{%endif%}{%else%}{% assign saleOffValue='' %}{%endif%}{%
+                                        assign imageCapture='' %}{% assign isVideo=0 %}{% if videoMedia
+                                        and videoMedia.sources and 'variant'=='video' %}{% assign
+                                        isVideo=1 %}{% endif %}{% assign
+                                        elementImgHolderOpen='<div class="img-holder">' %}{% assign
+                                        elementImgHolderClose='</div>' %}{% if '0'=='1' %}{% capture
+                                        elementImgHolderOpen %}<a href="{{ product.url }}"
+                                        class="img-holder">{% endcapture %}{% capture
+                                        elementImgHolderClose %}</a>{% endcapture %}{% endif %}{% if
+                                        modelMedia and modelMedia.sources %}{% assign
+                                        media3DSource=modelMedia.sources | where: "format" , "glb" |
+                                        first %}{% capture imageCapture %}<model-viewer
+                                            poster="{{ modelMedia.preview_image.src | img_url: '1024x1024' }}"
+                                            class="gf_product-3DImage gf_product-image gf_product-model-thumb"
+                                            src="{{ media3DSource.url }}" auto-rotate=""
+                                            camera-controls="" ar-status="not-presenting"
+                                            style="position:absolute;width:100%;height:100%;z-index:1;top:0;left:0"></model-viewer><img
+                                            class="gf_product-image gf_featured-image"
+                                            data-zoom="https://cdn.shopify.com/s/images/admin/no-image-2048x2048.gif"
+                                            src="{{ modelMedia.preview_image.src | img_url: '1024x1024' }}"
+                                            alt="{{ product.title }}"
+                                            natural-width="{{ featured_image.width }}"
+                                            natural-height="{{ featured_image.height }}"
+                                            width="{{ featured_image.width }}"
+                                            height="{{ featured_image.height }}" data-width="100%"
+                                            data-height="auto"
+                                            style="width:100%;height:auto;opacity:0">{% endcapture %}{%
+                                        elsif isVideo == 1 %}{% capture imageCapture %}<img
+                                            class="gf_product-image gf_featured-image gf_hidden-important"
+                                            width="{{media.preview_image.width}}"
+                                            height="{{media.preview_image.height}}"
+                                            alt="{{ altTag }}">{% endcapture %}{% elsif featured_image
+                                        %}{% assign altTag = featured_image.alt %}{% unless altTag %}{%
+                                        assign altTag = product.title %}{% endunless %}{% capture
+                                        imageCapture %}<img class="gf_product-image gf_featured-image"
+                                            src="{{ featured_image | img_url: '1024x1024' }}"
+                                            data-zoom="{{ featured_image | img_url: '2048x2048' }}"
+                                            alt="{{ altTag }}"
+                                            natural-width="{{ featured_image.width }}"
+                                            natural-height="{{ featured_image.height }}"
+                                            width="{{ featured_image.width }}"
+                                            height="{{ featured_image.height }}" data-width="100%"
+                                            data-height="auto" style="width:100%;height:auto">{%
+                                        endcapture %}{% else %}{% capture imageCapture %}<img
+                                            class="gf_product-image gf_featured-image"
+                                            data-zoom="https://cdn.shopify.com/s/images/admin/no-image-2048x2048.gif"
+                                            src="https://cdn.shopify.com/s/images/admin/no-image-2048x2048.gif"
+                                            alt="{{ product.title }}"
+                                            natural-width="{{ featured_image.width }}"
+                                            natural-height="{{ featured_image.height }}"
+                                            width="{{ featured_image.width }}"
+                                            height="{{ featured_image.height }}" data-width="100%"
+                                            data-height="auto" style="width:100%;height:auto">{%
+                                        endcapture %}{% endif %}{% if isVideo == 1 %}{% assign
+                                        firstSource = videoMedia.sources | first %}<div
+                                            class="gf_image-item gf_image-video gf_first_video"
+                                            data-source="{{ firstSource.url }}" data-loaded="1"
+                                            style="position:static;top:0px;left:0px;opacity:1"><video
+                                                id="gf_image-item-0-video" controls="" data-width="100%"
+                                                data-height="auto" style="width:100%;height:auto">{% for
+                                                source in videoMedia.sources %}
+                                                <source src="{{ source.url }}"
+                                                    type="{{ source.mime_type }}">{% endfor %}
+                                            </video></div>{% endif %}{{elementImgHolderOpen}}<div
+                                            class="gf_product-badge-anchor gf_pb_top-right {{anchorClass}}">
+                                            {% if 'text' == "text" %}<div
+                                                class="gf_badge-text-wrap gf_pb_sheild gf_gs-text-paragraph-2">
+                                                <span>Sale Off </span>{%if '0'=='1' %}<span><span
+                                                        class="data-saleoffvalue"
+                                                        style="margin-left:5px !important">{{saleOffValue}}</span><span
+                                                        class="data-saleoffunit">
+                                                        %</span></span>{%endif%}</div>{% elsif 'text' ==
+                                            "png" %}<div class="gf_badge-png-wrap"> PNG image </div>{%
+                                            elsif 'text' == "gif" %}<div class="gf_badge-gif-wrap"> GIF
+                                                image </div>{%endif%}</div>{{ imageCapture }}{% if
+                                        'default' == 'hover' %}{% if 'last' != 'last' %}{% assign nth =
+                                        last | minus: 1 %}{% assign limit = product.images | size |
+                                        minus: 1 %}{% assign nth = nth | at_most: limit %}{% assign
+                                        hoverImage = product.images[nth] %}{% else %}{% assign
+                                        hoverImage = product.images | last %}{% endif %}{% assign
+                                        hoverImgAltTag = hoverImage.alt %}{% unless hoverImgAltTag %}{%
+                                        assign hoverImgAltTag = product.title %}{% endunless %}<img
+                                            class="gf_product-image gf_product-image-hover"
+                                            src="{{ hoverImage.src | img_url: '1024x1024' }}"
+                                            alt="{{ hoverImgAltTag }}"
+                                            natural-width="{{ featured_image.width }}"
+                                            natural-height="{{ featured_image.height }}"
+                                            width="{{ featured_image.width }}"
+                                            height="{{ featured_image.height }}" data-width="100%"
+                                            data-height="auto" style="width:100%;height:auto">{% endif
+                                        %}{{elementImgHolderClose}}</div>
+                            </div>
+                            <div class="module-wrap" id="m-1725052299402-2" data-id="1725052299402-2"
+                                data-label="(P) Price" data-icon="gpicon-product-price" data-ver="1.4">
+                                <div class="module gf_module-center gf_module-center-lg gf_module--md gf_module--sm gf_module--xs "
+                                    data-pid="{{product.id}}" data-round-decimals="0"
+                                    data-round-to="99">{% assign current_variant =
+                                    product.selected_or_first_available_variant %}{% assign
+                                    dataOldFormat = '' %}{% if shop.money_format %}{% capture
+                                    dataOldFormat %}{{ shop.money_format | replace: '"', "'" }}{%
+                                    endcapture %}{% endif %}<div class="gf_product-prices"
+                                        data-oldformat="{{ dataOldFormat }}"
+                                        data-oldcurrency="{{ cart.currency.iso_code }}">{% assign
+                                        currentPrice = current_variant.price | plus: 0 %}{% assign
+                                        comparePrice = current_variant.compare_at_price | plus: 0 %}{%
+                                        if '1' == '1' and '1' == '1' %}{% assign hide_style = '' %}{% if
+                                        current_variant.compare_at_price == null %}{% assign hide_style
+                                        = 'display:none;' %}{% endif %}<span
+                                            class="gf_product-compare-price money gf_gs-text-paragraph-1"
+                                            style="" itemprop="price" data-price-compare-at="">{{
+                                            current_variant.compare_at_price | money }}</span>{% endif
+                                        %}<span class="gf_product-price money gf_gs-text-paragraph-1"
+                                            itemprop="price" data-price="">{{ current_variant.price |
+                                            money }}</span>{% if '1' != '1' and '1' == '1' %}{% assign
+                                        hide_style = '' %}{% if current_variant.compare_at_price == null
+                                        %}{% assign hide_style = 'display:none;' %}{% endif %}<span
+                                            class="gf_product-compare-price money gf_gs-text-paragraph-1"
+                                            style="" itemprop="price" data-price-compare-at="">{{
+                                            current_variant.compare_at_price | money }}</span>{% endif
+                                        %}{% if '0' == '1' %}{% assign hide_style = '' %}{% if
+                                        comparePrice <= currentPrice or comparePrice <=0 %}{% assign
+                                            comparePrice=1 %}{% assign hide_style='display:none' %}{%
+                                            endif %}<span class="gf_pq-discount-selector" style=""><span
+                                                class="gf_pq-discount gf_gs-text-paragraph-1">{% assign
+                                                diff = comparePrice | minus: currentPrice %}{% assign
+                                                comparePriceFloat = comparePrice | times: 1.0 %}{%
+                                                assign diff = diff | divided_by: comparePriceFloat %}{%
+                                                assign diff = diff | times: 100.0 %}{% assign diff =
+                                                diff | round %}<span></span><span
+                                                    class="gf_pq-percent">{{ diff
+                                                    }}%</span><span>OFF</span></span></span>{% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-label="Text Block" data-key="text-block" data-atomgroup="element"
+                                id="e-1725052299354" class="element-wrap" data-icon="gpicon-textblock"
+                                data-ver="1" data-id="1725052299354">
+                                <div class="elm text-edit gf-elm-left gf_gs-text-paragraph-1 gf-elm-center-md gf-elm-center-sm gf-elm-center-xs gf-elm-left-lg"
+                                    data-gemlang="en" data-exc="">
+                                    <p></p>
+                                    {{ product.metafields.custom.bullet_point | metafield_tag }}
+                                    <p></p>
+                                </div>
+                            </div>
+                            <div class="custom-add-to-cart-btn" data-label="(P) Cart Button" data-icon="gpicon-product-cartbutton" data-ver="1.1">
+                              <button type="button" id="add-to-cart-btn" class="button btn gf_gs-button-cart-button">
+                                  Add to Cart
+                              </button>
+                          </div>
+                        </div>
+                        <div class="gf_clearfix"></div>{% unless product == empty %}
+                        <script type="text/plain" class="product-json"
+                            id="product-json{{product.id}}">{{ product | json }}</script>{% endunless
+                        %}{% endform %}{% endunless %}
+                    </product-form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+  document.getElementById('add-to-cart-btn').addEventListener('click', function() {
+    var productId = '{{ product.selected_or_first_available_variant.id }}'; // Get the product variant ID
+
+    // Log product variant ID to ensure it's correct
+    console.log('Product variant ID:', productId);
+
+    // Check if productId is valid
+    if (!productId) {
+      console.error('Product variant ID is not available.');
+      return;
+    }
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      body: JSON.stringify({
+        id: productId,  // Product variant ID
+        quantity: 1     // You can change the quantity if needed
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Product added to cart successfully:', data);
+      // Refresh the page after product is added to cart
+      location.reload();
+    })
+    .catch((error) => {
+      console.error('Error adding product to cart:', error);
+    });
+  });
+</script>

@@ -1,0 +1,31 @@
+<style>
+  .blog-list {
+    background-color: #52A646;
+    opacity: 0.87;
+    padding: 20px 40px;
+    border-radius: 32px;
+    list-style: disc;
+    margin: 0;
+  }
+  .blog-list li {
+    margin-bottom: 10px;
+    color: white;
+    font-size: 16px;
+  }
+  .blog-list li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+
+</style>
+
+<ul class="blog-list">
+  {% for link in linklists.blogs.links %}
+    {% assign cat = link.object %}
+    <li>
+      <a href="{{ cat.url }}">{{ cat.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

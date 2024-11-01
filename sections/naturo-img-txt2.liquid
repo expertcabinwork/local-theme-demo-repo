@@ -1,0 +1,119 @@
+<style>
+   .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .naturo-img-text--body{
+   display: flex;
+    align-items: center;
+    gap: 14rem;
+  }
+  .naturo-img-text--txt, .naturo-img-text-img{
+    width:50%
+  }
+  .img--left-pos{flex-direction: row-reverse;}
+   @media screen and (max-width: 768px) {
+   .naturo-img-text--body{
+     flex-direction: column-reverse!important;
+     gap: 2rem!important;
+   } 
+    .naturo-img-text--txt, .naturo-img-text-img {
+    width: 100%!important;
+}
+    .naturo-img-text--txt p, .naturo-img-text--txt li, .naturo-text-bg--container p{
+   font-size: 16px!important;
+ }
+}
+</style>
+<section class="naturo-img-text--main naturo-img-text--{{ section.id }} section-{{ section.id }}-padding">
+  <div class="naturo-img-text--inner">
+    <div class="page-width">
+      <div class="naturo-img-text--header">
+        
+        <h2 class="sct-header--title">{{ section.settings.title }}</h2>
+        
+        
+      </div>
+      <div class="naturo-img-text--body {% if section.settings.show_left %}img--left-pos{% endif %}">
+        <div class="naturo-img-text--txt">
+          <h2 class="heading-2">{{ section.settings.sub_title }}</h2>
+          <div>
+            {{ section.settings.descc }}
+          </div>
+        </div>
+        <div class="naturo-img-text-img">
+          <img src="{{ section.settings.right_image | img_url:'' }}">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "naturo-img-text2",
+ 
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "section heading"
+    },
+    {
+      "type": "text",
+      "id": "sub_title",
+      "label": "title"
+    },
+    {
+      "type": "richtext",
+      "id": "descc",
+      "label": "content"
+    },
+    {
+  "type": "image_picker",
+  "id": "right_image",
+  "label": "image"
+},
+    {
+  "type": "checkbox",
+  "id": "show_left",
+  "label": "Image on left",
+  "default": false
+}
+,
+     {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "spacing top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "spacing bottom",
+      "default": 36
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "naturo-img-text2"
+    }
+  ]
+}
+{% endschema %}

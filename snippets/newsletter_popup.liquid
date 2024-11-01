@@ -1,0 +1,93 @@
+<style>
+  .newsletter_popup_overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+    background: rgba(0,0,0,0.4);
+    z-index: 1000;
+  }
+  .newsletter_pop_form{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 700px;
+    max-height: 400px;
+    height: 100%;
+    background: #fff;
+    z-index: 1001;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .close-newsletter-popup{
+    position: absolute;
+    right: -11px;
+    top: -10px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: #fff;
+    font-size: 20px;
+    text-align: center;
+    z-index: 9999;
+  }
+  .newsletter-popup-btn{
+    margin-top: 20px;
+  }
+</style>
+<div class="newsletter_popup_main" style="display: none" >
+  <div class="newsletter_popup_overlay">
+    &nbsp;
+  </div>
+  <div class="newsletter_pop_form">
+    <span class="close-newsletter-popup">&#10005;</span>
+    
+     {%- assign form_id = 'newsletter-footer-block' -%}
+                  {%- form 'customer', id: form_id, class: '' -%}
+                    <h5>Subscribe to our newsletter to get latest updates</h5>
+                    {%- if form.posted_successfully? -%}
+                      <p>
+                        {{ 'general.newsletter.confirmation' | t }}
+                      </p>
+                    {%- endif -%}
+                    {%- unless form.posted_successfully? -%}
+                      <fieldset>
+                        <input type="hidden" name="contact[tags]" value="newsletter">
+                        <div class="form-row" style="position:relative">
+                          <input type="email" class="newsletter__input" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter.email_label' | t }}" name="contact[email]" id="Email-{{ form_id }}" aria-label="{{ 'general.newsletter.email_label' | t }}" autocorrect="off" autocapitalize="off" required> 
+                          <button type="submit" id="Subscribe-{{ form_id }}" aria-label="{{ 'general.newsletter.submit_label' | t }}">
+                              <span class="visually-hidden">{{ 'general.newsletter.submit_label' | t }}</span>
+                              <span aria-hidden="true" role="img" class="button button--small newsletter-popup-btn">SUBSCRIBE</span>
+                          </button>
+                        </div>
+                      </fieldset>
+                    {%- endunless -%}
+                  {%- endform -%}
+  </div>
+</div>
+<script>
+
+  var closenewsletteroverlay = document.querySelector('.newsletter_popup_overlay');
+closenewsletteroverlay.addEventListener('click' , function(){
+closenewsletteroverlay.closest('.newsletter_popup_main').style.display = 'none';
+});
+  var closenewsletter = document.querySelectorAll('.show_newsletter_popup');
+  closenewsletter.forEach((openform) => {
+    openform.addEventListener('click' , function(){
+ document.querySelector('.newsletter_popup_main').style.display = 'block';
+        var closenewsletter = document.querySelector('.close-newsletter-popup');
+closenewsletter.addEventListener('click' , function(){
+closenewsletter.closest('.newsletter_popup_main').style.display = 'none';
+});
+  })
+
+});
+</script>
