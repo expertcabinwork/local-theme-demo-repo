@@ -1122,3 +1122,7 @@ html[dir=rtl] .announcement-bar__content-nav {
   position: relative;
   z-index: 1;
 }
+
+.header-container--top{
+      background: #000;
+}
