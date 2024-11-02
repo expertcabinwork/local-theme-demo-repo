@@ -1,1 +1,273 @@
-{"type":"header","name":"t:sections.refactor_words.labels.header_group","sections":{"announcement":{"type":"announcement-bar","blocks":{"content_cnanAX":{"type":"content","settings":{"text":"GIFT VOUCHERS Now Available!","link":"shopify:\/\/products\/methyl-life-supplements-gift-certificate","target":false}},"content":{"type":"content","settings":{"text":"Free Shipping On Orders Over $100","link":"","target":false}},"content_tfKYYt":{"type":"content","settings":{"text":"New CEREBROFOLATE™ - Proven Best in Class!","link":"https:\/\/methyl-life.com\/products\/l-methylfolate-15-mg","target":true}},"content_MmNyAr":{"type":"content","settings":{"text":"Eco-Friendly: Carbon Offset & Paperless Shipments","link":"","target":false}},"bded2c53-d825-4d16-89d9-af8ecd153fcb":{"type":"content","settings":{"text":"Anxiety? Try Our New CALMING Product!","link":"shopify:\/\/products\/calming-your-stress-with-the-best-gaba-supplement","target":false}}},"block_order":["content_cnanAX","content","content_tfKYYt","content_MmNyAr","bded2c53-d825-4d16-89d9-af8ecd153fcb"],"settings":{"visibility":"homepage","show_locale_selector":true,"show_country_selector":true,"show_social_icons":true,"bar_bgcolor":"#3154a1","bar_txtcolor":"#ffffff"}},"header":{"type":"header","blocks":{"store":{"type":"store-selector","disabled":true,"settings":{}},"info":{"type":"info","settings":{"caption":"","title":"What Should I Order?","link":"\/pages\/what-should-i-order","link_type":"_self","icon":"no-icon"}},"7b8ec37f-1a21-45fa-bc67-783ae2cd248a":{"type":"mega-menu","settings":{"menu_handle":"products","show_promotion_block":true,"promotion_title":"","promotion_title_size":"text-size--xlarge","promotion_subtitle":"","promotion_subtitle_size":"text-size--regular","promotion_button_label":"MTHFR Supplements","promotion_button_size":"regular","promotion_button_link":"shopify:\/\/products\/mthfr-supplements-starter-pack-methylfolate-b12-multivitamin-magnesium","promotion_color_txt":"#dc2e91","promotion_color_bg":"#f3f3f3","promotion_image":"shopify:\/\/shop_images\/tab3.png"}},"0f4ee267-b199-4f71-9e08-8327e03ac50e":{"type":"multi_colum","settings":{"menu_handle":"health-needs","multi_image_1":"shopify:\/\/shop_images\/Icon-05.png","multi_heading_1":"MOOD","multi_text_1":"<p>Reclaim Your \"Feel Good\" & Recover Your Resilience<\/p>","multi_link_1":"shopify:\/\/collections\/mood-elevating-nutrients","multi_image_2":"shopify:\/\/shop_images\/brain.svg","multi_heading_2":"BRAIN HEALTH","multi_text_2":"<p>Support Your Mind's Memory, Focus & Protection<\/p>","multi_link_2":"shopify:\/\/collections\/brain-health","multi_image_3":"shopify:\/\/shop_images\/Icon-16.png","multi_heading_3":"CARDIOVASCULAR","multi_text_3":"<p>Protect & Maintain Your Circulatory System<\/p>","multi_link_3":"shopify:\/\/collections\/heart-health-nutrients","multi_image_4":"shopify:\/\/shop_images\/Icon-19.png","multi_heading_4":"ENERGY","multi_text_4":"<p>Recapture Your \"Get Up & Go\"<\/p>","multi_link_4":"shopify:\/\/collections\/boost-energy","new_multi_image_1":"shopify:\/\/shop_images\/Icon-01.png","new_multi_heading_1":"PREGNANCY & FERTILITY","new_multi_text_1":"<p>Support Your Fetal Health Journey<\/p>","new_multi_link_1":"shopify:\/\/collections\/pregnancy-health","new_multi_image_2":"shopify:\/\/shop_images\/Icon-26.png","new_multi_heading_2":"GUT HEALTH","new_multi_text_2":"<p>Soothe & Balance Your Microbiome<\/p>","new_multi_link_2":"shopify:\/\/collections\/spore-based-probiotics","new_multi_image_3":"shopify:\/\/shop_images\/Icon-09.png","new_multi_heading_3":"IMMUNE HEALTH","new_multi_text_3":"<p>Improve Your Body's Natural Defenses<\/p>","new_multi_link_3":"shopify:\/\/collections\/nutrients-supporting-immune-function","new_multi_image_4":"shopify:\/\/shop_images\/neuron.png","new_multi_heading_4":"NERVE HEALTH","new_multi_text_4":"<p>Aid & Sustain Your Quality of Life<\/p>","new_multi_link_4":"shopify:\/\/collections\/nerve-health-nutrients","side-img":"shopify:\/\/shop_images\/l-methylfolate-15mg-vitamin-b12-with-methyl-573.jpg","img-texts":"<p>L-Methylfolate<\/p>","link-src":"shopify:\/\/collections\/l-methylfolate","side-img1":"shopify:\/\/shop_images\/methylated-vitamins-professional-strength-methylfolate-478.jpg","img-texts1":"<p>Methyl B12<\/p>","link-src1":"shopify:\/\/collections\/methyl-b12","headingmenu":"","headingmenulink":"","menu":"main-menu","img-texts3":""}},"9d322d33-61fb-40b2-9b97-557f67cd8846":{"type":"image-mega-menu","settings":{"menucount":"3","menu_handle":"education","mega_image_1":"shopify:\/\/shop_images\/eee.png","mega_text_1":"What is MTHFR?","mega_link_1":"shopify:\/\/pages\/methylenetetrahydrofolate-reductase","mega_image_2":"shopify:\/\/shop_images\/ccc.png","mega_text_2":"Ultimate MTHFR GUIDE","mega_link_2":"shopify:\/\/blogs\/mthfr\/mthfr-guide","mega_image_3":"shopify:\/\/shop_images\/dddd.png","mega_text_3":"A Doctor Explains MTHFR","mega_link_3":"shopify:\/\/pages\/a-doctor-explains","mega_text_4":"","mega_link_4":"","headingmenu":"MORE LINKS","menu":"more-links"}},"6ebbefe6-5ded-4ae1-822d-c5246452fc9e":{"type":"multi_colum","settings":{"menu_handle":"resources","multi_heading_1":"","multi_text_1":"","multi_link_1":"","multi_image_2":"shopify:\/\/shop_images\/Icon-13_1.png","multi_heading_2":"TYPES OF METHYLFOLATE","multi_text_2":"<p>Choose The Right Methylfolate For You<\/p>","multi_link_2":"shopify:\/\/pages\/methylfolate-types","multi_image_3":"shopify:\/\/shop_images\/Icon-19_1.png","multi_heading_3":"CEREBROFOLATE™ COMPARED","multi_text_3":"<p>Not All Methylfolates Are Equal - See How They Stack Up<\/p>","multi_link_3":"shopify:\/\/blogs\/methylfolate-facts\/cerebrofolate-comparison","multi_heading_4":"","multi_text_4":"","multi_link_4":"","new_multi_image_1":"shopify:\/\/shop_images\/Icon-17.png","new_multi_heading_1":"FAQs","new_multi_text_1":"<p>Frequently Asked Questions<\/p>","new_multi_link_1":"shopify:\/\/pages\/faq","new_multi_image_2":"shopify:\/\/shop_images\/Icon-07_1.png","new_multi_heading_2":"METHYLATION PROTOCOLS","new_multi_text_2":"<p>4 Nutrient Protocols that Promote Optimal Methylation<\/p>","new_multi_link_2":"shopify:\/\/pages\/methylation-protocol","new_multi_heading_3":"","new_multi_text_3":"","new_multi_link_3":"","new_multi_heading_4":"","new_multi_text_4":"","new_multi_link_4":"","img-texts":"","link-src":"","img-texts1":"","link-src1":"","headingmenu":"OUR BLOGS","headingmenulink":"https:\/\/methyl-life.com\/blogs","menu":"from-our-blogs","videoblock1":"shopify:\/\/files\/videos\/Are you overmethylated part 1.mp4","videoblock2":"shopify:\/\/files\/videos\/download.mp4","videoblock3":"shopify:\/\/files\/videos\/Are you overmethylated part 1.mp4","videoblock4":"shopify:\/\/files\/videos\/download.mp4","img-texts3":"<p><a href=\"\/pages\/dosage\" target=\"_blank\" title=\"\/pages\/dosage\">How Much Methylfolate Do I Take?<\/a><\/p>"}},"0f72b138-9de7-4506-82d7-0597936c9947":{"type":"image-mega-menu","settings":{"menucount":"4","menu_handle":"about","mega_image_1":"shopify:\/\/shop_images\/fff.png","mega_text_1":"About Us","mega_link_1":"shopify:\/\/pages\/about-us","mega_image_2":"shopify:\/\/shop_images\/iii.png","mega_text_2":"Contact Us","mega_link_2":"shopify:\/\/pages\/contact-methyl-life","mega_image_3":"shopify:\/\/shop_images\/hhh.png","mega_text_3":"Writers & Reviewers","mega_link_3":"shopify:\/\/pages\/medical-writers","mega_image_4":"shopify:\/\/shop_images\/ggg.png","mega_text_4":"Affiliates","mega_link_4":"shopify:\/\/pages\/health-fitness-supplements-affiliate-program","headingmenu":"","menu":"main-menu"}}},"block_order":["store","info","7b8ec37f-1a21-45fa-bc67-783ae2cd248a","0f4ee267-b199-4f71-9e08-8327e03ac50e","9d322d33-61fb-40b2-9b97-557f67cd8846","6ebbefe6-5ded-4ae1-822d-c5246452fc9e","0f72b138-9de7-4506-82d7-0597936c9947"],"settings":{"logo_src":"shopify:\/\/shop_images\/logo_1.webp","logo_height":100,"main_linklist":"new-main-navigation","show_search":true,"sticky_header":true,"select_header_actions_on_mobile":"show_on_homepage","show_header_actions":true,"show_locale_selector":true,"show_country_selector":true,"show_social_icons":true}}},"order":["announcement","header"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "t:sections.refactor_words.labels.header_group",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "blocks": {
+        "content_cnanAX": {
+          "type": "content",
+          "settings": {
+            "text": "GIFT VOUCHERS Now Available!",
+            "link": "shopify://products/methyl-life-supplements-gift-certificate",
+            "target": false
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {
+            "text": "Free Shipping On Orders Over $100",
+            "link": "",
+            "target": false
+          }
+        },
+        "content_tfKYYt": {
+          "type": "content",
+          "settings": {
+            "text": "New CEREBROFOLATE™ - Proven Best in Class!",
+            "link": "https://methyl-life.com/products/l-methylfolate-15-mg",
+            "target": true
+          }
+        },
+        "content_MmNyAr": {
+          "type": "content",
+          "settings": {
+            "text": "Eco-Friendly: Carbon Offset & Paperless Shipments",
+            "link": "",
+            "target": false
+          }
+        },
+        "bded2c53-d825-4d16-89d9-af8ecd153fcb": {
+          "type": "content",
+          "settings": {
+            "text": "Anxiety? Try Our New CALMING Product!",
+            "link": "shopify://products/calming-your-stress-with-the-best-gaba-supplement",
+            "target": false
+          }
+        }
+      },
+      "block_order": [
+        "content_cnanAX",
+        "content",
+        "content_tfKYYt",
+        "content_MmNyAr",
+        "bded2c53-d825-4d16-89d9-af8ecd153fcb"
+      ],
+      "settings": {
+        "visibility": "homepage",
+        "show_locale_selector": true,
+        "show_country_selector": true,
+        "show_social_icons": true,
+        "bar_bgcolor": "#3154a1",
+        "bar_txtcolor": "#ffffff"
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "store": {
+          "type": "store-selector",
+          "disabled": true,
+          "settings": {
+          }
+        },
+        "info": {
+          "type": "info",
+          "settings": {
+            "caption": "",
+            "title": "What Should I Order?",
+            "link": "/pages/what-should-i-order",
+            "link_type": "_self",
+            "icon": "no-icon"
+          }
+        },
+        "7b8ec37f-1a21-45fa-bc67-783ae2cd248a": {
+          "type": "mega-menu",
+          "settings": {
+            "menu_handle": "products",
+            "show_promotion_block": true,
+            "promotion_title": "",
+            "promotion_title_size": "text-size--xlarge",
+            "promotion_subtitle": "",
+            "promotion_subtitle_size": "text-size--regular",
+            "promotion_button_label": "MTHFR Supplements",
+            "promotion_button_size": "regular",
+            "promotion_button_link": "shopify://products/mthfr-supplements-starter-pack-methylfolate-b12-multivitamin-magnesium",
+            "promotion_color_txt": "#dc2e91",
+            "promotion_color_bg": "#f3f3f3",
+            "promotion_image": "shopify://shop_images/tab3.png"
+          }
+        },
+        "0f4ee267-b199-4f71-9e08-8327e03ac50e": {
+          "type": "multi_colum",
+          "settings": {
+            "menu_handle": "health-needs",
+            "multi_image_1": "shopify://shop_images/Icon-05.png",
+            "multi_heading_1": "MOOD",
+            "multi_text_1": "<p>Reclaim Your \"Feel Good\" & Recover Your Resilience</p>",
+            "multi_link_1": "shopify://collections/mood-elevating-nutrients",
+            "multi_image_2": "shopify://shop_images/brain.svg",
+            "multi_heading_2": "BRAIN HEALTH",
+            "multi_text_2": "<p>Support Your Mind's Memory, Focus & Protection</p>",
+            "multi_link_2": "shopify://collections/brain-health",
+            "multi_image_3": "shopify://shop_images/Icon-16.png",
+            "multi_heading_3": "CARDIOVASCULAR",
+            "multi_text_3": "<p>Protect & Maintain Your Circulatory System</p>",
+            "multi_link_3": "shopify://collections/heart-health-nutrients",
+            "multi_image_4": "shopify://shop_images/Icon-19.png",
+            "multi_heading_4": "ENERGY",
+            "multi_text_4": "<p>Recapture Your \"Get Up & Go\"</p>",
+            "multi_link_4": "shopify://collections/boost-energy",
+            "new_multi_image_1": "shopify://shop_images/Icon-01.png",
+            "new_multi_heading_1": "PREGNANCY & FERTILITY",
+            "new_multi_text_1": "<p>Support Your Fetal Health Journey</p>",
+            "new_multi_link_1": "shopify://collections/pregnancy-health",
+            "new_multi_image_2": "shopify://shop_images/Icon-26.png",
+            "new_multi_heading_2": "GUT HEALTH",
+            "new_multi_text_2": "<p>Soothe & Balance Your Microbiome</p>",
+            "new_multi_link_2": "shopify://collections/spore-based-probiotics",
+            "new_multi_image_3": "shopify://shop_images/Icon-09.png",
+            "new_multi_heading_3": "IMMUNE HEALTH",
+            "new_multi_text_3": "<p>Improve Your Body's Natural Defenses</p>",
+            "new_multi_link_3": "shopify://collections/nutrients-supporting-immune-function",
+            "new_multi_image_4": "shopify://shop_images/neuron.png",
+            "new_multi_heading_4": "NERVE HEALTH",
+            "new_multi_text_4": "<p>Aid & Sustain Your Quality of Life</p>",
+            "new_multi_link_4": "shopify://collections/nerve-health-nutrients",
+            "side-img": "shopify://shop_images/l-methylfolate-15mg-vitamin-b12-with-methyl-573.jpg",
+            "img-texts": "<p>L-Methylfolate</p>",
+            "link-src": "shopify://collections/l-methylfolate",
+            "side-img1": "shopify://shop_images/methylated-vitamins-professional-strength-methylfolate-478.jpg",
+            "img-texts1": "<p>Methyl B12</p>",
+            "link-src1": "shopify://collections/methyl-b12",
+            "headingmenu": "",
+            "headingmenulink": "",
+            "menu": "main-menu",
+            "img-texts3": ""
+          }
+        },
+        "9d322d33-61fb-40b2-9b97-557f67cd8846": {
+          "type": "image-mega-menu",
+          "settings": {
+            "menucount": "3",
+            "menu_handle": "education",
+            "mega_image_1": "shopify://shop_images/eee.png",
+            "mega_text_1": "What is MTHFR?",
+            "mega_link_1": "shopify://pages/what-is-mthfr",
+            "mega_image_2": "shopify://shop_images/ccc.png",
+            "mega_text_2": "Ultimate MTHFR GUIDE",
+            "mega_link_2": "shopify://blogs/mthfr/mthfr-guide",
+            "mega_image_3": "shopify://shop_images/dddd.png",
+            "mega_text_3": "A Doctor Explains MTHFR",
+            "mega_link_3": "shopify://pages/a-doctor-explains",
+            "mega_text_4": "",
+            "mega_link_4": "",
+            "headingmenu": "MORE LINKS",
+            "menu": "more-links"
+          }
+        },
+        "6ebbefe6-5ded-4ae1-822d-c5246452fc9e": {
+          "type": "multi_colum",
+          "settings": {
+            "menu_handle": "resources",
+            "multi_heading_1": "",
+            "multi_text_1": "",
+            "multi_link_1": "",
+            "multi_image_2": "shopify://shop_images/Icon-13_1.png",
+            "multi_heading_2": "TYPES OF METHYLFOLATE",
+            "multi_text_2": "<p>Choose The Right Methylfolate For You</p>",
+            "multi_link_2": "shopify://pages/methylfolate-types",
+            "multi_image_3": "shopify://shop_images/Icon-19_1.png",
+            "multi_heading_3": "CEREBROFOLATE™ COMPARED",
+            "multi_text_3": "<p>Not All Methylfolates Are Equal - See How They Stack Up</p>",
+            "multi_link_3": "shopify://blogs/methylfolate-facts/cerebrofolate-comparison",
+            "multi_heading_4": "",
+            "multi_text_4": "",
+            "multi_link_4": "",
+            "new_multi_image_1": "shopify://shop_images/Icon-17.png",
+            "new_multi_heading_1": "FAQs",
+            "new_multi_text_1": "<p>Frequently Asked Questions</p>",
+            "new_multi_link_1": "shopify://pages/faq",
+            "new_multi_image_2": "shopify://shop_images/Icon-07_1.png",
+            "new_multi_heading_2": "METHYLATION PROTOCOLS",
+            "new_multi_text_2": "<p>4 Nutrient Protocols that Promote Optimal Methylation</p>",
+            "new_multi_link_2": "shopify://pages/methylation-protocol",
+            "new_multi_heading_3": "",
+            "new_multi_text_3": "",
+            "new_multi_link_3": "",
+            "new_multi_heading_4": "",
+            "new_multi_text_4": "",
+            "new_multi_link_4": "",
+            "img-texts": "",
+            "link-src": "",
+            "img-texts1": "",
+            "link-src1": "",
+            "headingmenu": "OUR BLOGS",
+            "headingmenulink": "https://methyl-life.com/blogs",
+            "menu": "from-our-blogs",
+            "videoblock1": "shopify://files/videos/Are you overmethylated part 1.mp4",
+            "videoblock2": "shopify://files/videos/download.mp4",
+            "videoblock3": "shopify://files/videos/Are you overmethylated part 1.mp4",
+            "videoblock4": "shopify://files/videos/download.mp4",
+            "img-texts3": "<p><a href=\"/pages/dosage\" target=\"_blank\" title=\"/pages/dosage\">How Much Methylfolate Do I Take?</a></p>"
+          }
+        },
+        "0f72b138-9de7-4506-82d7-0597936c9947": {
+          "type": "image-mega-menu",
+          "settings": {
+            "menucount": "4",
+            "menu_handle": "about",
+            "mega_image_1": "shopify://shop_images/fff.png",
+            "mega_text_1": "About Us",
+            "mega_link_1": "shopify://pages/about-us",
+            "mega_image_2": "shopify://shop_images/iii.png",
+            "mega_text_2": "Contact Us",
+            "mega_link_2": "shopify://pages/contact-methyl-life",
+            "mega_image_3": "shopify://shop_images/hhh.png",
+            "mega_text_3": "Writers & Reviewers",
+            "mega_link_3": "shopify://pages/medical-writers",
+            "mega_image_4": "shopify://shop_images/ggg.png",
+            "mega_text_4": "Affiliates",
+            "mega_link_4": "shopify://pages/health-fitness-supplements-affiliate-program",
+            "headingmenu": "",
+            "menu": "main-menu"
+          }
+        }
+      },
+      "block_order": [
+        "store",
+        "info",
+        "7b8ec37f-1a21-45fa-bc67-783ae2cd248a",
+        "0f4ee267-b199-4f71-9e08-8327e03ac50e",
+        "9d322d33-61fb-40b2-9b97-557f67cd8846",
+        "6ebbefe6-5ded-4ae1-822d-c5246452fc9e",
+        "0f72b138-9de7-4506-82d7-0597936c9947"
+      ],
+      "settings": {
+        "logo_src": "shopify://shop_images/logo_1.webp",
+        "logo_height": 100,
+        "main_linklist": "new-main-navigation",
+        "show_search": true,
+        "sticky_header": true,
+        "select_header_actions_on_mobile": "show_on_homepage",
+        "show_header_actions": true,
+        "show_locale_selector": true,
+        "show_country_selector": true,
+        "show_social_icons": true
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "header"
+  ]
+}
